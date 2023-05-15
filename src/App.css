@@ -1,0 +1,268 @@
+.App {
+  font-family: "MabryPro";
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.heading {
+  /* letter-spacing: 1px; */
+  @apply text-[28px] max-w-[250px] sm:max-w-none font-medium  sm:text-center sm:text-4xl;
+}
+
+.sub-heading {
+  @apply font-semibold md:font-bold text-base;
+}
+
+.container {
+  @apply mt-5  sm:mt-20 sm:mb-20 mx-auto;
+}
+
+.footer {
+  @apply w-full bg-[#FAFAFA] items-center justify-around mt-5 sm:mt-20 mx-auto;
+}
+
+.cards-container {
+  @apply flex flex-wrap justify-between items-center sm:flex-nowrap  mt-10 sm:gap-10;
+}
+
+.card {
+  @apply w-full self-stretch mb-10;
+}
+
+.navBar {
+  @apply top-0 z-50 w-full;
+}
+
+.header {
+  @apply hidden md:flex justify-between items-center  py-3 w-full bg-[#FAFAFA];
+}
+
+.small-text {
+  @apply text-[15px] font-medium text-[#676767] leading-[22px];
+}
+
+.nav {
+  @apply hidden mx-10 my-5  md:flex justify-between items-center w-full sm:px-14;
+}
+
+.searchBox {
+  @apply bg-white border-[1px] border-[#D8D8D8] pr-4 pl-1 py-1 rounded-[6px] w-[580px] flex items-center;
+}
+
+.searchBox input {
+  @apply outline-none mr-4 w-[80%];
+}
+
+.rightIcons {
+  @apply flex items-center justify-between ml-6;
+}
+
+.icons .icon {
+  @apply ml-3;
+}
+
+.categoriesBtn {
+  @apply font-medium px-4 py-1 rounded-md bg-[#EFEFEF] text-black;
+}
+
+.sellBtn {
+  @apply font-medium px-6 py-2 rounded-md bg-[#E4EFFF] mr-5 text-black text-[16px];
+}
+
+.icons {
+  @apply flex gap-x-7;
+}
+
+/* Home  */
+.main {
+  @apply flex flex-col-reverse items-center p-12 sm:p-0  sm:flex-row justify-between w-[100%];
+}
+
+.main .main_content {
+  @apply sm:ml-10 flex items-center flex-col sm:block -mt-9 sm:mt-0;
+}
+
+.main .main_content h1 {
+  @apply text-center sm:text-left font-semibold sm:text-[56px] sm:leading-[67px];
+}
+
+.main .main_content h2 {
+  @apply text-sm sm:text-[20px] text-center sm:text-left font-medium my-2 sm:my-5;
+}
+
+.mainBtn {
+  @apply md:py-3.5 md:px-9.5 mt-6 mb-5 bg-black text-white font-medium sm:px-5 sm:py-2 rounded-md px-9 py-3;
+}
+
+.seller-card-img {
+  width: 306px;
+  height: 178px;
+  background: #232020;
+  border-radius: 6px;
+  text-align: center;
+  align-items: center;
+  padding-top: 80px;
+  color: #6f5858;
+}
+
+/* Deals section */
+.container .deals-section {
+  @apply flex  flex-col sm:flex-row  justify-between items-center gap-6  md:gap-8 mt-7 md:mt-12;
+}
+
+.container .deal {
+  @apply px-4 py-4 sm:p-6  w-full self-stretch rounded-lg;
+}
+.deal-title {
+  @apply font-medium text-[26px] md:text-4xl leading-snug sm:leading-10;
+}
+
+.best-deal-title {
+  @apply font-medium text-xl leading-snug  sm:text-[32px] sm:leading-10 mb-5;
+}
+
+.deal-subtitle {
+  @apply pt-6 cursor-pointer;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.best-deal-button {
+  @apply mt-5 block w-fit sm:px-12 py-2 rounded-md border-app-secondary sm:border-solid mt-2 font-medium cursor-pointer border-none sm:border text-left;
+}
+/* Collections */
+.trending {
+  @apply gap-5 grid-cols-3 lg:grid-cols-6 lg:gap-10 flex-wrap items-center grid  mt-6 md:mt-20;
+}
+
+.trending-card {
+  @apply flex flex-col items-center justify-center;
+}
+
+/* Recently Viewed */
+.cartBtn {
+  @apply w-full text-center border-[1.4px] border-black rounded-[4px] py-2 font-medium text-base;
+}
+
+.recommended-container {
+  @apply p-3 bg-black sm:py-14 sm:px-10 mb-20 flex items-center justify-center flex-col;
+}
+
+/* InfoCard */
+.infoCard {
+  @apply w-full p-3 sm:w-[25%] my-3  flex items-center justify-center flex-col;
+}
+
+.infoCard .sub-heading {
+  @apply font-medium;
+}
+
+.infoCard img {
+  @apply w-[80%];
+}
+
+/* footer */
+.footer-container {
+  @apply mx-3 md:mx-10 flex items-start sm:items-center pt-16 justify-between md:justify-center flex-wrap sm:flex-nowrap;
+}
+
+.footer-heading {
+  @apply text-xl font-medium;
+}
+/* product page */
+
+.product-heading {
+  @apply font-medium text-[28px] leading-[38px] block;
+}
+
+.product-sub-heading {
+  @apply font-medium text-[16px] leading-[22px];
+}
+
+.product-cartBtn {
+  @apply w-full text-center border-[1.4px]  bg-white text-black border-black rounded-md py-2 px-8 font-medium text-base;
+}
+
+.product-buyBtn {
+  @apply w-full text-center bg-black text-white rounded-md py-3 px-10 font-bold text-sm;
+}
+
+/* Cart Screen */
+
+.cart {
+  @apply sm:px-[60px] sm:py-[45px] px-3 py-10;
+}
+
+.left {
+  @apply w-[66%];
+}
+
+.text-18 {
+  @apply text-[16px] font-bold leading-[24.3px] tracking-normal;
+}
+
+.text-14-semi {
+  @apply text-[14px]  font-semibold leading-[24.3px] tracking-normal;
+}
+
+.deliver-section {
+  @apply sm:border-[1px] sm:border-[#DCDCDC] w-full rounded-[8px] sm:mt-2 px-2 pt-2 sm:pt-4 pb-2 flex items-start mb-5;
+}
+
+.sold-section {
+  @apply border-[1px] border-[#DCDCDC] w-full rounded-[8px] mt-2  flex flex-col items-start mb-5;
+}
+
+.flex-div {
+  @apply w-full flex items-center justify-between pr-2;
+}
+
+.right {
+  @apply sm:border-[1px] sm:border-[#DCDCDC] rounded-[8px] mt-2 sm:ml-7  px-3 pt-4 pb-3  flex-1 items-start;
+}
