@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Note:
+To Prevent a local frontend error, i have commented out the following lines of code:
+
+1. From App.js, in the first useEffect hook,
+    Actual Line: getTokens() && dispatch(getCurrentUser());
+    Changed to: getTokens();
+
+2. From useAddAddress.js, in the useAddAddress function, in onSuccess
+    Commented Line: dispatch(getCurrentUser());
+
+3. From useRemoveAddress.js, in the useRemoveAddress function, in onSuccess
+    Commented Line: dispatch(getCurrentUser());
+
+4. From auth.js, in the completeLogin function,
+    Commented Line: dispatch(getCurrentUser());
