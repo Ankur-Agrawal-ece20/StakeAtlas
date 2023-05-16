@@ -202,7 +202,7 @@ const NavBar = () => {
               )
             : expand && (
                 <div className=" border-[1px] border-white rounded-md px-4 pt-5 mt-3">
-                  <div className="flex items-center gap-x-3 border-b-[1px] border-white pb-3">
+                  <div className="flex items-center gap-x-3 border-b-[1px] border-slate-400 pb-3">
                     <div className="w-10">
                       <img
                         src={require("../assets/new design/user.png")}

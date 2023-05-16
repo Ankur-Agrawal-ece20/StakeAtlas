@@ -40,7 +40,7 @@ const SellerSection = () => {
           </div>
         </div>
       </div>
-
+      
       {active ? (
         <div className="flex w-full overflow-x-auto sm:gap-7 mt-16 gap-5 l no-scrollbar">
           {[0, 1, 2].map((e) => (

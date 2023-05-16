@@ -32,6 +32,8 @@ import SavedSeller from "../../containers/SavedSeller";
 import SellerScreen from "../../containers/SellerScreen";
 import classNames from "../../utils/classNames";
 import Error404 from "../Error404";
+import SignUpFormScreen from "../../containers/SignUpFormScreen";
+import SignUpPhoneVerification from "../../containers/SignUpPhoneVerification";
 import SignInUsernameScreen from "../../containers/SignInUsernameScreen";
 import SignInPasswordScreen from "../../containers/SignInPasswordScreen";
 import SignInSuccessScreen from "../../containers/SignInSuccessScreen";
@@ -102,6 +104,11 @@ const DefaultLayout = () => {
             <Route path="forgotPassword/verifyOTP" element={<ForgotPasswordVerifyOTPScreen />} />
             <Route path="forgotPassword/change" element={<ChangePasswordScreen />} />
             <Route path="forgotPassword/change/success" element={<ChangePasswordSuccessScreen />} />
+          </Route>
+          
+          <Route path="signup">
+            <Route path="" element={<SignUpFormScreen />} />
+            <Route path="verify" element={<SignUpPhoneVerification />} />
           </Route>
 
 
