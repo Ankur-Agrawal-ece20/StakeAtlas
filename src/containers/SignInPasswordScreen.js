@@ -34,6 +34,7 @@ const SignInPasswordScreen = () => {
     }, [timeLeft]);
 
     const sendOTP= () => {
+        setmessage("");
         switch(id){
             case 0:
                 // code for email otp verification

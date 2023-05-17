@@ -4,15 +4,14 @@ import { useNavigate } from 'react-router'
 const ForgotPasswordScreen = () => {
     const navigate = useNavigate()
     return (
-        <div className='min-h-[72.5vh] w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
-            <div className='border-2 border-black w-[33.5%] min-h-[73%] rounded-md py-12 px-7 bg-white'>
+        <div className=' w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
+            <div className='cursor-default border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12  px-4 md:px-7 bg-white'>
                 <h1 className='text-3xl font-semibold text-black'>Forgot Password</h1>
                 <div className='mt-8'>
                     <p className='text-base font-medium text-black'>Email to send reset instructions to</p>
                     <input
                         type="text"
-                        placeholder="sarthak@gmail.com"
-                        className=" w-full mt-2.5 py-2 px-2 rounded 3tablet:text-xl 4tablet:text-[23px] focus:outline-none outline-none border-[1px] border-black"
+                        className=" w-full mt-1 py-2 px-2 rounded 3tablet:text-xl 4tablet:text-[23px] focus:outline-none outline-none border-[1px] border-black"
                     />
 
                     <button
