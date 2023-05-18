@@ -10,12 +10,14 @@ import {
   CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,
   COUNTER_OFFER_MODAL,
   COUNTER_OFFER_RECEIVED_MODAL,
-  DELIVERY_LOCATION_MODAL,
+  ADD_NEW_ADDRESS_MODAL,
+  DELIVERY_LOCATION_MODEL,
   EDIT_ADDRESS_MODAL,
   REPORT_MODAL,
   REPORT_SUBMITTED_MODAL,
   REVIEW_MODAL,
   REVIEW_SUBMITTED_MODAL,
+  SEND_MESSAGE_MODAL,
 } from "../extras/constants";
 import useClose from "../hooks/useClose";
 import { hideModal } from "../redux/actions/modal";
@@ -28,6 +30,7 @@ import ReviewSubmittedModal from "../components/Modals/ReviewSubmittedModal";
 import ReportSubmittedModal from "../components/Modals/ReportSubmittedModal";
 import CounterOfferReceivedModal from "../components/Modals/CounterOfferReceivedModal";
 import CounterOfferModal from "../components/Modals/CounterOfferModal";
+import SendMessageModal from "../components/Modals/ReviewModal";
 
 const Modal = ({ modal, hideModal }) => {
   const ref = useClose(() => hideModal());
@@ -35,8 +38,8 @@ const Modal = ({ modal, hideModal }) => {
   let Component = null;
 
   switch (modal.modalType) {
-    case DELIVERY_LOCATION_MODAL:
-      Component = DeliveryLocationModal;
+    case ADD_NEW_ADDRESS_MODAL:
+      Component = AddNewAddressModal;
       break;
     case ADDRESS_MODAL:
       Component = AddNewAddressModal;
@@ -68,6 +71,9 @@ const Modal = ({ modal, hideModal }) => {
     case COUNTER_OFFER_MODAL:
       Component = CounterOfferModal;
       break;
+    case SEND_MESSAGE_MODAL:
+      Component = SendMessageModal;
+      break;
     default:
       Component = null;
   }
@@ -85,12 +91,14 @@ const Modal = ({ modal, hideModal }) => {
             </div>
             <button
               className="block sm:hidden absolute top-5 right-5"
-              onClick={() => hideModal()}>
+              onClick={() => hideModal()}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 viewBox="0 0 20 20"
-                fill="currentColor">
+                fill="currentColor"
+              >
                 <path
                   fillRule="evenodd"
                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"

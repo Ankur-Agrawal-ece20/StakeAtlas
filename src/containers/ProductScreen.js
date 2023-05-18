@@ -6,7 +6,7 @@ import {
   Star,
   StarOutline,
   ThumbUp,
-  TurnedInNot
+  TurnedInNot,
 } from "@mui/icons-material";
 import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery";
@@ -16,89 +16,153 @@ import ProductCardMob from "../components/Home/ProductCardMob";
 import ImageGallery from "../components/ImageGallery";
 import TabMenu from "../components/TabMenu";
 import { useState } from "react";
+import { showModal } from "../redux/actions/modal";
+import { SEND_MESSAGE_MODAL } from "../extras/constants";
+import { connect } from "react-redux";
 
 const tabMenuContent = {
   Description: (
     <div className="flex flex-col space-y-2">
-      <p>For sale is a 4th generation iPad Air in silver color and 256 GB of storage. The tablet is in excellent
-        condition and does not have any signs of scratches or marks on the screen.
-      </p>
       <p>
-        No AppleCare+ included.
+        For sale is a 4th generation iPad Air in silver color and 256 GB of
+        storage. The tablet is in excellent condition and does not have any
+        signs of scratches or marks on the screen.
       </p>
-      <p>
-        No charger included.
-      </p>
-    </div >
+      <p>No AppleCare+ included.</p>
+      <p>No charger included.</p>
+    </div>
   ),
   "Item Specifics": (
-    <div className=" border-x-[1px] border-b-[1px] border-black">
-      {[
-        {
-          title: "Make",
-          value: "BMW",
-        },
-        {
-          title: "Year",
-          value: "2012",
-        },
-        {
-          title: "Ownership",
-          value: "BMW",
-        },
-        {
-          title: "KM Run",
-          value: "25,000/-",
-        },
-        {
-          title: "Color",
-          value: "White",
-        },
-        {
-          title: "Registration State",
-          value: "Delhi",
-        },
-        {
-          title: "Insurance",
-          value: "Expired",
-        },
-        {
-          title: "Service Records",
-          value: "Unavailabe",
-        },
-        {
-          title: "Warranty",
-          value: "Unavailabe",
-        },
-      ].map((e) => (
-        <div className=" flex items-center justify-between px-2 py-2 border-t-[1px] border-black">
-          <h1 className=" w-1/2 text-xs ">{e.title} : </h1>
-          <h1 className=" w-1/2 text-xs font-semibold">{e.value}</h1>
-        </div>
-      ))}
+    <div style={{ display: "flex", justifyContent: "space-around" }}>
+      <div
+        className=" border-x-[1px] border-b-[1px] border-black"
+        style={{ width: "50%", background: "#FCF9F4" }}
+      >
+        {[
+          {
+            title: "Make",
+            value: "BMW",
+          },
+          {
+            title: "Year",
+            value: "2012",
+          },
+          {
+            title: "Ownership",
+            value: "BMW",
+          },
+          {
+            title: "KM Run",
+            value: "25,000/-",
+          },
+          {
+            title: "Color",
+            value: "White",
+          },
+          {
+            title: "Registration State",
+            value: "Delhi",
+          },
+        ].map((e) => (
+          <div
+            className=" flex px-2 py-2 border-t-[1px] border-black"
+            style={{}}
+          >
+            <h1 className=" w-1/2">{e.title} : </h1>
+            <h1
+              className=" w-1/2 font-bold"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              {e.value}
+            </h1>
+          </div>
+        ))}
+      </div>
+      <div
+        className=" border-x-[1px] border-b-[1px] border-black"
+        style={{ width: "50%", marginLeft: "25px", background: "#FCF9F4" }}
+      >
+        {[
+          {
+            title: "KM Run",
+            value: "25,000/-",
+          },
+          {
+            title: "Color",
+            value: "White",
+          },
+          {
+            title: "Registration State",
+            value: "Delhi",
+          },
+          {
+            title: "Insurance",
+            value: "Expired",
+          },
+          {
+            title: "Service Records",
+            value: "Unavailabe",
+          },
+          {
+            title: "Warranty",
+            value: "Unavailabe",
+          },
+        ].map((e) => (
+          <div
+            className=" flex items-center justify-between px-2 py-2 border-t-[1px] border-black"
+            style={{}}
+          >
+            <h1 className=" w-1/2  ">{e.title} : </h1>
+            <h1
+              className=" w-1/2 font-bold"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              {e.value}
+            </h1>
+          </div>
+        ))}
+      </div>
     </div>
   ),
   "Known Flaws": (
     <div className="flex flex-col space-y-2">
-      <p>For sale is a 4th generation iPad Air in silver color and 256 GB of storage. The tablet is in excellent
-        condition and does not have any signs of scratches or marks on the screen.
+      <p>
+        For sale is a 4th generation iPad Air in silver color and 256 GB of
+        storage. The tablet is in excellent condition and does not have any
+        signs of scratches or marks on the screen.
       </p>
-    </div >
+    </div>
   ),
   "Buyers Guide": (
-    <div className="flex flex-col space-y-2">
+    <div
+      className="flex flex-column space-y-2 space-x-2"
+      style={{ fontWeight: "400" }}
+    >
+      <ol style={{ paddingLeft: "25px", listStyle: "decimal" }}>
+        <li>IMS bearing failure</li>
+        <ul style={{ listStyle: "inside" }}>
+          <li>Symptoms- Metal shaving in oil, Engine runs rough</li>
+          <li>Fix- Replace IMS bearing</li>
+          <li>Estimated Cost- $1,00,000 at Porsche, about half at an ASC</li>
+        </ul>
+        <li>PDK issues</li>
+        <ul style={{ listStyle: "inside" }}>
+          <li>Symptoms- PDK failure light, rough gear changes</li>
+          <li>Fix- Replace PDK transmission</li>
+          <li>Est</li>
+        </ul>
+      </ol>
+      {/* <p>This is the Buyers guide</p>
       <p>This is the Buyers guide</p>
       <p>This is the Buyers guide</p>
       <p>This is the Buyers guide</p>
       <p>This is the Buyers guide</p>
-      <p>This is the Buyers guide</p>
-      <p>This is the Buyers guide</p>
+      <p>This is the Buyers guide</p> */}
     </div>
-  )
-}
+  ),
+};
 
-
-const ProductScreen = () => {
+const ProductScreen = ({ showModal }) => {
   const map = require("../assets/new design/map.png");
 
   const allImages = [
@@ -123,13 +187,10 @@ const ProductScreen = () => {
       require("../assets/new design/car/car_img6.png"),
       require("../assets/new design/car/car_img7.png"),
     ],
-    images: [
-      require("../assets/new design/car/car_img6.png"),
-    ],
+    images: [require("../assets/new design/car/car_img6.png")],
     main: require("../assets/new design/car/car_img1.png"),
     all: require("../assets/new design/car/car_img7.png"),
-  }
-
+  };
 
   const descData = [
     "Electric power steering",
@@ -160,10 +221,13 @@ const ProductScreen = () => {
     <div>
       {/* Desktop Version */}
       <div className="px-14 mt-7 hidden xl:flex xl:flex-col">
-        <div className=" border-[2px] border-black mx-1.5">
-          <div className=" py-1 bg-yellow-200 px-4 border-b-[2px] border-black flex items-center justify-between">
-            <h1 className=" text-[19px] font-semibold ">Condition: Used</h1>
-            <h1 className=" text-[19px] font-semibold ">
+        <div className=" border-t-[2px] border-r-[2px] border-l-[2px] border-b-[1px] border-black mx-1.5">
+          <div
+            className=" py-1 px-4 border-b-[1px] border-black flex items-center justify-between"
+            style={{ background: "#FFDC25" }}
+          >
+            <h1 className=" text-[19px] font-bold ">Condition: Used</h1>
+            <h1 className=" text-[19px] font-bold ">
               Sold by:
               <span className="underline">Akshat Tripathi</span>
             </h1>
@@ -206,17 +270,21 @@ const ProductScreen = () => {
         <div className=" mx-1.5 mt-4.5 flex space-x-4 relative items-start">
           {/* Description  */}
           <div className=" flex-1">
-            <div className=" border-[1px] border-black px-5 py-3">
+            <div className=" border-[2px] border-black px-5 py-3">
               <Accourdion title="Highlights">
-                <TabMenu state={menu} setState={setMenu} items={tabMenuContent} />
+                <TabMenu
+                  state={menu}
+                  setState={setMenu}
+                  items={tabMenuContent}
+                />
               </Accourdion>
             </div>
             <div>
-              <div className=" border-[1px] border-black px-5 py-3 border-t-transparent">
+              <div className=" border-[2px] border-black px-5 py-3 border-t-transparent">
                 <Accourdion title={"Akshat’s Report Card"}>
                   <div className="pb-4">
                     <div className=" flex items-start justify-between">
-                      <div className=" w-[60%] border-x-[1px] border-b-[1px] border-black">
+                      <div className=" w-[60%] border-x-[2px] border-b-[2px] border-black">
                         {[
                           {
                             title: "Communication",
@@ -235,8 +303,8 @@ const ProductScreen = () => {
                             value: "Good",
                           },
                         ].map((e) => (
-                          <div className=" flex items-center justify-between px-2 border-t-[1px] border-black">
-                            <div className="border-r-[1px] border-black py-2.5 w-[56%]">
+                          <div className=" flex items-center justify-between px-2 border-t-[2px] border-black">
+                            <div className="border-r-[2px] border-black py-2.5 w-[56%]">
                               <h1 className="text-base ">{e.title}</h1>
                             </div>
                             <div className=" w-[44%] py-2.5 flex-1 pl-10">
@@ -247,8 +315,8 @@ const ProductScreen = () => {
                           </div>
                         ))}
                       </div>
-                      <div className=" w-[40%] self-stretch border-y-[1px] border-r-[1px] border-black">
-                        <div className=" h-1/2 py-2 pl-10 border-b-[1px] border-black">
+                      <div className=" w-[40%] self-stretch border-y-[2px] border-r-[2px] border-black">
+                        <div className=" h-1/2 py-2 pl-10 border-b-[2px] border-black">
                           <h1 className="text-xl font-bold text-[#888888]">
                             Items Sold
                           </h1>
@@ -301,10 +369,10 @@ const ProductScreen = () => {
                 </Accourdion>
               </div>
 
-              <div className="border-[1px] border-t-transparent border-black py-3 px-5">
+              <div className="border-[2px] border-t-transparent border-black py-3 px-5">
                 <Accourdion title={"Questions about product"}>
                   <div className="pb-3">
-                    <div className="border-[1px] border-black rounded overflow-hidden flex items-start bg-lime-500">
+                    <div className="border-[2px] border-black rounded overflow-hidden flex items-start bg-lime-500">
                       <input
                         type="text"
                         placeholder="Ask Questions from seller"
@@ -315,7 +383,7 @@ const ProductScreen = () => {
                       </button>
                     </div>
                     <div>
-                      <div className="flex gap-3 mt-4 mb-3 pb-3 border-b-[1px] border-black">
+                      <div className="flex gap-3 mt-4 mb-3 pb-3 border-b-[2px] border-black">
                         <div className="flex flex-col">
                           <ThumbUp className="text-blue-100" fontSize="large" />
                           <span className="text-black text-bse">04</span>
@@ -359,7 +427,7 @@ const ProductScreen = () => {
           </div>
 
           {/* Sold By */}
-          <div className=" w-[41.5%] h-fit border-r-[1px] border-l-[1px] sticky right-0 top-2 border-y-[1px] border-black px-5 py-4.5">
+          <div className=" w-[41.5%] h-fit border-r-[2px] border-l-[2px] sticky right-0 top-2 border-y-[2px] border-black px-5 py-4.5">
             <h1 className=" text-[24px] font-semibold tracking-wide">
               Sold By
             </h1>
@@ -383,10 +451,20 @@ const ProductScreen = () => {
               </div>
 
               <div className="flex h-full items-center space-x-2">
-                <button className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center">
+                <button className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center">
                   <TurnedInNot className=" text-xs" />
                 </button>
-                <button className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center">
+                <button
+                  onClick={() => {
+                    showModal({
+                      modalType: SEND_MESSAGE_MODAL,
+                      modalTitle: ``,
+                      modalSubTitle: "",
+                    });
+                    console.log("run");
+                  }}
+                  className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center"
+                >
                   <MailOutline className=" text-xs" />
                 </button>
                 <div className=" flex items-center h-fit space-x-0.5">
@@ -396,10 +474,10 @@ const ProductScreen = () => {
               </div>
             </div>
             <div className=" flex items-cente justify-between mt-7">
-              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-sa-border-black tracking-wider  font-semibold">
+              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[2px] border-sa-border-black tracking-wider  font-semibold">
                 Pay Deposit
               </button>
-              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black tracking-wider  font-semibold">
+              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black tracking-wider  font-semibold">
                 Make an Offer
               </button>
             </div>
@@ -445,14 +523,24 @@ const ProductScreen = () => {
               </Accourdion>
             </div> */}
 
-            <div className="px-5 border-[1px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
+            <div className="px-5 border-[2px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
               <h2 className="text-xl font-semibold">Location</h2>
               <div className="flex items-center space-x-1 -ml-2">
                 <LocationOnOutlined className="text-sa-text-gray" />
                 <p className="text-sa-text-gray">Rajendra nagar, New Delhi</p>
               </div>
-              <div className="rounded-lg border-[1px] border-black">
-                <img src={map} className="object-cover" />
+              <div className="rounded-lg border-[2px] border-black">
+                {/* <img src={map} className="object-cover" /> */}
+                <iframe
+                  className="rounded-lg border-[2px] border-black"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14006.98438512234!2d77.18340760000001!3d28.6373709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02bcbb3b6d6b%3A0xaac7850da2a43dd9!2sRajinder%20Nagar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1684321877094!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  style={{ border: 0 }}
+                ></iframe>
               </div>
             </div>
 
@@ -514,7 +602,7 @@ const ProductScreen = () => {
         </div> */}
           </div>
         </div>
-        <div className="px-14 py-10 hidden xl:flex xl:flex-col border-t-[1px] border-black mt-16">
+        <div className="py-10 hidden xl:flex xl:flex-col border-t-[2px] border-black mt-16">
           <h1 className="text-3xl font-semibold 2xl:text-4xl">
             Recommended Listings
           </h1>
@@ -535,13 +623,13 @@ const ProductScreen = () => {
 
       {/* Mobile Version */}
       <div className="px-[2.5px] mt-6 xl:hidden">
-        <div className="border-[1px] border-black pt-2.5 mb-4">
+        <div className="border-[2px] border-black pt-2.5 mb-4">
           <div className="px-1">
             <div>
               <ImageGallery images={carImg} imageCount={allImages.length} />
             </div>
 
-            <div className=" py-1.5 bg-[#4DB041] px-2 border-y-[1.5px] border-black">
+            <div className=" py-1.5 bg-[#4DB041] px-2 border-y-[2px] border-black">
               <h1 className=" text-xs font-medium text-white ">
                 Condition: Used
               </h1>
@@ -567,10 +655,10 @@ const ProductScreen = () => {
                 ₹4,60,000
               </h1>
               <div className=" flex items-center gap-2 mt-1">
-                <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[1.5px] border-sa-border-black font-semibold">
+                <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[2px] border-sa-border-black font-semibold">
                   Add to Cart
                 </button>
-                <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1.5px] border-sa-border-black font-semibold">
+                <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold">
                   Make an Offer
                 </button>
               </div>
@@ -605,41 +693,61 @@ const ProductScreen = () => {
             </div>
 
             <div>
-              <button className=" w-full text-[12px] mt-2.5 py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center">
+              <button
+                onClick={() => {
+                  showModal({
+                    modalType: SEND_MESSAGE_MODAL,
+                    modalTitle: ``,
+                    modalSubTitle: "",
+                  });
+                  console.log("run");
+                }}
+                className=" w-full text-[12px] mt-2.5 py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center"
+              >
                 <MailOutline className=" text-xs mr-1" />
                 Send Message
               </button>
             </div>
-            <div className="px-5 border-[1px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
+            <div className="px-5 border-[2px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
               <h2 className="text-base font-semibold">Location</h2>
               <div className="flex items-center space-x-0.5 -ml-2">
                 <LocationOnOutlined className="text-sa-text-gray h-3 w-3" />
-                <p className="text-sa-text-gray text-sm">Rajendra nagar, New Delhi</p>
+                <p className="text-sa-text-gray text-sm">
+                  Rajendra nagar, New Delhi
+                </p>
               </div>
               <div className="rounded-lg w-full md:w-fit mx-auto border-[1px] border-black">
-                <img src={map} className="object-cover" />
+                <iframe
+                  className="rounded-lg border-[2px] border-black"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14006.98438512234!2d77.18340760000001!3d28.6373709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02bcbb3b6d6b%3A0xaac7850da2a43dd9!2sRajinder%20Nagar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1684321877094!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  style={{ border: 0 }}
+                ></iframe>
               </div>
             </div>
-
           </div>
 
-          <div className=" px-3 py-3 border-t-[1px] border-black flex flex-col space-y-3">
+          <div className=" px-3 py-3 border-t-[2px] border-black flex flex-col space-y-3">
             <h1 className="text-base font-semibold">Highlights</h1>
-            <div className="border-[1px] rounded-lg px-3 border-black">
+            <div className="border-[2px] rounded-lg px-3 border-black">
               <Accourdion title={"Description"}>
                 <p className=" text-xs font-normal pb-3">
-                  For sale is a 4th generation iPad Air in silver color and 256 GB
-                  of storage. The tablet is in excellent condition and does not
-                  have any signs of scratches or marks on the screen.
+                  For sale is a 4th generation iPad Air in silver color and 256
+                  GB of storage. The tablet is in excellent condition and does
+                  not have any signs of scratches or marks on the screen.
                   <br />
                   <br /> No AppleCare+ included. <br />
                   No charger included.
                 </p>
               </Accourdion>
             </div>
-            <div className=" px-3 rounded-lg border-[1px] border-black">
-              <Accourdion title={"Questions about product"}>
-                <div className="pb-3">
+            <div className=" px-3 rounded-lg border-[2px] border-black">
+              <Accourdion title={"Item Specifics"}>
+                {/* <div className="pb-3">
                   <div className="flex gap-3">
                     <div className="flex flex-col">
                       <ThumbUp className="text-blue-100" fontSize="16" />
@@ -651,8 +759,8 @@ const ProductScreen = () => {
                         adapter, is this phone box comes without an adapter?
                       </h1>
                       <h1 className="text-xs font-medium mt-1">
-                        A. You need to but the adapter separately, the box doesn't
-                        contains an adapter.
+                        A. You need to but the adapter separately, the box
+                        doesn't contains an adapter.
                       </h1>
                     </div>
                   </div>
@@ -670,10 +778,70 @@ const ProductScreen = () => {
                       Submit
                     </button>
                   </div>
+                </div> */}
+                <div
+                  className=" border-x-[1px] border-b-[1px] border-black"
+                  style={{
+                    width: "100%",
+                    background: "#FCF9F4",
+                    marginBottom: "25px",
+                  }}
+                >
+                  {[
+                    {
+                      title: "Make",
+                      value: "BMW",
+                    },
+                    {
+                      title: "Year",
+                      value: "2012",
+                    },
+                    {
+                      title: "Ownership",
+                      value: "BMW",
+                    },
+                    {
+                      title: "KM Run",
+                      value: "25,000/-",
+                    },
+                    {
+                      title: "Color",
+                      value: "White",
+                    },
+                    {
+                      title: "Registration State",
+                      value: "Delhi",
+                    },
+                    {
+                      title: "Insurance",
+                      value: "Expired",
+                    },
+                    {
+                      title: "Service Records",
+                      value: "Unavailable",
+                    },
+                    {
+                      title: "Commitment after side",
+                      value: "Unavailable",
+                    },
+                  ].map((e) => (
+                    <div
+                      className=" flex px-2 py-2 border-t-[1px] border-black"
+                      style={{}}
+                    >
+                      <h1 className=" w-3/5">{e.title} : </h1>
+                      <h1
+                        className=" w-1/2 font-bold"
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        {e.value}
+                      </h1>
+                    </div>
+                  ))}
                 </div>
               </Accourdion>
             </div>
-            <div className=" px-3 rounded-lg border-[1px] border-black mt-1">
+            <div className=" px-3 rounded-lg border-[2px] border-black mt-1">
               <Accourdion title={"Sellers Ratings"}>
                 <div className="pb-4">
                   <div className=" border-x-[1px] border-b-[1px] border-black mr-3.5">
@@ -730,10 +898,10 @@ const ProductScreen = () => {
                     <p className=" text-xs font-normal text-grey-100 mt-2">
                       Check who the seller is very carefully. If it says Loop
                       Mobile then the phone is most definitely used even though
-                      they say in the phone specifications that it is a new phone.
-                      When you open the box, there is paperwork that specifically
-                      states that it is a refurbished phone and that there is no
-                      warranty on the phone.
+                      they say in the phone specifications that it is a new
+                      phone. When you open the box, there is paperwork that
+                      specifically states that it is a refurbished phone and
+                      that there is no warranty on the phone.
                     </p>
                     <div className="underline font-medium text-xs cursor-pointer text-blue-100 mt-2">
                       See All Reviews
@@ -742,19 +910,22 @@ const ProductScreen = () => {
                 </div>
               </Accourdion>
             </div>
-            <div className=" px-3 rounded-lg border-[1px] border-black mt-1">
+            <div className=" px-3 rounded-lg border-[2px] border-black mt-1">
               <Accourdion title={"Known Flaws"}>
-                <p className="text-sm pb-3">Repainted bumper, front passenger door, fender
-                  Some scratches on front bumper
-                  Dull right headlight</p>
+                <p className="text-sm pb-3">
+                  Repainted bumper, front passenger door, fender Some scratches
+                  on front bumper Dull right headlight
+                </p>
               </Accourdion>
             </div>
           </div>
-          <div className="border-t-[1px] border-black py-3 px-3">
-            <Accourdion title={<p className="text-base">Akshat's Report Card</p>}>
+          <div className="border-t-[2px] border-black py-3 px-3">
+            <Accourdion
+              title={<p className="text-base">Akshat's Report Card</p>}
+            >
               <div className="pb-4">
                 <div className=" flex flex-col space-y-2 items-start justify-between">
-                  <div className=" w-full border-x-[1px] border-b-[1px] border-black">
+                  <div className=" w-full border-x-[2px] border-b-[2px] border-black">
                     {[
                       {
                         title: "Communication",
@@ -773,8 +944,8 @@ const ProductScreen = () => {
                         value: "Good",
                       },
                     ].map((e) => (
-                      <div className=" flex items-center justify-between px-2 border-t-[1px] border-black">
-                        <div className="border-r-[1px] border-black py-2.5 w-[56%]">
+                      <div className=" flex items-center justify-between px-2 border-t-[2px] border-black">
+                        <div className="border-r-[2px] border-black py-2.5 w-[56%]">
                           <h1 className="text-base ">{e.title}</h1>
                         </div>
                         <div className=" w-[44%] py-2.5 flex-1 mx-auto">
@@ -785,7 +956,7 @@ const ProductScreen = () => {
                       </div>
                     ))}
                   </div>
-                  <div className=" w-full px-2 justify-between border-b-[1px] border-black flex self-stretch">
+                  <div className=" w-full px-2 justify-between border-b-[2px] border-black flex self-stretch">
                     <div className=" py-2 flex items-center space-x-2">
                       <h1 className="text-lg font-bold text-[#888888]">
                         Items Sold
@@ -807,29 +978,20 @@ const ProductScreen = () => {
                   <div className=" flex items-center gap-x-1 mt-2">
                     <h1 className=" text-base font-bold">@Sart....mk</h1>
                     <div className=" flex items-start">
-                      <Star
-                        className=" text-yellow-100"
-                        fontSize="small"
-                      />
-                      <Star
-                        className=" text-yellow-100"
-                        fontSize="small"
-                      />
-                      <Star
-                        className=" text-yellow-100"
-                        fontSize="small"
-                      />
+                      <Star className=" text-yellow-100" fontSize="small" />
+                      <Star className=" text-yellow-100" fontSize="small" />
+                      <Star className=" text-yellow-100" fontSize="small" />
                       <StarOutline className=" " fontSize="small" />
                       <StarOutline className=" " fontSize="small" />
                     </div>
                   </div>
                   <p className=" text-sm font-normal text-grey-100 mt-2">
                     Check who the seller is very carefully. If it says Loop
-                    Mobile then the phone is most definitely used even
-                    though they say in the phone specifications that it is a
-                    new phone. When you open the box, there is paperwork
-                    that specifically states that it is a refurbished phone
-                    and that there is no warranty on the phone.
+                    Mobile then the phone is most definitely used even though
+                    they say in the phone specifications that it is a new phone.
+                    When you open the box, there is paperwork that specifically
+                    states that it is a refurbished phone and that there is no
+                    warranty on the phone.
                   </p>
                   <div className="underline font-medium text-base cursor-pointer text-blue-100 mt-2">
                     See All Reviews
@@ -838,11 +1000,11 @@ const ProductScreen = () => {
               </div>
             </Accourdion>
           </div>
-          <div className=" px-3 border-t-[1px] border-black mt-1 pb-4 pt-4">
+          <div className=" px-3 border-t-[2px] border-black mt-1 pb-4 pt-4">
             <h1 className=" text-sm font-semibold">More Products by Akshat</h1>
             <div className=" flex items-center gap-x-4 mt-3">
               {[0, 1].map((e) => (
-                <div className="border-[1px] border-black buttonHover rounded relative mb-4">
+                <div className="border-[2px] border-black buttonHover rounded relative mb-4">
                   <div className="px-1.5 py-1.5">
                     <div className="w-[60px] h-[28px] bg-bg-smallBookmark bg-no-repeat flex items-center justify-center absolute top-3 -left-2 rounded-sm">
                       <h1 className="text-[10px] font-semibold text-black text-center">
@@ -867,7 +1029,7 @@ const ProductScreen = () => {
             </div>
           </div>
 
-          <div className=" px-3 border-t-[1px] border-black mt-1 pb-4 pt-4">
+          <div className=" px-3 border-t-[2px] border-black mt-1 pb-4 pt-4">
             <h1 className=" text-sm font-semibold">Recommended Listings</h1>
             <p className=" text-xs font-medium mt-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -886,8 +1048,14 @@ const ProductScreen = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
-export default ProductScreen;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showModal: (kind) => dispatch(showModal(kind)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProductScreen);
