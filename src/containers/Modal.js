@@ -30,7 +30,7 @@ import ReviewSubmittedModal from "../components/Modals/ReviewSubmittedModal";
 import ReportSubmittedModal from "../components/Modals/ReportSubmittedModal";
 import CounterOfferReceivedModal from "../components/Modals/CounterOfferReceivedModal";
 import CounterOfferModal from "../components/Modals/CounterOfferModal";
-import SendMessageModal from "../components/Modals/ReviewModal";
+import SendMessageModal from "../components/Modals/SendMessageModal";
 
 const Modal = ({ modal, hideModal }) => {
   const ref = useClose(() => hideModal());

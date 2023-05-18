@@ -26,7 +26,8 @@ function App({ modal }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getTokens() && dispatch(getCurrentUser());
+    // getTokens() && dispatch(getCurrentUser());
+    getTokens();
     setTimeout(() => setLoading(false), 2000);
   }, [dispatch]);
   return (
