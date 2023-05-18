@@ -92,10 +92,12 @@ const SignInPasswordScreen = () => {
         }
     }; 
 
-    useEffect(()=>{if(id===1) sendOTP()},[id]);
+    useEffect(()=>{
+        if(id===1) sendOTP();
+    },[]);
     return (
         <div className=' w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
-            <div className='cursor-default border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12 px-4 md:px-7 bg-white'>
+            <div className='cursor-default border md:border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12 px-4 md:px-7 bg-white'>
             <h1 className='text-3xl font-semibold text-black'>Sign In</h1>
                 <p 
                     onClick={()=>navigate('/signin/username')} 

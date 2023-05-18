@@ -5,7 +5,7 @@ const ForgotPasswordVerifyOTPScreen = () => {
     const navigate = useNavigate()
     return (
         <div className=' w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
-            <div className='cursor-default border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12  px-4 md:px-7 bg-white'>
+            <div className='cursor-default border md:border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12  px-4 md:px-7 bg-white'>
                 <h1 className='text-3xl font-semibold text-black'>Forgot Password</h1>
                 <div className='mt-8'>
                     <div>

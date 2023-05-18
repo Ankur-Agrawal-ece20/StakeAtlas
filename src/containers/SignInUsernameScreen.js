@@ -5,17 +5,17 @@ import validator from 'validator';
 
 const SignInUsernameScreen = () => {
     const navigate = useNavigate();
-    const [error,showerror] = useState(false);
+    const [error,showerror] = useState("");
     const verify = () => {
         const value = document.getElementById("id_input").value;
         if(validator.isEmail(value)) navigate('/signin/password',{state:{id:0,value:value}});
         else if(validator.isMobilePhone(value)) navigate('/signin/password',{state:{id:1,value:value}});
         else if(value!=="") navigate('/signin/password',{state:{id:2,value:value}});
-        else showerror(true);
+        else showerror("Please enter a valid Email/Username/Phone number");
     }
     return (
-        <div className=' w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
-            <div className='cursor-default border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12 px-4 md:px-7 bg-white'>
+        <div className='w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
+            <div className='cursor-default border md:border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12 px-4 md:px-7 bg-white'>
                 <h1 className='text-3xl font-semibold text-black'>Sign In</h1>
                 <div className='mt-8'>
                     <p className='text-base font-medium text-black'>Email ID/Phone Number/Username</p>
@@ -28,7 +28,7 @@ const SignInUsernameScreen = () => {
                     {
                         error && (
                             <div className='mt-3 py-3 px-3 bg-[#FFE9E9]'>
-                                <p className='text-sm'>You entered an incorrect email/username/number</p>
+                                <p className='text-sm'>{error}</p>
                             </div>
                         )
                     }
