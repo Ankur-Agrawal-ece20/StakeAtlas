@@ -1,33 +1,38 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-import { Link,useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import validator from 'validator';
 
 const SignUpPhoneVerification = () => {
     const navigate = useNavigate();
     const [userid,setuserid] = useState();
     const [message,setmessage] = useState("");
+    const [otp,sentotp] = useState(false);
     const [timeLeft, setTimeLeft] = useState(null);
 
     useEffect(() => {
-      if(timeLeft===0){
-         document.getElementById("signupresendbtn").classList.add("text-blue-100");
-         document.getElementById("signupresendbtn").classList.add("underline");
-         setTimeLeft(null)
-      }
-      if (!timeLeft) return;
-      document.getElementById("signupresendbtn").classList.remove("text-blue-100"); 
-      document.getElementById("signupresendbtn").classList.remove("underline"); 
-      const intervalId = setInterval(() => {    
-        setTimeLeft(timeLeft - 1);
-      }, 1000); 
-      return () => clearInterval(intervalId);
+        if(timeLeft===0){
+            document.getElementById("signupresendbtn").classList.add("text-blue-100");
+            document.getElementById("signupresendbtn").classList.remove("text-gray-400"); 
+            document.getElementById("signupresendbtn").classList.add("underline");
+            setTimeLeft(null)
+        }
+        if (!timeLeft) return;
+        document.getElementById("signupresendbtn").classList.remove("text-blue-100"); 
+        document.getElementById("signupresendbtn").classList.add("text-gray-400");
+        document.getElementById("signupresendbtn").classList.remove("underline"); 
+        const intervalId = setInterval(() => {    
+            setTimeLeft(timeLeft - 1);
+        }, 1000); 
+        return () => clearInterval(intervalId);
     }, [timeLeft]);
 
     const phoneOTP = () => {
-        const phoneverify = /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i;
-        if(phoneverify.test(userid)){
+        sentotp(false);
+        if(validator.isMobilePhone(userid)){
             setmessage("");
+            document.getElementById("signupresendbtn").classList.remove("hidden");
+            sentotp(true); 
             // code for otp verification
             setTimeLeft(30);
         }
@@ -42,8 +47,8 @@ const SignUpPhoneVerification = () => {
         navigate("/signin/success")
     }; 
     return (
-        <div className=' w-full bg-[#FFF9F0] flex items-center justify-center py-20'>
-            <div className='border-2 border-black w-[80%] max-w-[450px] min-h-[73%] rounded-md py-12 px-7 bg-white mt-10'>
+        <div className=' w-full bg-[#FFF9F0] flex items-center justify-center py-10'>
+            <div className='cursor-default border-2 border-black w-[90%] max-w-[450px] min-h-[73%] rounded-md py-6 md:py-12  px-4 md:px-7 bg-white'>
                 <h1 className='text-3xl font-semibold text-black'>Sign Up</h1>
                 <div className='mt-8'>
                     <div>
@@ -53,7 +58,6 @@ const SignUpPhoneVerification = () => {
                                 type="text"
                                 value={userid}
                                 onChange={(e)=>setuserid(e.target.value)}
-                                placeholder="sarthak@gmail.com"
                                 className=" w-full py-2 px-2 rounded 3tablet:text-xl 4tablet:text-[23px] focus:outline-none outline-none border-[1px] border-black"
                             />
                             <button onClick={()=>{phoneOTP()}} class="absolute top-0 right-0 p-2.5 text-sm font-medium text-black bg-amber-300 border border-black hover:bg-amber-300">Send OTP</button>
@@ -73,13 +77,20 @@ const SignUpPhoneVerification = () => {
                             id="signupresendbtn"
                             disabled={timeLeft}
                             onClick={()=>{phoneOTP()}}
-                            className="text-[13px] font-medium underline-offset-4 mt-1 mb-2">
+                            className="hidden text-[13px] font-medium underline-offset-4 mt-1 mb-2">
                                 Resend OTP {timeLeft && "( "+timeLeft+" Secs )"}
                         </button>
                         {
                             message!=="" && (
                                 <div className='mt-3 py-3 px-3 bg-[#FFE9E9]'>
                                     <p className='text-sm'>{message}</p>
+                                </div>
+                            )
+                        }
+                        {
+                            otp && (
+                                <div className='mt-3 py-3 px-3 bg-[#ecffe9]'>
+                                    <p className='text-sm'>OTP Sent</p>
                                 </div>
                             )
                         }
