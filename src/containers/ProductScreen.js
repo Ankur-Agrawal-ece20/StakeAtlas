@@ -623,131 +623,138 @@ const ProductScreen = ({ showModal }) => {
 
       {/* Mobile Version */}
       <div className="px-[2.5px] mt-6 xl:hidden">
-        <div className="border-[2px] border-black pt-2.5 mb-4">
-          <div className="px-1">
+        <div className="border-black pt-2.5 mb-4">
+          <div>
             <div>
               <ImageGallery images={carImg} imageCount={allImages.length} />
             </div>
 
-            <div className=" py-1.5 bg-[#4DB041] px-2 border-y-[2px] border-black">
-              <h1 className=" text-xs font-medium text-white ">
-                Condition: Used
-              </h1>
-            </div>
-
-            <div className="py-2.5">
-              <h1 className=" text-[16.3px] font-semibold">
-                iPhone 12 128GB White - Apple
-              </h1>
-              <div className="flex items-center gap-x-1 mt-1">
-                <LocationOnOutlined className="text-grey-100" fontSize={"30"} />
-                <h1 className="text-sm xl:text-lg font-normal text-grey-100">
-                  Rajendra nagar, New Delhi
+            <div className="border-[1px] border-black">
+              <div className=" py-1.5 bg-[#FFDC25] border-b-[1px] border-black">
+                <h1 className=" text-xs font-medium text-white ">
+                  Condition: Used
                 </h1>
               </div>
-              <div className="flex items-center justify-start gap-x-1 mt-1">
-                <AccessTimeOutlined className="text-grey-100" fontSize={"10"} />
-                <h1 className="text-[13px] font-medium text-grey-100">
-                  3d 18hrs | Mon, Dec 05
+
+              <div className="px-2.5 py-2.5">
+                <h1 className=" text-[16.3px] font-semibold">
+                  iPhone 12 128GB White - Apple
                 </h1>
-              </div>
-              <h1 className="text-[21px] font-bold text-sa-menu-green text-left py-1">
-                ₹4,60,000
-              </h1>
-              <div className=" flex items-center gap-2 mt-1">
-                <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[2px] border-sa-border-black font-semibold">
-                  Add to Cart
-                </button>
-                <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold">
-                  Make an Offer
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className=" border-t-[1px] border-black mt-2.5 px-3 py-2.5">
-            <h1 className=" text-[14px] font-semibold">Sold By</h1>
-
-            <div className="mt-1 flex items-center justify-between">
-              <div className="flex items-center gap-x-1.5">
-                <div className="w-10">
-                  <img
-                    src={require("../assets/new design/user.png")}
-                    alt=""
-                    className=" w-full"
+                <div className="flex items-center gap-x-1 mt-1">
+                  <LocationOnOutlined
+                    className="text-grey-100"
+                    fontSize={"30"}
                   />
-                </div>
-                <div>
-                  <h1 className=" text-sm underline font-semibold">
-                    Akshat Tripathi
-                  </h1>
-                  <h1 className="text-xs font-normal text-grey-100">
-                    Member since July 2022
+                  <h1 className="text-sm xl:text-lg font-normal text-grey-100">
+                    Rajendra nagar, New Delhi
                   </h1>
                 </div>
-              </div>
-              <div className=" flex items-center gap-x-0.5">
-                <h1 className=" text-2xl font-bold">4.5</h1>
-                <Star className=" text-yellow-100 text-xs" />
+                <div className="flex items-center justify-start gap-x-1 mt-1">
+                  <AccessTimeOutlined
+                    className="text-grey-100"
+                    fontSize={"10"}
+                  />
+                  <h1 className="text-[13px] font-medium text-grey-100">
+                    3d 18hrs | Mon, Dec 05
+                  </h1>
+                </div>
+                <h1 className="text-[21px] font-bold text-sa-menu-green text-left py-1">
+                  ₹4,60,000
+                </h1>
+                <div className=" flex items-center gap-2 mt-1">
+                  <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-sa-border-black font-semibold">
+                    Add to Cart
+                  </button>
+                  <button className=" w-1/2  text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold">
+                    Make an Offer
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div>
-              <button
-                onClick={() => {
-                  showModal({
-                    modalType: SEND_MESSAGE_MODAL,
-                    modalTitle: ``,
-                    modalSubTitle: "",
-                  });
-                  console.log("run");
-                }}
-                className=" w-full text-[12px] mt-2.5 py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center"
-              >
-                <MailOutline className=" text-xs mr-1" />
-                Send Message
-              </button>
-            </div>
-            <div className="px-5 border-[2px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
-              <h2 className="text-base font-semibold">Location</h2>
-              <div className="flex items-center space-x-0.5 -ml-2">
-                <LocationOnOutlined className="text-sa-text-gray h-3 w-3" />
-                <p className="text-sa-text-gray text-sm">
-                  Rajendra nagar, New Delhi
-                </p>
-              </div>
-              <div className="rounded-lg w-full md:w-fit mx-auto border-[1px] border-black">
-                <iframe
-                  className="rounded-lg border-[2px] border-black"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14006.98438512234!2d77.18340760000001!3d28.6373709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02bcbb3b6d6b%3A0xaac7850da2a43dd9!2sRajinder%20Nagar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1684321877094!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  style={{ border: 0 }}
-                ></iframe>
-              </div>
-            </div>
-          </div>
+            <div className=" border-[1px] border-black mt-2.5 px-3 py-2.5">
+              <h1 className=" text-[14px] font-semibold">Sold By</h1>
 
-          <div className=" px-3 py-3 border-t-[2px] border-black flex flex-col space-y-3">
-            <h1 className="text-base font-semibold">Highlights</h1>
-            <div className="border-[2px] rounded-lg px-3 border-black">
-              <Accourdion title={"Description"}>
-                <p className=" text-xs font-normal pb-3">
-                  For sale is a 4th generation iPad Air in silver color and 256
-                  GB of storage. The tablet is in excellent condition and does
-                  not have any signs of scratches or marks on the screen.
-                  <br />
-                  <br /> No AppleCare+ included. <br />
-                  No charger included.
-                </p>
-              </Accourdion>
+              <div className="mt-1 flex items-center justify-between">
+                <div className="flex items-center gap-x-1.5">
+                  <div className="w-10">
+                    <img
+                      src={require("../assets/new design/user.png")}
+                      alt=""
+                      className=" w-full"
+                    />
+                  </div>
+                  <div>
+                    <h1 className=" text-sm underline font-semibold">
+                      Akshat Tripathi
+                    </h1>
+                    <h1 className="text-xs font-normal text-grey-100">
+                      Member since July 2022
+                    </h1>
+                  </div>
+                </div>
+                <div className=" flex items-center gap-x-0.5">
+                  <h1 className=" text-2xl font-bold">4.5</h1>
+                  <Star className=" text-yellow-100 text-xs" />
+                </div>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => {
+                    showModal({
+                      modalType: SEND_MESSAGE_MODAL,
+                      modalTitle: ``,
+                      modalSubTitle: "",
+                    });
+                    console.log("run");
+                  }}
+                  className=" w-full text-[12px] mt-2.5 py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center"
+                >
+                  <MailOutline className=" text-xs mr-1" />
+                  Send Message
+                </button>
+              </div>
+              <div className="px-5 border-[1px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
+                <h2 className="text-base font-semibold">Location</h2>
+                <div className="flex items-center space-x-0.5 -ml-2">
+                  <LocationOnOutlined className="text-sa-text-gray h-3 w-3" />
+                  <p className="text-sa-text-gray text-sm">
+                    Rajendra nagar, New Delhi
+                  </p>
+                </div>
+                <div className="rounded-lg w-full md:w-fit mx-auto border-[1px] border-black">
+                  <iframe
+                    className="rounded-lg border-[1px] border-black"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14006.98438512234!2d77.18340760000001!3d28.6373709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02bcbb3b6d6b%3A0xaac7850da2a43dd9!2sRajinder%20Nagar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1684321877094!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    style={{ border: 0 }}
+                  ></iframe>
+                </div>
+              </div>
             </div>
-            <div className=" px-3 rounded-lg border-[2px] border-black">
-              <Accourdion title={"Item Specifics"}>
-                {/* <div className="pb-3">
+
+            <div className=" px-3 py-3 border-l-[1px] border-r-[1px] border-b-[1px] border-black flex flex-col space-y-3">
+              <h1 className="text-base font-semibold">Highlights</h1>
+              <div className="border-[1px] rounded-lg px-3 border-black">
+                <Accourdion title={"Description"}>
+                  <p className=" text-xs font-normal pb-3">
+                    For sale is a 4th generation iPad Air in silver color and
+                    256 GB of storage. The tablet is in excellent condition and
+                    does not have any signs of scratches or marks on the screen.
+                    <br />
+                    <br /> No AppleCare+ included. <br />
+                    No charger included.
+                  </p>
+                </Accourdion>
+              </div>
+              <div className=" px-3 rounded-lg border-[1px] border-black">
+                <Accourdion title={"Item Specifics"}>
+                  {/* <div className="pb-3">
                   <div className="flex gap-3">
                     <div className="flex flex-col">
                       <ThumbUp className="text-blue-100" fontSize="16" />
@@ -779,123 +786,213 @@ const ProductScreen = ({ showModal }) => {
                     </button>
                   </div>
                 </div> */}
-                <div
-                  className=" border-x-[1px] border-b-[1px] border-black"
-                  style={{
-                    width: "100%",
-                    background: "#FCF9F4",
-                    marginBottom: "25px",
-                  }}
-                >
-                  {[
-                    {
-                      title: "Make",
-                      value: "BMW",
-                    },
-                    {
-                      title: "Year",
-                      value: "2012",
-                    },
-                    {
-                      title: "Ownership",
-                      value: "BMW",
-                    },
-                    {
-                      title: "KM Run",
-                      value: "25,000/-",
-                    },
-                    {
-                      title: "Color",
-                      value: "White",
-                    },
-                    {
-                      title: "Registration State",
-                      value: "Delhi",
-                    },
-                    {
-                      title: "Insurance",
-                      value: "Expired",
-                    },
-                    {
-                      title: "Service Records",
-                      value: "Unavailable",
-                    },
-                    {
-                      title: "Commitment after side",
-                      value: "Unavailable",
-                    },
-                  ].map((e) => (
-                    <div
-                      className=" flex px-2 py-2 border-t-[1px] border-black"
-                      style={{}}
-                    >
-                      <h1 className=" w-3/5">{e.title} : </h1>
-                      <h1
-                        className=" w-1/2 font-bold"
-                        style={{ display: "flex", justifyContent: "center" }}
-                      >
-                        {e.value}
-                      </h1>
-                    </div>
-                  ))}
-                </div>
-              </Accourdion>
-            </div>
-            <div className=" px-3 rounded-lg border-[2px] border-black mt-1">
-              <Accourdion title={"Sellers Ratings"}>
-                <div className="pb-4">
-                  <div className=" border-x-[1px] border-b-[1px] border-black mr-3.5">
+                  <div
+                    className=" border-x-[1px] border-b-[1px] border-black"
+                    style={{
+                      width: "100%",
+                      background: "#FCF9F4",
+                      marginBottom: "25px",
+                    }}
+                  >
                     {[
                       {
-                        title: "Communication",
-                        value: "Average",
+                        title: "Make",
+                        value: "BMW",
                       },
                       {
-                        title: "On time shipment",
-                        value: "Average",
+                        title: "Year",
+                        value: "2012",
                       },
                       {
-                        title: "Item as described",
-                        value: "Satisfied",
+                        title: "Ownership",
+                        value: "BMW",
+                      },
+                      {
+                        title: "KM Run",
+                        value: "25,000/-",
+                      },
+                      {
+                        title: "Color",
+                        value: "White",
+                      },
+                      {
+                        title: "Registration State",
+                        value: "Delhi",
+                      },
+                      {
+                        title: "Insurance",
+                        value: "Expired",
+                      },
+                      {
+                        title: "Service Records",
+                        value: "Unavailable",
                       },
                       {
                         title: "Commitment after side",
-                        value: "Good",
+                        value: "Unavailable",
                       },
                     ].map((e) => (
-                      <div className=" flex items-center justify-between px-2 py-2 border-t-[1px] border-black">
-                        <h1 className=" w-[60%] text-xs ">{e.title}</h1>
-                        <h1 className=" w-[40%] text-xs font-semibold">
+                      <div
+                        className=" flex px-2 py-2 border-t-[1px] border-black"
+                        style={{}}
+                      >
+                        <h1 className=" w-3/5">{e.title} : </h1>
+                        <h1
+                          className=" w-1/2 font-bold"
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
                           {e.value}
                         </h1>
                       </div>
                     ))}
                   </div>
-                  <div className=" flex items-center justify-between py-2 border-y-[1px] border-black mt-4">
-                    <div className=" w-1/2 flex items-center gap-x-2  ">
-                      <h1 className="text-xs font-medium">Items Sold</h1>
-                      <h1 className=" text-xl font-bold">04</h1>
+                </Accourdion>
+              </div>
+              <div className=" px-3 rounded-lg border-[1px] border-black mt-1">
+                <Accourdion title={"Sellers Ratings"}>
+                  <div className="pb-4">
+                    <div className=" border-x-[1px] border-b-[1px] border-black mr-3.5">
+                      {[
+                        {
+                          title: "Communication",
+                          value: "Average",
+                        },
+                        {
+                          title: "On time shipment",
+                          value: "Average",
+                        },
+                        {
+                          title: "Item as described",
+                          value: "Satisfied",
+                        },
+                        {
+                          title: "Commitment after side",
+                          value: "Good",
+                        },
+                      ].map((e) => (
+                        <div className=" flex items-center justify-between px-2 py-2 border-t-[1px] border-black">
+                          <h1 className=" w-[60%] text-xs ">{e.title}</h1>
+                          <h1 className=" w-[40%] text-xs font-semibold">
+                            {e.value}
+                          </h1>
+                        </div>
+                      ))}
                     </div>
-                    <div className=" w-1/2 flex items-center gap-x-2  ">
-                      <h1 className="text-xs font-medium">5 Start Reviews</h1>
-                      <h1 className=" text-xl font-bold">02</h1>
-                    </div>
-                  </div>
-                  <div className=" mt-3">
-                    <h1 className=" text-sm font-medium">
-                      Here’s what others have to say about Akshat:
-                    </h1>
-                    <div className=" flex items-center gap-x-1 mt-3">
-                      <h1 className=" text-sm font-bold">@Sart....mk</h1>
-                      <div className=" flex items-start">
-                        <Star className=" text-yellow-100" fontSize="10" />
-                        <Star className=" text-yellow-100" fontSize="10" />
-                        <Star className=" text-yellow-100" fontSize="10" />
-                        <StarOutline className=" " fontSize="10" />
-                        <StarOutline className=" " fontSize="10" />
+                    <div className=" flex items-center justify-between py-2 border-y-[1px] border-black mt-4">
+                      <div className=" w-1/2 flex items-center gap-x-2  ">
+                        <h1 className="text-xs font-medium">Items Sold</h1>
+                        <h1 className=" text-xl font-bold">04</h1>
+                      </div>
+                      <div className=" w-1/2 flex items-center gap-x-2  ">
+                        <h1 className="text-xs font-medium">5 Start Reviews</h1>
+                        <h1 className=" text-xl font-bold">02</h1>
                       </div>
                     </div>
-                    <p className=" text-xs font-normal text-grey-100 mt-2">
+                    <div className=" mt-3">
+                      <h1 className=" text-sm font-medium">
+                        Here’s what others have to say about Akshat:
+                      </h1>
+                      <div className=" flex items-center gap-x-1 mt-3">
+                        <h1 className=" text-sm font-bold">@Sart....mk</h1>
+                        <div className=" flex items-start">
+                          <Star className=" text-yellow-100" fontSize="10" />
+                          <Star className=" text-yellow-100" fontSize="10" />
+                          <Star className=" text-yellow-100" fontSize="10" />
+                          <StarOutline className=" " fontSize="10" />
+                          <StarOutline className=" " fontSize="10" />
+                        </div>
+                      </div>
+                      <p className=" text-xs font-normal text-grey-100 mt-2">
+                        Check who the seller is very carefully. If it says Loop
+                        Mobile then the phone is most definitely used even
+                        though they say in the phone specifications that it is a
+                        new phone. When you open the box, there is paperwork
+                        that specifically states that it is a refurbished phone
+                        and that there is no warranty on the phone.
+                      </p>
+                      <div className="underline font-medium text-xs cursor-pointer text-blue-100 mt-2">
+                        See All Reviews
+                      </div>
+                    </div>
+                  </div>
+                </Accourdion>
+              </div>
+              <div className=" px-3 rounded-lg border-[1px] border-black mt-1">
+                <Accourdion title={"Known Flaws"}>
+                  <p className="text-sm pb-3">
+                    Repainted bumper, front passenger door, fender Some
+                    scratches on front bumper Dull right headlight
+                  </p>
+                </Accourdion>
+              </div>
+            </div>
+            <div className="border-r-[1px] border-l-[1px] border-b-[1px] border-black py-3 px-3">
+              <Accourdion
+                title={<p className="text-base">Akshat's Report Card</p>}
+              >
+                <div className="pb-4">
+                  <div className=" flex flex-col space-y-2 items-start justify-between">
+                    <div className=" w-full border-x-[1px] border-b-[1px] border-black">
+                      {[
+                        {
+                          title: "Communication",
+                          value: "Average",
+                        },
+                        {
+                          title: "On time shipment",
+                          value: "Average",
+                        },
+                        {
+                          title: "Item as described",
+                          value: "Satisfied",
+                        },
+                        {
+                          title: "Commitment after side",
+                          value: "Good",
+                        },
+                      ].map((e) => (
+                        <div className=" flex items-center justify-between px-2 border-t-[1px] border-black">
+                          <div className="border-r-[1px] border-black py-2.5 w-[56%]">
+                            <h1 className="text-base ">{e.title}</h1>
+                          </div>
+                          <div className=" w-[44%] py-2.5 flex-1 mx-auto">
+                            <h1 className="text-base font-semibold text-center">
+                              {e.value}
+                            </h1>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className=" w-full px-2 justify-between border-b-[1px] border-black flex self-stretch">
+                      <div className=" py-2 flex items-center space-x-2">
+                        <h1 className="text-lg font-bold text-[#888888]">
+                          Items Sold
+                        </h1>
+                        <h1 className=" text-2xl font-bold">04</h1>
+                      </div>
+                      <div className="flex items-center space-x-2 py-2">
+                        <h1 className="text-lg font-bold text-[#888888]">
+                          5 Start Reviews
+                        </h1>
+                        <h1 className=" text-2xl font-bold">02</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div className=" mt-4">
+                    <h1 className=" text-base font-medium">
+                      Here’s what others have to say about Akshat:
+                    </h1>
+                    <div className=" flex items-center gap-x-1 mt-2">
+                      <h1 className=" text-base font-bold">@Sart....mk</h1>
+                      <div className=" flex items-start">
+                        <Star className=" text-yellow-100" fontSize="small" />
+                        <Star className=" text-yellow-100" fontSize="small" />
+                        <Star className=" text-yellow-100" fontSize="small" />
+                        <StarOutline className=" " fontSize="small" />
+                        <StarOutline className=" " fontSize="small" />
+                      </div>
+                    </div>
+                    <p className=" text-sm font-normal text-grey-100 mt-2">
                       Check who the seller is very carefully. If it says Loop
                       Mobile then the phone is most definitely used even though
                       they say in the phone specifications that it is a new
@@ -903,147 +1000,60 @@ const ProductScreen = ({ showModal }) => {
                       specifically states that it is a refurbished phone and
                       that there is no warranty on the phone.
                     </p>
-                    <div className="underline font-medium text-xs cursor-pointer text-blue-100 mt-2">
+                    <div className="underline font-medium text-base cursor-pointer text-blue-100 mt-2">
                       See All Reviews
                     </div>
                   </div>
                 </div>
               </Accourdion>
             </div>
-            <div className=" px-3 rounded-lg border-[2px] border-black mt-1">
-              <Accourdion title={"Known Flaws"}>
-                <p className="text-sm pb-3">
-                  Repainted bumper, front passenger door, fender Some scratches
-                  on front bumper Dull right headlight
-                </p>
-              </Accourdion>
-            </div>
-          </div>
-          <div className="border-t-[2px] border-black py-3 px-3">
-            <Accourdion
-              title={<p className="text-base">Akshat's Report Card</p>}
-            >
-              <div className="pb-4">
-                <div className=" flex flex-col space-y-2 items-start justify-between">
-                  <div className=" w-full border-x-[2px] border-b-[2px] border-black">
-                    {[
-                      {
-                        title: "Communication",
-                        value: "Average",
-                      },
-                      {
-                        title: "On time shipment",
-                        value: "Average",
-                      },
-                      {
-                        title: "Item as described",
-                        value: "Satisfied",
-                      },
-                      {
-                        title: "Commitment after side",
-                        value: "Good",
-                      },
-                    ].map((e) => (
-                      <div className=" flex items-center justify-between px-2 border-t-[2px] border-black">
-                        <div className="border-r-[2px] border-black py-2.5 w-[56%]">
-                          <h1 className="text-base ">{e.title}</h1>
-                        </div>
-                        <div className=" w-[44%] py-2.5 flex-1 mx-auto">
-                          <h1 className="text-base font-semibold text-center">
-                            {e.value}
-                          </h1>
-                        </div>
+            <div className=" px-3 border-l-[1px] border-r-[1px] border-b-[1px] border-black pb-4 pt-4">
+              <h1 className=" text-sm font-semibold">
+                More Products by Akshat
+              </h1>
+              <div className=" flex items-center gap-x-4 mt-3">
+                {[0, 1].map((e) => (
+                  <div className="border-[1px] border-black buttonHover rounded relative mb-4">
+                    <div className="px-1.5 py-1.5">
+                      <div className="w-[60px] h-[28px] bg-bg-smallBookmark bg-no-repeat flex items-center justify-center absolute top-3 -left-2 rounded-sm">
+                        <h1 className="text-[10px] font-semibold text-black text-center">
+                          USED
+                        </h1>
                       </div>
-                    ))}
-                  </div>
-                  <div className=" w-full px-2 justify-between border-b-[2px] border-black flex self-stretch">
-                    <div className=" py-2 flex items-center space-x-2">
-                      <h1 className="text-lg font-bold text-[#888888]">
-                        Items Sold
-                      </h1>
-                      <h1 className=" text-2xl font-bold">04</h1>
-                    </div>
-                    <div className="flex items-center space-x-2 py-2">
-                      <h1 className="text-lg font-bold text-[#888888]">
-                        5 Start Reviews
-                      </h1>
-                      <h1 className=" text-2xl font-bold">02</h1>
+                      <div className="w-[100%] border border-solid border-black rounded">
+                        <img
+                          src={require("../assets/new design/car_img.png")}
+                          alt=""
+                          className="w-full aspect-square rounded"
+                        />
+                      </div>
+                      <div className="pt-1 pb-1">
+                        <h1 className="text-xs font-semibold text-black">
+                          Hyundai Venue(2019)
+                        </h1>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className=" mt-4">
-                  <h1 className=" text-base font-medium">
-                    Here’s what others have to say about Akshat:
-                  </h1>
-                  <div className=" flex items-center gap-x-1 mt-2">
-                    <h1 className=" text-base font-bold">@Sart....mk</h1>
-                    <div className=" flex items-start">
-                      <Star className=" text-yellow-100" fontSize="small" />
-                      <Star className=" text-yellow-100" fontSize="small" />
-                      <Star className=" text-yellow-100" fontSize="small" />
-                      <StarOutline className=" " fontSize="small" />
-                      <StarOutline className=" " fontSize="small" />
-                    </div>
-                  </div>
-                  <p className=" text-sm font-normal text-grey-100 mt-2">
-                    Check who the seller is very carefully. If it says Loop
-                    Mobile then the phone is most definitely used even though
-                    they say in the phone specifications that it is a new phone.
-                    When you open the box, there is paperwork that specifically
-                    states that it is a refurbished phone and that there is no
-                    warranty on the phone.
-                  </p>
-                  <div className="underline font-medium text-base cursor-pointer text-blue-100 mt-2">
-                    See All Reviews
-                  </div>
-                </div>
+                ))}
               </div>
-            </Accourdion>
-          </div>
-          <div className=" px-3 border-t-[2px] border-black mt-1 pb-4 pt-4">
-            <h1 className=" text-sm font-semibold">More Products by Akshat</h1>
-            <div className=" flex items-center gap-x-4 mt-3">
-              {[0, 1].map((e) => (
-                <div className="border-[2px] border-black buttonHover rounded relative mb-4">
-                  <div className="px-1.5 py-1.5">
-                    <div className="w-[60px] h-[28px] bg-bg-smallBookmark bg-no-repeat flex items-center justify-center absolute top-3 -left-2 rounded-sm">
-                      <h1 className="text-[10px] font-semibold text-black text-center">
-                        USED
-                      </h1>
-                    </div>
-                    <div className="w-[100%] border border-solid border-black rounded">
-                      <img
-                        src={require("../assets/new design/car_img.png")}
-                        alt=""
-                        className="w-full aspect-square rounded"
-                      />
-                    </div>
-                    <div className="pt-1 pb-1">
-                      <h1 className="text-xs font-semibold text-black">
-                        Hyundai Venue(2019)
-                      </h1>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
-          </div>
 
-          <div className=" px-3 border-t-[2px] border-black mt-1 pb-4 pt-4">
-            <h1 className=" text-sm font-semibold">Recommended Listings</h1>
-            <p className=" text-xs font-medium mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt.
-            </p>
-            <div className="xl:hidden pt-5">
-              {[0, 1, 2, 3].map((e) => (
-                <ProductCardMob />
-              ))}
-            </div>
-            <div className="xl:hidden w-full flex items-center justify-center">
-              <button className="w-full bg-sa-menu-green text-white  py-2 px-6 rounded font-medium text-xs text-center">
-                View All
-              </button>
+            <div className=" px-3 border-x-[1px] border-b-[1px] border-black pb-4 pt-4">
+              <h1 className=" text-sm font-semibold">Recommended Listings</h1>
+              <p className=" text-xs font-medium mt-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </p>
+              <div className="xl:hidden pt-5">
+                {[0, 1, 2, 3].map((e) => (
+                  <ProductCardMob />
+                ))}
+              </div>
+              <div className="xl:hidden w-full flex items-center justify-center">
+                <button className="w-full bg-sa-menu-green text-white  py-2 px-6 rounded font-medium text-xs text-center">
+                  View All
+                </button>
+              </div>
             </div>
           </div>
         </div>
