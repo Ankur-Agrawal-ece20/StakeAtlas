@@ -215,6 +215,11 @@ const ProductScreen = ({ showModal }) => {
     "only interested buyers press call button.",
   ];
 
+  const changeButtonColor = (props) => {
+    console.log("Hello World");
+    document.getElementById("bookmarkButton").style.background = props;
+  };
+
   const [menu, setMenu] = useState(0);
 
   return (
@@ -451,7 +456,12 @@ const ProductScreen = ({ showModal }) => {
               </div>
 
               <div className="flex h-full items-center space-x-2">
-                <button className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center">
+                <button
+                  id="bookmarkButton"
+                  onClick={() => changeButtonColor("#FDC225")}
+                  onMouseOut={() => changeButtonColor("#FFFCF8")}
+                  className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center"
+                >
                   <TurnedInNot className=" text-xs" />
                 </button>
                 <button
