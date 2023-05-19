@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import DeliveryLocationModal from "../components/Modals/DeliveryLocationModal";
-import AddNewAddressModal from "../components/Modals/AddNewAddressModal";
+import AddNewAddressModal from "../components/Modals/AddNewAddress";
 import EditAddressModal from "../components/Modals/EditAddressModal";
 
 import {
@@ -11,7 +11,7 @@ import {
   COUNTER_OFFER_MODAL,
   COUNTER_OFFER_RECEIVED_MODAL,
   ADD_NEW_ADDRESS_MODAL,
-  DELIVERY_LOCATION_MODEL,
+  DELIVERY_LOCATION_MODAL,
   EDIT_ADDRESS_MODAL,
   REPORT_MODAL,
   REPORT_SUBMITTED_MODAL,
@@ -38,6 +38,8 @@ const Modal = ({ modal, hideModal }) => {
   let Component = null;
 
   switch (modal.modalType) {
+    case DELIVERY_LOCATION_MODAL:
+      Component = DeliveryLocationModal;
     case ADD_NEW_ADDRESS_MODAL:
       Component = AddNewAddressModal;
       break;

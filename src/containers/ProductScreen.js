@@ -471,7 +471,6 @@ const ProductScreen = ({ showModal }) => {
                       modalTitle: ``,
                       modalSubTitle: "",
                     });
-                    console.log("run");
                   }}
                   className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center"
                 >

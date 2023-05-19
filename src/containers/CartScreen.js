@@ -2,11 +2,9 @@ import { Delete, LocationOnOutlined } from "@mui/icons-material";
 import { connect } from "react-redux";
 import ProductCard from "../components/Home/ProductCard";
 import TagRibbon from "../components/TagRibbon";
-import { DELIVERY_LOCATION_MODAL } from "../extras/constants";
+import { ADD_NEW_ADDRESS_MODAL } from "../extras/constants";
 import { showModal } from "../redux/actions/modal";
 import classNames from "../utils/classNames";
-
-// import { showModal } from '../redux/actions/modal';
 
 const CartScreen = ({ showModal }) => {
   const data = [
@@ -40,7 +38,7 @@ const CartScreen = ({ showModal }) => {
                   <div
                     onClick={() => {
                       showModal({
-                        modalType: DELIVERY_LOCATION_MODAL,
+                        modalType: ADD_NEW_ADDRESS_MODAL,
                         modalTitle: ``,
                         modalSubTitle: "",
                       });
@@ -74,7 +72,7 @@ const CartScreen = ({ showModal }) => {
                   <button
                     onClick={() => {
                       showModal({
-                        modalType: DELIVERY_LOCATION_MODAL,
+                        modalType: ADD_NEW_ADDRESS_MODAL,
                         modalTitle: ``,
                         modalSubTitle: "",
                       });

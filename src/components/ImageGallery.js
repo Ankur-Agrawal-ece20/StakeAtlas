@@ -1,9 +1,14 @@
-import { Gallery, Item } from "react-photoswipe-gallery"
-import "photoswipe/dist/photoswipe.css"
+import { Gallery, Item } from "react-photoswipe-gallery";
+import "photoswipe/dist/photoswipe.css";
+
+const options = {
+  counter: true,
+  bgOpacity: 1,
+  withCaption: true,
+};
 
 export default function ImageGallery({ images, imageCount }) {
-
-  var galleryJSX = []
+  var galleryJSX = [];
 
   const smallItemStyles = {
     cursor: "pointer",
@@ -18,6 +23,7 @@ export default function ImageGallery({ images, imageCount }) {
       thumbnail={images.main}
       width="1024"
       height="768"
+      caption="Main Image"
     >
       {({ ref, open }) => (
         <img
@@ -29,11 +35,11 @@ export default function ImageGallery({ images, imageCount }) {
         />
       )}
     </Item>
-  )
+  );
 
   for (const image in images) {
-    if (image !== 'main' && image !== 'all') {
-      if (image === 'images') {
+    if (image !== "main" && image !== "all") {
+      if (image === "images") {
         images[image].map((image) => {
           return galleryJSX.push(
             <Item
@@ -41,6 +47,7 @@ export default function ImageGallery({ images, imageCount }) {
               thumbnail={image}
               width="1024"
               height="768"
+              caption="Images"
             >
               {({ ref, open }) => (
                 <img
@@ -52,8 +59,8 @@ export default function ImageGallery({ images, imageCount }) {
                 />
               )}
             </Item>
-          )
-        })
+          );
+        });
       } else {
         galleryJSX.push(
           <Item
@@ -61,11 +68,15 @@ export default function ImageGallery({ images, imageCount }) {
             thumbnail={images[image][0]}
             width="1024"
             height="768"
+            caption={image}
           >
             {({ ref, open }) => (
               <div ref={ref} onClick={open} className="relative w-full h-full">
                 <div className="absolute flex items-center justify-center w-full h-full bg-black bg-opacity-50 z-10">
-                  <p className="text-white text-xl">{image.charAt(0).toUpperCase()}{image.slice(1)} ({images[image].length})</p>
+                  <p className="text-white text-xl">
+                    {image.charAt(0).toUpperCase()}
+                    {image.slice(1)} ({images[image].length})
+                  </p>
                 </div>
                 <img
                   src={images[image][0]}
@@ -75,8 +86,7 @@ export default function ImageGallery({ images, imageCount }) {
               </div>
             )}
           </Item>
-        )
-
+        );
 
         images[image].map((image) => {
           return galleryJSX.push(
@@ -85,14 +95,14 @@ export default function ImageGallery({ images, imageCount }) {
               thumbnail={image}
               width="1024"
               height="768"
+              caption={image}
             >
               {({ ref, open }) => (
                 <div ref={ref} onClick={open} className="hidden" />
-              )
-              }
+              )}
             </Item>
-          )
-        })
+          );
+        });
       }
     }
   }
@@ -103,6 +113,7 @@ export default function ImageGallery({ images, imageCount }) {
       thumbnail={images.all}
       width="1024"
       height="768"
+      caption="Images"
     >
       {({ ref, open }) => (
         <div ref={ref} onClick={open} className="relative w-full h-full">
@@ -117,21 +128,18 @@ export default function ImageGallery({ images, imageCount }) {
         </div>
       )}
     </Item>
-  )
+  );
 
   return (
     <div className="w-full">
-      <Gallery>
+      <Gallery withCaption options={options}>
         <div className="flex md:w-[95%] w-full mx-auto space-x-2">
-          <div className="md:w-10/12 w-full">
-            {galleryJSX[0]}
-          </div>
+          <div className="md:w-10/12 w-full">{galleryJSX[0]}</div>
           <div className="md:flex hidden w-2/12 flex-col space-y-2 justify-between">
             {galleryJSX.slice(1, galleryJSX.length)}
           </div>
         </div>
       </Gallery>
     </div>
-  )
-
+  );
 }
