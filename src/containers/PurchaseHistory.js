@@ -1,4 +1,4 @@
-import { ExpandMore } from "@mui/icons-material";
+import { ExpandMore, Cancel } from "@mui/icons-material";
 import { useState } from "react";
 import { connect } from "react-redux";
 import Accourdion from "../components/Accourdion";
@@ -14,6 +14,10 @@ import { showModal } from "../redux/actions/modal";
 const PurchaseHistory = ({ showModal }) => {
   const [fontSize, setFontSize] = useState("text-4xl");
   const [activeTab, setActiveTab] = useState("All Purchases");
+  const [phonesidenav, showphonesidenav] = useState(false);
+  const [showsort, setshowsort] = useState(false);
+  const [sorttype, setsorttype] = useState(0);
+  const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
 
   const purchaseHistoryTabs = [
     "All Purchases",
@@ -50,17 +54,15 @@ const PurchaseHistory = ({ showModal }) => {
         </div>
         <div className="flex-1 bg-[#FCF9F4]">
           <div
-            className={`border-b-[1px] border-black pl-12 pr-16 transition-all duration-300 ease-in-out ${
-              fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-6"
-            }`}
+            className={`border-b-[1px] border-black pl-12 pr-16 transition-all duration-300 ease-in-out ${fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-6"
+              }`}
           >
             <h1 className={`${fontSize} transition-all duration-300 ease font-semibold text-black`}>
               Purchase History
             </h1>
             <div
-              className={`${
-                fontSize === "text-4xl" ? "mt-5" : "mt-2"
-              } transition-all duration-300 ease-in-out flex items-center justify-between`}
+              className={`${fontSize === "text-4xl" ? "mt-5" : "mt-2"
+                } transition-all duration-300 ease-in-out flex items-center justify-between`}
             >
               <div className="flex items-center gap-x-4">
                 {purchaseHistoryTabs.map(function (e, i) {
@@ -68,11 +70,10 @@ const PurchaseHistory = ({ showModal }) => {
                     <button
                       onClick={() => setActiveTab(e)}
                       key={i}
-                      className={`text-[18px] mt-2.5 py-2 px-5  rounded-md ${
-                        activeTab === e
+                      className={`text-[18px] mt-2.5 py-2 px-5  rounded-md ${activeTab === e
                           ? "bg-white border-[1px] border-sa-border-black"
                           : "bg-[#FCF9F4]  border-[1px] border-[#FCF9F4]"
-                      } text-black font-medium flex items-center justify-center`}
+                        } text-black font-medium flex items-center justify-center`}
                     >
                       {e}
                     </button>
@@ -128,9 +129,8 @@ const PurchaseHistory = ({ showModal }) => {
                   {data.map((e, index) => (
                     <div
                       key={index}
-                      className={`mx-3.5 py-4.5 flex items-start ${
-                        data.length - 1 == index ? "" : "border-b-[1.5px]"
-                      }   border-black 2xl:mx-4 relative`}
+                      className={`mx-3.5 py-4.5 flex items-start ${data.length - 1 == index ? "" : "border-b-[1.5px]"
+                        }   border-black 2xl:mx-4 relative`}
                     >
                       <div className=" absolute top-3">
                         <TagRibbon
@@ -232,6 +232,9 @@ const PurchaseHistory = ({ showModal }) => {
 
       {/* mobile */}
       <div className=" mb-28 xl:hidden">
+        <div className={`fixed w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
+          <SideMenu />
+        </div>
         <h1 className="text-[26px] font-semibold text-black tracking-wide border-b-[1px] border-black pt-9 px-4 pb-3.5">
           Purchase History
         </h1>
@@ -422,13 +425,27 @@ const PurchaseHistory = ({ showModal }) => {
             </div>
           </div>
         ))}
-        <div className="flex items-center justify-between">
-          <button className=" w-full text-base py-2 bg-black text-sa-primary-yellow border-[1px] border-sa-border-black font-medium">
-            Purchase History
-          </button>
-          <button className=" w-full text-base py-2 bg-white text-sa-menu-green border-[1px] border-sa-border-black font-medium">
-            Sort: Date All
-          </button>
+        <div className="fixed bottom-0 w-full grid grid-cols-[100%]">
+          <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
+            <h2 className="text-2xl py-t-2 font-bold">Sorting</h2>
+            <div
+              onClick={() => {setshowsort(!showsort)}}
+              className=" absolute top-4 right-3"
+            >
+              <Cancel className="text-base " />
+            </div>
+            {sortarray.map((type, i) =>(
+            <button className={`text-left py-3 border-b-[1px] border-gray-400 ${i!==sorttype?"":"font-bold"}`} onClick={() => { setsorttype(i) }}>{type}</button>
+            ))}
+          </div>
+          <div className="grid grid-cols-[50%_50%]">
+            <button onClick={() => { showphonesidenav(!phonesidenav) }} className={` w-full text-base py-2 ${phonesidenav ? "bg-black text-sa-primary-yellow" : "bg-sa-primary-yellow text-black"} border-[1px] border-sa-border-black font-medium`}>
+              Purchase History
+            </button>
+            <button onClick={() => {setshowsort(!showsort)}} className=" w-full text-base py-2 bg-white text-sa-menu-green border-[1px] border-sa-border-black font-medium">
+              Sort: {sortarray[sorttype]}
+            </button>
+          </div>
         </div>
       </div>
     </div>

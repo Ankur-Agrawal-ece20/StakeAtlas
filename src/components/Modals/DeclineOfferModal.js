@@ -1,9 +1,9 @@
 import { Cancel, Star } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { CONTACT_SELLER_SUBMIT_MESSAGE_MODAL } from "../../extras/constants";
+import { CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,COUNTER_OFFER_MODAL } from "../../extras/constants";
 import { hideModal, showModal } from "../../redux/actions/modal";
 
-const CounterOfferModal = () => {
+const DeclineOfferModal = () => {
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +20,7 @@ const CounterOfferModal = () => {
             <div className="bg-white px-7 py-5 rounded-lg">
               <div className="mb-2">
                 <h1 className="text-[40px] font-semibold text-black text-center">
-                  Counter Offer
+                  Decline Offer
                 </h1>
                 <div className="flex items-center justify-between my-4">
                   <div>
@@ -50,29 +50,42 @@ const CounterOfferModal = () => {
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-lg font-semibold text-sa-light-brown">
-                    Counter Amount
-                  </h1>
-                  <input
-                    type="text"
-                    placeholder="46,000.00 or Less"
-                    className=" w-full h-10 px-2 3tablet:text-xl 4tablet:text-[23px] focus:outline-none outline-none border-[1px] border-black mt-1 rounded"
-                  />
-                  <button
-                    onClick={() => {
-                      dispatch(
-                        showModal({
-                          modalType: CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,
-                          modalTitle: ``,
-                          modalSubTitle: "",
-                          modalProps: { "type": "Counter Sent", "color": "#0167DE", "msg": "70% buyers accept a counter offer from a seller. Make a counter offer to make a deal!" }
-                        })
-                      );
-                    }}
-                    className="w-full text-[18px] mt-4 py-2 px-5 rounded-[4px] bg-[#0167DE] text-white border-[1px] border-black font-medium flex items-center justify-center"
-                  >
-                    Counter
-                  </button>
+                  <h3 className="text-sm w-[80%] mx-auto py-2 font-semibold text-center">
+                    70% sellers accept a counter offer from a buyer. Make a counter offer to make a deal!
+                  </h3>
+                  <div className="grid grid-cols-[48%_48%] place-items-center gap-[4%]">
+                      <button
+                        onClick={() => {
+                          dispatch(
+                            showModal({
+                              modalType: CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,
+                              modalTitle: ``,
+                              modalSubTitle: "",
+                              modalProps: { "type": "Declined", "color": "#D1503B", "msg": "There’s plenty of fish in the sea! On average 90% of the listings receive more than 3 offers." }
+                            })
+                          );
+                        }}
+                        f
+                        className="w-full text-[18px] mt-4 py-2 px-5 rounded-[4px] bg-[#D1503B] bg-[#0167DE] text-white border-[1px] border-black font-medium flex items-center justify-center"
+                      >
+                        Decline
+                      </button>
+                      <button
+                        onClick={() => {
+                          dispatch(
+                            showModal({
+                              modalType: COUNTER_OFFER_MODAL,
+                              modalTitle: ``,
+                              modalSubTitle: "",
+                            })
+                          );
+                        }}
+                        f
+                        className="w-full text-[18px] mt-4 py-2 px-5 rounded-[4px] bg-[#0167DE] bg-[#0167DE] text-white border-[1px] border-black font-medium flex items-center justify-center"
+                      >
+                        Counter
+                      </button>
+                    </div>
                 </div>
               </div>
             </div>
@@ -94,7 +107,7 @@ const CounterOfferModal = () => {
               <div>
                 <div className="mb-2">
                   <h1 className="text-[28px] font-semibold text-black text-center">
-                    Counter Offer
+                    Decline Offer
                   </h1>
                   <div className="my-4">
                     <div className="flex items-center justify-between">
@@ -126,30 +139,42 @@ const CounterOfferModal = () => {
                     </div>
                   </div>
                   <div>
-                    <h1 className="text-lg font-semibold text-sa-light-brown">
-                      Counter Amount
+                    <h1 className="text-sm w-[80%] mx-auto font-semibold">
+                      70% sellers accept a counter offer from a buyer. Make a counter offer to make a deal!
                     </h1>
-                    <input
-                      type="text"
-                      placeholder="46,000.00 or Less"
-                      className=" w-full h-10 px-2 3tablet:text-xl 4tablet:text-[23px] focus:outline-none outline-none border-[1px] border-black mt-1 rounded"
-                    />
-                    <button
-                      onClick={() => {
-                        dispatch(
-                          showModal({
-                            modalType: CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,
-                            modalTitle: ``,
-                            modalSubTitle: "",
-                            modalProps: { "type": "Counter Sent", "color": "#0167DE", "msg": "70% buyers accept a counter offer from a seller. Make a counter offer to make a deal!" }
-                          })
-                        );
-                      }}
-                      f
-                      className="w-full text-[18px] mt-4 py-2 px-5 rounded-[4px] bg-[#0167DE] text-white border-[1px] border-black font-medium flex items-center justify-center"
-                    >
-                      Counter
-                    </button>
+                    <div className="grid grid-cols-[48%_48%] place-items-center gap-[4%]">
+                      <button
+                        onClick={() => {
+                          dispatch(
+                            showModal({
+                              modalType: CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,
+                              modalTitle: ``,
+                              modalSubTitle: "",
+                              modalProps: { "type": "Declined", "color": "#D1503B", "msg": "There’s plenty of fish in the sea! On average 90% of the listings receive more than 3 offers." }
+                            })
+                          );
+                        }}
+                        f
+                        className="w-full text-[18px] mt-4 py-2 px-5 rounded-[4px] bg-[#D1503B] bg-[#0167DE] text-white border-[1px] border-black font-medium flex items-center justify-center"
+                      >
+                        Decline
+                      </button>
+                      <button
+                        onClick={() => {
+                          dispatch(
+                            showModal({
+                              modalType: COUNTER_OFFER_MODAL,
+                              modalTitle: ``,
+                              modalSubTitle: "",
+                            })
+                          );
+                        }}
+                        f
+                        className="w-full text-[18px] mt-4 py-2 px-5 rounded-[4px] bg-[#0167DE] bg-[#0167DE] text-white border-[1px] border-black font-medium flex items-center justify-center"
+                      >
+                        Counter
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -161,4 +186,4 @@ const CounterOfferModal = () => {
   );
 };
 
-export default CounterOfferModal;
+export default DeclineOfferModal;

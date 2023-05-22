@@ -1,6 +1,6 @@
 import { Cancel, Star } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { COUNTER_OFFER_MODAL } from "../../extras/constants";
+import { COUNTER_OFFER_MODAL,ACCEPT_OFFER_MODAL,DECLINE_OFFER_MODAL } from "../../extras/constants";
 import { hideModal, showModal } from "../../redux/actions/modal";
 
 const CounterOfferReceivedModal = () => {
@@ -75,7 +75,17 @@ const CounterOfferReceivedModal = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between gap-x-5">
-                  <button className=" w-1/2 text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#D1503B] text-white border-[1px] border-sa-border-black font-medium flex items-center justify-center">
+                  <button
+                    onClick={() => {
+                      dispatch(
+                        showModal({
+                          modalType: DECLINE_OFFER_MODAL,
+                          modalTitle: ``,
+                          modalSubTitle: "",
+                        })
+                      );
+                    }}
+                   className=" w-1/2 text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#D1503B] text-white border-[1px] border-sa-border-black font-medium flex items-center justify-center">
                     Decline
                   </button>
                   <button
@@ -92,7 +102,17 @@ const CounterOfferReceivedModal = () => {
                   >
                     Counter
                   </button>
-                  <button className=" w-1/2 text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-sa-success-green text-white  font-medium flex items-center justify-center">
+                  <button 
+                    onClick={() => {
+                      dispatch(
+                        showModal({
+                          modalType: ACCEPT_OFFER_MODAL,
+                          modalTitle: ``,
+                          modalSubTitle: "",
+                        })
+                      );
+                    }}
+                    className=" w-1/2 text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-sa-success-green text-white  font-medium flex items-center justify-center">
                     Accept
                   </button>
                 </div>
