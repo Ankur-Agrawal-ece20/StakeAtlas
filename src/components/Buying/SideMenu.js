@@ -27,6 +27,8 @@ const SideMenu = () => {
       subItems: [
         { title: "Purchase History", navigation: "/buying/purchaseHistory" },
         { title: "Offers", navigation: "/buying/offers" },
+        { title: "Recently Viewed", navigation: "/recent" },
+        { title: "Watchlist", navigation: "/watchlist" },
         { title: "Saved Sellers ", navigation: "/buying/savedSeller" },
       ],
     },
@@ -39,24 +41,22 @@ const SideMenu = () => {
       icon: MessageIcon,
     },
     {
-      title: "Recently Viewed",
-      icon: RecentlyView,
-      navigation: "/recent",
-    },
-    {
-      title: "WatchList",
-      icon: WatchListIcon,
-      navigation: "/watchlist",
-    },
-    {
       title: "Account",
+      icon: accountIcon,
+    },
+    {
+      title: "Community",
+      icon: accountIcon,
+    },
+    {
+      title: "Resolution Center",
       icon: accountIcon,
     },
   ];
   return (
     <div className="inline">
       <div
-        className={`bg-black border-r-2 border-black h-screen duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px] " : "w-[19.5vw]"
+        className={`bg-black border-r-2 border-black h-screen duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px] " : "w-[226px]"
           }`}
       >
         {open ? (
@@ -90,10 +90,10 @@ const SideMenu = () => {
             </div>
           ) : (
             <>
-              <h1 className="text-3xl font-medium text-white tracking-wide w-[19.5vw] overflow-hidden">
+              <h1 className="text-3xl font-medium text-white tracking-wide w-[226px] overflow-hidden">
                 Hi, Sarthak
               </h1>
-              <h1 className=" text-lg font-medium text-[#FFDC25]  w-[19.5vw]">
+              <h1 className=" text-lg font-medium text-[#FFDC25]  w-[226px]">
                 Member Since Jan 2022
               </h1>
             </>
@@ -114,7 +114,7 @@ const SideMenu = () => {
 
           return (
             <div
-              className={`py-3.5  w-[19.5vw] border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6"
+              className={`py-3.5  w-[226px] border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6"
                 }`}
             >
               <div
@@ -141,9 +141,7 @@ const SideMenu = () => {
 
                 <div className="flex justify-start items-center flex-1">
                   <h1
-                    className={`text-[17px] font-medium text-white tracking-wide ml-4
-                      ${open ? "pl-5" : "pl-6"
-                      }
+                    className={`text-[17px] font-medium text-white tracking-wide ml-4 pl-3
                   `}
                   >
                     <Link
@@ -169,11 +167,11 @@ const SideMenu = () => {
               </div>
 
               {open && e.icon === buyingIcon && (
-                <div className={`pl-2 transition-all duration-300 overflow-hidden ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
+                <div className={`pl-2 transition-all duration-300 overflow-hidden ease-in-out ${expand ? "max-h-0" : "max-h-50"}`}>
                   {e.subItems.map((subItem, j) => (
                     <abbr title={subItem.title}>
                       <div
-                        className="py-2 flex items-center justify-right cursor-pointer"
+                        className="py-1 flex items-center justify-right cursor-pointer"
                         key={j}
                       >
                         <Link

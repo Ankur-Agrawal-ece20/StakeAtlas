@@ -103,7 +103,7 @@ const OffersScreen = ({ showModal }) => {
             Offers
           </h1>
         </div>
-        <div className="pt-7 px-4">
+        <div className="pt-7 px-4 transition-all  duration-500 ease">
           {[0, 1, 2].map((e) => (
             <ProductCardMob isBuying />
           ))}
