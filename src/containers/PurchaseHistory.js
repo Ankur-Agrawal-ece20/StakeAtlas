@@ -51,10 +51,10 @@ const PurchaseHistory = ({ showModal }) => {
         <div className="flex-1 bg-[#FCF9F4]">
           <div
             className={`border-b-[1px] border-black pl-12 pr-16 transition-all duration-300 ease-in-out ${
-              fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-9"
+              fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-6"
             }`}
           >
-            <h1 className={`${fontSize}  font-semibold text-black`}>
+            <h1 className={`${fontSize} transition-all duration-300 ease font-semibold text-black`}>
               Purchase History
             </h1>
             <div
@@ -143,7 +143,7 @@ const PurchaseHistory = ({ showModal }) => {
                           customClasses={"w-[74px] h-[26px]"}
                         />
                       </div>
-                      <div className=" w-[21%] border-[2px] border-black rounded-md ">
+                      <div className=" w-[21%] max-w-[180px] border-[2px] border-black rounded-md ">
                         <img
                           src={e.img}
                           alt=""

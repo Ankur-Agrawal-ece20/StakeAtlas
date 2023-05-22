@@ -37,10 +37,10 @@ const OffersScreen = ({ showModal }) => {
         <div className="flex-1 bg-[#FCF9F4]">
           <div
             className={`border-b-[1px] border-black pl-12 pr-16 transition-all duration-300 ease-in-out ${
-              fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-9"
+              fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-6"
             }`}
           >
-            <h1 className={`${fontSize}  font-semibold text-black`}>Offers</h1>
+            <h1 className={`${fontSize} transition-all duration-300 ease  font-semibold text-black`}>Offers</h1>
             <div
               className={`${
                 fontSize === "text-4xl" ? "mt-5" : "mt-2"
@@ -82,10 +82,10 @@ const OffersScreen = ({ showModal }) => {
           </div>
           <div
             onScroll={handleScroll}
-            className="pl-12 pr-16 pt-9 h-[85vh] overflow-y-auto flex items-start justify-between flex-wrap gap-x-6"
+            className="pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto flex items-start justify-center flex-wrap gap-x-6"
           >
             {[0, 1, 2, 4, 5, 6].map((e) => (
-              <div className="w-[30%]">
+              <div className="w-min min-w-[330px]">
                 <ProductCard isBuying />
               </div>
             ))}
