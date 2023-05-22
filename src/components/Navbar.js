@@ -56,9 +56,9 @@ const NavBar = () => {
         <div className="hidden min-[950px]:flex min-[950px]:w-auto min-[950px]:h-auto flex-1 bg-white border-b-[2px] border-black 4min-[950px]:border-b-2">
           <div
             onClick={() => navigate("/")}
-            className="border-r-2 border-black min-[950px]:py-4 min-[950px]:w-[19.5%]  3min-[950px]:py-5 3min-[950px]:w-[20%]  4min-[950px]:py-6 4min-[950px]:w-[20%] cursor-pointer"
+            className="border-r-2 border-black px-4 cursor-pointer flex items-center justify-center"
           >
-            <h1 className="mediumFont text-black text-right mr-7 min-[950px]:text-4xl line 3min-[950px]:text-[44px]  4min-[950px]:text-5xl">
+            <h1 className="mediumFont text-black text-right min-[950px]:text-4xl line 3min-[950px]:text-[44px]  4min-[950px]:text-5xl">
               Stake Atlas
             </h1>
           </div>
@@ -148,7 +148,7 @@ const NavBar = () => {
               <Menu />
             </button>
             <div onClick={() => navigate("/")}>
-              <h1 className="text-lg ml-3">Stake Atlas</h1>
+              <h1 className="text-lg ml-3 mt-1">Stake Atlas</h1>
             </div>
           </div>
           <Link to="/cart" className="border-l-[1px] border-black px-2 py-4">

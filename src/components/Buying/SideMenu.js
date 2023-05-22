@@ -54,11 +54,10 @@ const SideMenu = () => {
     },
   ];
   return (
-    <div className="flex">
+    <div className="inline">
       <div
-        className={`bg-black border-r-2 border-black h-screen transition-all duration-300 ease-in-out ${
-          open ? "  w-[64px] " : "w-[19.5vw]"
-        }`}
+        className={`bg-black border-r-2 border-black h-screen duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px] " : "w-[19.5vw]"
+          }`}
       >
         {open ? (
           <div
@@ -81,9 +80,9 @@ const SideMenu = () => {
             />
           </div>
         )}
-        <div className={`py-8 ${open ? "pl-4" : "pl-6"}`}>
+        <div className={`py-7 ${open ? "pl-4" : "pl-6"}`}>
           {open ? (
-            <div className="float-center pt-7 pr-2">
+            <div className="float-center pt-11 pr-2">
               <img
                 src={require("../../assets/icons/user_icon.svg").default}
                 alt=""
@@ -91,10 +90,10 @@ const SideMenu = () => {
             </div>
           ) : (
             <>
-              <h1 className=" text-3xl font-medium text-white tracking-wide">
+              <h1 className="text-3xl font-medium text-white tracking-wide w-[19.5vw] overflow-hidden">
                 Hi, Sarthak
               </h1>
-              <h1 className=" text-lg font-medium text-[#FFDC25]">
+              <h1 className=" text-lg font-medium text-[#FFDC25]  w-[19.5vw]">
                 Member Since Jan 2022
               </h1>
             </>
@@ -110,15 +109,13 @@ const SideMenu = () => {
               e.subItems.some((subItem) =>
                 location.pathname.includes(subItem.navigation)
               ));
-          const itemClass = `text-[16px] font-medium  tracking-wide  block outline a outline-black outline-[2px]  ${
-            isActive ? "text-[#FFDC25]" : "text-white"
-          }`;
+          const itemClass = `text-[16px] font-medium  tracking-wide  block outline a outline-black outline-[2px]  ${isActive ? "text-[#FFDC25]" : "text-white"
+            }`;
 
           return (
             <div
-              className={`py-3.5   border-y-[1px] menuBorder relative ${
-                open ? "pl-5" : "pl-6"
-              }`}
+              className={`py-3.5  w-[19.5vw] border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6"
+                }`}
             >
               <div
                 className="flex items-start justify-start"
@@ -129,11 +126,10 @@ const SideMenu = () => {
                 }
               >
                 <div
-                  className={`flex items-center justify-center ${
-                    e.icon === buyingIcon
+                  className={`flex items-center justify-center ${e.icon === buyingIcon
                       ? `group transition-all  duration-300 ease-in-out font-normal  text-white`
                       : ""
-                  }`}
+                    }`}
                   onMouseOver={() => {
                     if (e.icon === buyingIcon) {
                       setShowDropdown(true);
@@ -143,29 +139,28 @@ const SideMenu = () => {
                   <img src={e?.icon} alt=" icon" />
                 </div>
 
-                {!open && (
-                  <div className="flex justify-start items-center flex-1">
-                    <h1
-                      className={`text-[17px] font-medium text-white tracking-wide ml-4
-                   
+                <div className="flex justify-start items-center flex-1">
+                  <h1
+                    className={`text-[17px] font-medium text-white tracking-wide ml-4
+                      ${open ? "pl-5" : "pl-6"
+                      }
                   `}
+                  >
+                    <Link
+                      to={e.navigation}
+                      className={`${itemClass}`}
+                      onClick={() => setActiveSubItem(null)}
                     >
-                      <Link
-                        to={e.navigation}
-                        className={`${itemClass}`}
-                        onClick={() => setActiveSubItem(null)}
-                      >
-                        {" "}
-                        {e?.title}
-                      </Link>
-                    </h1>
-                  </div>
-                )}
+                      {" "}
+                      {e?.title}
+                    </Link>
+                  </h1>
+                </div>
 
-                <div className="flex items-end justify-center">
+                <div className="flex items-end justify-center pr-2">
                   {e.title === "Buying" &&
                     !open &&
-                    (expand ? (
+                    (!expand ? (
                       <ExpandLess className="text-white text-2xl" />
                     ) : (
                       <ExpandMore className="text-white text-2xl" />
@@ -173,29 +168,30 @@ const SideMenu = () => {
                 </div>
               </div>
 
-              {expand && open && e.icon === buyingIcon && (
-                <div className={`pl-2`}>
+              {open && e.icon === buyingIcon && (
+                <div className={`pl-2 transition-all duration-300 overflow-hidden ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
                   {e.subItems.map((subItem, j) => (
-                    <div
-                      className="py-2 flex items-center justify-center cursor-pointer"
-                      key={j}
-                    >
-                      <Link
-                        to={subItem.navigation}
-                        className={`text-[16px] font-medium tracking-wide text-center  ${
-                          location.pathname.includes(subItem.navigation)
-                            ? "text-[#FFDC25]"
-                            : "text-white"
-                        }`}
+                    <abbr title={subItem.title}>
+                      <div
+                        className="py-2 flex items-center justify-right cursor-pointer"
+                        key={j}
                       >
-                        {subItem.title.charAt(0)}
-                      </Link>
-                    </div>
+                        <Link
+                          to={subItem.navigation}
+                          className={`text-[16px] font-medium tracking-wide text-center  ${location.pathname.includes(subItem.navigation)
+                              ? "text-[#FFDC25]"
+                              : "text-white"
+                            }`}
+                        >
+                          {subItem.title.charAt(0)}
+                        </Link>
+                      </div>
+                    </abbr>
                   ))}
                 </div>
               )}
 
-              {e?.icon === buyingIcon && showDropdown && open && (
+              {/* {e?.icon === buyingIcon && showDropdown && open && (
                 <div
                   className={`pl-4 z-20 h-[130px] w-[202px] group-hover:block ml-10 absolute top-0 border-[2px] border-black  bg-black`}
                   onMouseLeave={() => setShowDropdown(false)}
@@ -216,26 +212,25 @@ const SideMenu = () => {
                         }
                        `}
                       >
-                        {subItem.title}
+                        {subItem.title} hover
                       </Link>
                     </div>
                   ))}
                 </div>
-              )}
+              )} */}
 
-              {expand && !open && hasSubItems && (
-                <div className={`pl-4`}>
+              {!open && hasSubItems && (
+                <div className={`pl-4 overflow-hidden transition-all duration-500 ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
                   {e.subItems.map((subItem, j) => (
                     <div className="flex items-center cursor-pointer" key={j}>
                       <Link
                         to={subItem.navigation}
                         className={`text-[16px] font-medium tracking-wide ml-10 mt-2 block
                        
-                        ${
-                          location.pathname.includes(subItem.navigation)
+                        ${location.pathname.includes(subItem.navigation)
                             ? "text-[#FFDC25]"
                             : "text-white"
-                        }
+                          }
                        `}
                       >
                         {subItem.title}
