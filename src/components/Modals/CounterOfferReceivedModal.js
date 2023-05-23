@@ -1,6 +1,6 @@
 import { Cancel, Star } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { COUNTER_OFFER_MODAL,ACCEPT_OFFER_MODAL,DECLINE_OFFER_MODAL } from "../../extras/constants";
+import { COUNTER_OFFER_MODAL,APPROVE_OFFER_MODAL,DECLINE_OFFER_MODAL } from "../../extras/constants";
 import { hideModal, showModal } from "../../redux/actions/modal";
 
 const CounterOfferReceivedModal = () => {
@@ -106,7 +106,7 @@ const CounterOfferReceivedModal = () => {
                     onClick={() => {
                       dispatch(
                         showModal({
-                          modalType: ACCEPT_OFFER_MODAL,
+                          modalType: APPROVE_OFFER_MODAL,
                           modalTitle: ``,
                           modalSubTitle: "",
                         })

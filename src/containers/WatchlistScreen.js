@@ -10,6 +10,7 @@ const WatchlistScreen = () => {
   const [phonesidenav, showphonesidenav] = useState(true);
   const [showsort, setshowsort] = useState(true);
   const [sorttype, setsorttype] = useState(0);
+  const [navexpand, setnavexpand] = useState(true);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
   const [data, setdata] = useState([
     {
@@ -135,9 +136,9 @@ const WatchlistScreen = () => {
       {/* desktop */}
       <div className="hidden xl:flex items-start min-h-screen">
         <div className=" self-stretch">
-          <SideMenu />
+          <SideMenu  setnavexpand={setnavexpand}/>
         </div>
-        <div className="flex-1  bg-[#FCF9F4]">
+        <div className="flex-1 w-full overflow-hidden bg-[#FCF9F4]">
           <div
             className={`border-b-[1px] border-black pl-12 pr-16 transition-all duration-300 ease-in-out ${fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-6"
               }`}
@@ -192,12 +193,15 @@ const WatchlistScreen = () => {
               </button> */}
             </div>
           </div>
-        <div onScroll={handleScroll} className="pl-12 pr-16 pt-9 h-[70vh] overflow-y-auto flex items-start flex-wrap gap-x-12">
+          <div
+            onScroll={handleScroll}
+            style={{width:navexpand?"100%":"95vw"}}
+            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-center gap-x-[3%]">
           {data.map((e, i) => (
             (e === remove) ?
-              (<div className=" w-[30%] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
-                <h1 className="text-xl font-medium text-white text-center w-[60%] mx-auto ">
-                  Are you sure you want to remove this
+              (<div className="w-min min-w-[300px] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
+                <h1 className="text-xl font-medium text-white text-center w-[80%] mb-3 mx-auto ">
+                  Are you sure you want to remove this?
                 </h1>
                 <div className="flex items-center px-2 w-full gap-x-4">
                   <button onClick={() => { setremove(-1) }} className=" w-1/2 text-sm mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black font-medium flex items-center justify-center border-[1px] border-black">
@@ -208,7 +212,7 @@ const WatchlistScreen = () => {
                   </button>
                 </div>
               </div>) :
-              <div className="w-[30%] mb-10">
+              <div className="w-min min-w-[300px] mb-10">
                 <ProductCard data={e} remove={setremove} />
               </div>
           ))}

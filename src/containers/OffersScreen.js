@@ -13,6 +13,7 @@ const OffersScreen = ({ showModal }) => {
   const [phonesidenav, showphonesidenav] = useState(true);
   const [showsort, setshowsort] = useState(true);
   const [sorttype, setsorttype] = useState(0);
+  const [navexpand, setnavexpand] = useState(true);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
   const [data, setdata] = useState([
     {
@@ -134,9 +135,9 @@ const OffersScreen = ({ showModal }) => {
       {/* desktop */}
       <div className="hidden xl:flex items-start min-h-screen">
         <div className="self-stretch">
-          <SideMenu />
+          <SideMenu setnavexpand={setnavexpand} />
         </div>
-        <div className="flex-1 bg-[#FCF9F4]">
+        <div className="flex-1 w-full overflow-hidden bg-[#FCF9F4]">
           <div
             className={`border-b-[1px] border-black pl-12 pr-16 transition-all duration-300 ease-in-out ${fontSize === "text-4xl" ? "pt-8 pb-9" : "pt-4 pb-6"
               }`}
@@ -188,11 +189,11 @@ const OffersScreen = ({ showModal }) => {
           </div>
           <div
             onScroll={handleScroll}
-            className="pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto flex items-start justify-center flex-wrap gap-x-6"
-          >
+            style={{width:navexpand?"100%":"95vw"}}
+            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-center gap-x-[3%]">
             {data.map((e, i) => (
-              <div className="w-min min-w-[330px]">
-                <ProductCard isBuying key={i} data={e} />
+              <div className="w-min min-w-[300px]">
+                <ProductCard isBuying key={i} data={e}/>
               </div>
             ))}
           </div>

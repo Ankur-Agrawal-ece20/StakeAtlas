@@ -1,5 +1,5 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import accountIcon from "../../assets/icons/account_icon.svg";
 import buyingIcon from "../../assets/icons/buying_icon.svg";
@@ -9,12 +9,16 @@ import SellingIcon from "../../assets/icons/selling_icon.svg";
 import SummaryIcon from "../../assets/icons/summary_icon.svg";
 import WatchListIcon from "../../assets/icons/watchList_icon.svg";
 
-const SideMenu = () => {
+const SideMenu = (props) => {
   const location = useLocation();
   const [expand, setExpand] = useState(false);
   const [open, setOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeSubItem, setActiveSubItem] = useState(null);
+  useEffect(()=>{
+    // console.log(props.setnavexpand);
+    if(props.setnavexpand) props.setnavexpand(!open);
+  },[open])
 
   const menuItems = [
     {
