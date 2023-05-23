@@ -8,6 +8,22 @@ import TagRibbon from "../TagRibbon";
 import { useState } from "react";
 
 const ProductCard = ({ isBuying, data }) => {
+  if(!data) data={
+    id: 1,
+    seller: '@AkshatTripathi',
+    title: "Hyundai Venue",
+    desc: "Interested Buyers Contact Me Shipping All Over India",
+    shipping: "200.00",
+    deliverydate: "12 Dec 2022",
+    price: "₹4,60,000",
+    acceptprice: "₹4,00,000",
+    img: require("../../assets/new design/car_img.png"),
+    location: " Ashok Vihar Delhi",
+    year: "2019",
+    time: "02 D 12 Hr",
+    distance: "5000 KMS",
+    ownership: "1st"
+  }
   const navigate = useNavigate();
   const [showaccept,setshowaccept]=useState(true);
   const addtocart=()=>{
