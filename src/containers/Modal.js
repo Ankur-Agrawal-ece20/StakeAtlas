@@ -10,6 +10,7 @@ import {
   CONTACT_SELLER_SUBMIT_MESSAGE_MODAL,
   COUNTER_OFFER_MODAL,
   ACCEPT_OFFER_MODAL,
+  APPROVE_OFFER_MODAL,
   DECLINE_OFFER_MODAL,
   COUNTER_OFFER_RECEIVED_MODAL,
   ADD_NEW_ADDRESS_MODAL,
@@ -32,6 +33,7 @@ import ContactSellerSubmitMessageModal from "../components/Modals/ContactSellerS
 import ReviewSubmittedModal from "../components/Modals/ReviewSubmittedModal";
 import ReportSubmittedModal from "../components/Modals/ReportSubmittedModal";
 import CounterOfferReceivedModal from "../components/Modals/CounterOfferReceivedModal";
+import AcceptedOfferModal from "../components/Modals/AcceptedOfferModal";
 import ApproveOfferModal from "../components/Modals/ApproveOfferModal";
 import CounterOfferModal from "../components/Modals/CounterOfferModal";
 import DeclineOfferModal from "../components/Modals/DeclineOfferModal";
@@ -81,6 +83,9 @@ const Modal = ({ modal, hideModal }) => {
       Component = CounterOfferModal;
       break;
     case ACCEPT_OFFER_MODAL:
+      Component = AcceptedOfferModal;
+      break;
+    case APPROVE_OFFER_MODAL:
       Component = ApproveOfferModal;
       break;
     case DECLINE_OFFER_MODAL:

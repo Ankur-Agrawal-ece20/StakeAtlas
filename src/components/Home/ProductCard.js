@@ -5,9 +5,13 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import TagRibbon from "../TagRibbon";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ACCEPT_OFFER_MODAL } from "../../extras/constants";
+import { showModal } from "../../redux/actions/modal";
 
 const ProductCard = ({ isBuying, data }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   if(!data) data={
     id: 1,
     seller: '@AkshatTripathi',
@@ -24,14 +28,8 @@ const ProductCard = ({ isBuying, data }) => {
     distance: "5000 KMS",
     ownership: "1st"
   }
-  const navigate = useNavigate();
-  const [showaccept,setshowaccept]=useState(true);
-  const addtocart=()=>{
-    // api to save to cart
-    navigate("/cart");
-  }
   return (
-    <div className="border-[1px] border-black cardHover rounded-md relative mb-5">
+    <div className="border-[1px] border-black cardSelect cardHover rounded-md relative mb-5">
       {isBuying && (
         <div className="border-b-[1px] border-black flex items-center">
           <div className="border-r-[1px] border-black w-[50%]">
@@ -39,14 +37,22 @@ const ProductCard = ({ isBuying, data }) => {
               {data.acceptprice}
             </h1>
           </div>
-          <div onClick={() => {setshowaccept(!showaccept); }} className="bg-sa-success-green justify-center  w-[50%] text-center">
-            <h1 className="text-xl leading-8 underline underline-offset-4 decoration-1 boldFont text-white text-center py-2 pl-3">
+          <div 
+            onClick={() => {
+              dispatch(
+                showModal({
+                  modalType: ACCEPT_OFFER_MODAL,
+                  modalTitle: ``,
+                  modalSubTitle: "",
+                  modalProps: data
+                })
+              );
+            }}
+          className="bg-sa-success-green justify-center  w-[50%] text-center">
+            <h1 
+            className="text-xl leading-8 underline underline-offset-4 decoration-1 boldFont text-white text-center py-2 pl-3">
               Accepted
             </h1>
-            <div className={`absolute w-[50%] z-20 grid grid-cols-[100%] bg-white px-4 rounded-b-lg border-[1px] border-sa-border-black ${showaccept ? "hidden" : ""}`}>
-              <button className="text-left py-3 border-b-[1px] border-gray-400" onClick={() => { navigate("/cart",{state:{data:data}}); }}>Pay Now</button>
-              <button className="text-left py-3 border-b-[1px] border-gray-400" onClick={() => { addtocart(); }}>Add to Cart</button>
-            </div>
           </div>
         </div>
       )}
@@ -54,7 +60,7 @@ const ProductCard = ({ isBuying, data }) => {
         className={`flex absolute ${
           isBuying ? "top-14" : "top-3"
         } -left-2 rounded-sm`}
-        onClick={() => {showaccept && navigate("/product")}}
+        onClick={() => {navigate("/product")}}
       >
         <TagRibbon
           textClasses={"text-[14px] font-semibold text-black text-center"}
@@ -62,7 +68,7 @@ const ProductCard = ({ isBuying, data }) => {
           bgColor={"#FFDC25"}
         />
       </div>
-      <div className="p-3" onClick={() => {showaccept && navigate("/product")}}>
+      <div className="p-3" onClick={() => {navigate("/product")}}>
         <div className="border border-solid border-black rounded-lg">
           <img
             src={data.img}
@@ -70,7 +76,7 @@ const ProductCard = ({ isBuying, data }) => {
             className="w-full aspect-square rounded-lg"
           />
         </div>
-        <div onClick={() => {showaccept && navigate("/product")}}>
+        <div onClick={() => {navigate("/product")}}>
           <div className="flex items-center gap-x-1 mt-2">
             <LocationOnOutlined className="text-sa-icon-green" fontSize="10" />
             <h1 className="text-sm font-medium text-sa-text-gray">
@@ -82,7 +88,7 @@ const ProductCard = ({ isBuying, data }) => {
           </h1>
         </div>
       </div>
-      <div onClick={() => {showaccept && navigate("/product")}} className="border-b-[1px] border-black border-t-[1px] flex items-center">
+      <div onClick={() => {navigate("/product")}} className="border-b-[1px] border-black border-t-[1px] flex items-center">
         <div className="border-r-[1px] border-black w-[60%]">
           <h1 className="text-2xl boldFont text-sa-dark-green text-left py-2 pl-3">
             {data.price}
@@ -93,7 +99,7 @@ const ProductCard = ({ isBuying, data }) => {
           <h1 className="text-[15px] font-medium text-black">{data.time}</h1>
         </div>
       </div>
-      <div onClick={() => {showaccept && navigate("/product")}} className="flex items-center justify-between p-3">
+      <div onClick={() => {navigate("/product")}} className="flex items-center justify-between p-3">
         <div className="flex items-center gap-5">
           <div>
             <h1 className="text-sm font-semibold text-sa-light-brown">{data.distance.split(" ")[1]}</h1>

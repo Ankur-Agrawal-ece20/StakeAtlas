@@ -1,9 +1,12 @@
 import { AccessTimeOutlined, LocationOnOutlined } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import TagRibbon from "../TagRibbon";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ACCEPT_OFFER_MODAL } from "../../extras/constants";
+import { showModal } from "../../redux/actions/modal";
 
 const ProductCardMob = ({ isBuying, data }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   if(!data) data={
     id: 1,
@@ -21,7 +24,6 @@ const ProductCardMob = ({ isBuying, data }) => {
     distance: "5000 KMS",
     ownership: "1st"
   }
-  const [showaccept,setshowaccept]=useState(true);
   return (
     <div className="border-[1px] border-black buttonHover rounded relative mb-5">
       {isBuying && (
@@ -31,14 +33,21 @@ const ProductCardMob = ({ isBuying, data }) => {
               {data.acceptprice}
             </h1>
           </div>
-          <div onClick={() => {setshowaccept(!showaccept); }}  className="bg-sa-success-green justify-center  w-[50%] text-center">
+          <div 
+            onClick={() => {
+              dispatch(
+                showModal({
+                  modalType: ACCEPT_OFFER_MODAL,
+                  modalTitle: ``,
+                  modalSubTitle: "",
+                  modalProps: data
+                })
+              );
+            }}
+            className="bg-sa-success-green justify-center  w-[50%] text-center">
             <h1 className="text-md leading-8 underline underline-offset-4 decoration-1 boldFont text-white text-center py-2 pl-3">
               Accepted
             </h1>
-            <div className={`absolute w-[50%] z-20 grid grid-cols-[100%] bg-white px-4 rounded-b-lg border-[1px] border-sa-border-black ${showaccept ? "hidden" : ""}`}>
-              <button className="text-left py-3 border-b-[1px] border-gray-400" onClick={() => { setshowaccept(!showaccept); }}>Pay Now</button>
-              <button className="text-left py-3 border-b-[1px] border-gray-400" onClick={() => { setshowaccept(!showaccept); }}>Add to Cart</button>
-            </div>
           </div>
         </div>
       )}

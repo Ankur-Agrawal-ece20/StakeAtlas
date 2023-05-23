@@ -56,7 +56,7 @@ const SideMenu = () => {
   return (
     <div className="inline">
       <div
-        className={`bg-black border-r-2 border-black h-screen duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px] " : "w-[100%] xl:w-[226px]"
+        className={`bg-black border-r-2 border-black h-screen duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px] " : "w-[100%] xl:w-[255px]"
           }`}
       >
         {open ? (
@@ -90,10 +90,10 @@ const SideMenu = () => {
             </div>
           ) : (
             <>
-              <h1 className="text-3xl font-medium text-white tracking-wide w-[100vw] xl:w-[226px] overflow-hidden">
+              <h1 className="text-3xl font-medium text-white tracking-wide w-[100vw] xl:w-[255px] overflow-hidden">
                 Hi, Sarthak
               </h1>
-              <h1 className=" text-lg font-medium text-[#FFDC25]  w-[100vw] xl:w-[226px]">
+              <h1 className=" text-lg font-medium text-[#FFDC25]  w-[100vw] xl:w-[255px]">
                 Member Since Jan 2022
               </h1>
             </>
@@ -114,7 +114,7 @@ const SideMenu = () => {
 
           return (
             <div
-              className={`py-3.5  w-[100%] xl:w-[226px] border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6"
+              className={`py-3.5  w-[100%] xl:w-[255px] border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6"
                 }`}
             >
               <div
