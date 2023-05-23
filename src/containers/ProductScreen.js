@@ -8,6 +8,9 @@ import {
   ThumbUp,
   TurnedInNot,
 } from "@mui/icons-material";
+import SouthIcon from "@mui/icons-material/South";
+import TurnRightRoundedIcon from "@mui/icons-material/TurnRightRounded";
+import NorthRoundedIcon from "@mui/icons-material/NorthRounded";
 import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery";
 import Accourdion from "../components/Accourdion";
@@ -19,6 +22,7 @@ import { useState } from "react";
 import { showModal } from "../redux/actions/modal";
 import { SEND_MESSAGE_MODAL } from "../extras/constants";
 import { connect } from "react-redux";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 const tabMenuContent = {
   Description: (
@@ -163,72 +167,6 @@ const tabMenuContent = {
 };
 
 const ProductScreen = ({ showModal }) => {
-  const [otherproducts, setotherproducts] = useState([
-    {
-      id: 1,
-      seller: '@AkshatTripathi',
-      title: "Hyundai Venue",
-      desc: "Interested Buyers Contact Me Shipping All Over India",
-      shipping: "200.00",
-      deliverydate: "12 Dec 2022",
-      price: "₹4,60,000",
-      acceptprice: "₹4,00,000",
-      img: require("../assets/new design/car_img.png"),
-      location: " Ashok Vihar Delhi",
-      year: "2019",
-      time: "02 D 12 Hr",
-      distance: "5000 KMS",
-      ownership: "1st"
-    },
-    {
-      id: 2,
-      seller: '@AkshatTripathi',
-      title: "Hyundai Venue",
-      desc: "Interested Buyers Contact Me Shipping All Over India",
-      shipping: "200.00",
-      deliverydate: "12 Dec 2022",
-      price: "₹4,60,000",
-      acceptprice: "₹4,00,000",
-      img: require("../assets/new design/car_img.png"),
-      location: " Ashok Vihar Delhi",
-      year: "2019",
-      time: "02 D 12 Hr",
-      distance: "5000 KMS",
-      ownership: "1st"
-    },
-    {
-      id: 3,
-      seller: '@AkshatTripathi',
-      title: "Hyundai Venue",
-      desc: "Interested Buyers Contact Me Shipping All Over India",
-      shipping: "200.00",
-      deliverydate: "12 Dec 2022",
-      price: "₹4,60,000",
-      acceptprice: "₹4,00,000",
-      img: require("../assets/new design/car_img.png"),
-      location: " Ashok Vihar Delhi",
-      year: "2019",
-      time: "02 D 12 Hr",
-      distance: "5000 KMS",
-      ownership: "1st"
-    },
-    {
-      id: 4,
-      seller: '@AkshatTripathi',
-      title: "Hyundai Venue",
-      desc: "Interested Buyers Contact Me Shipping All Over India",
-      shipping: "200.00",
-      deliverydate: "12 Dec 2022",
-      price: "₹4,60,000",
-      acceptprice: "₹4,00,000",
-      img: require("../assets/new design/car_img.png"),
-      location: " Ashok Vihar Delhi",
-      year: "2019",
-      time: "02 D 12 Hr",
-      distance: "5000 KMS",
-      ownership: "1st"
-    },
-  ])
   const map = require("../assets/new design/map.png");
 
   const allImages = [
@@ -281,18 +219,15 @@ const ProductScreen = ({ showModal }) => {
     "only interested buyers press call button.",
   ];
 
-  const changeButtonColor = (props) => {
-    console.log("Hello World");
-    document.getElementById("bookmarkButton").style.background = props;
-  };
+  const [color, setColor] = useState("#000000");
 
-  const [menu, setMenu] = useState(0);
+  const [menu, setMenu] = useState(1);
 
   return (
     <div>
       {/* Desktop Version */}
-      <div className="px-14 mt-7 hidden xl:flex xl:flex-col">
-        <div className=" border-t-[2px] border-r-[2px] border-l-[2px] border-b-[1px] border-black mx-1.5">
+      <div className="px-14 mt-7 hidden xl:flex xl:flex-col lg:flex lg:flex-col lg:overflow-x-auto">
+        <div className=" border-t-[1px] border-r-[1px] border-l-[1px] border-b-[1px] border-black mx-1.5">
           <div
             className=" py-1 px-4 border-b-[1px] border-black flex items-center justify-between"
             style={{ background: "#FFDC25" }}
@@ -334,14 +269,14 @@ const ProductScreen = ({ showModal }) => {
           </div>
         </div>
 
-        <div className="px-5 mx-1.5 py-5 border-t-[1px] border-r-[2px] border-l-[2px] border-b-[2px] border-black">
+        <div className="px-5 mx-1.5 py-5 border-r-[1px] border-l-[1px] border-b-[1px] border-black">
           <ImageGallery images={carImg} imageCount={allImages.length} />
         </div>
 
         <div className=" mx-1.5 mt-4.5 flex space-x-4 relative items-start">
           {/* Description  */}
           <div className=" flex-1">
-            <div className=" border-[2px] border-black px-5 py-3">
+            <div className=" border-[1px] border-black px-5 py-3">
               <Accourdion title="Highlights">
                 <TabMenu
                   state={menu}
@@ -351,11 +286,11 @@ const ProductScreen = ({ showModal }) => {
               </Accourdion>
             </div>
             <div>
-              <div className=" border-[2px] border-black px-5 py-3 border-t-transparent">
+              <div className=" border-[1px] border-black px-5 py-3 border-t-transparent">
                 <Accourdion title={"Akshat’s Report Card"}>
                   <div className="pb-4">
                     <div className=" flex items-start justify-between">
-                      <div className=" w-[60%] border-x-[2px] border-b-[2px] border-black">
+                      <div className=" w-[60%] border-x-[1px] border-b-[1px] border-black">
                         {[
                           {
                             title: "Communication",
@@ -374,8 +309,8 @@ const ProductScreen = ({ showModal }) => {
                             value: "Good",
                           },
                         ].map((e) => (
-                          <div className=" flex items-center justify-between px-2 border-t-[2px] border-black">
-                            <div className="border-r-[2px] border-black py-2.5 w-[56%]">
+                          <div className=" flex items-center justify-between px-2 border-t-[1px] border-black">
+                            <div className="border-r-[1px] border-black py-2.5 w-[56%]">
                               <h1 className="text-base ">{e.title}</h1>
                             </div>
                             <div className=" w-[44%] py-2.5 flex-1 pl-10">
@@ -386,8 +321,8 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         ))}
                       </div>
-                      <div className=" w-[40%] self-stretch border-y-[2px] border-r-[2px] border-black">
-                        <div className=" h-1/2 py-2 pl-10 border-b-[2px] border-black">
+                      <div className=" w-[40%] self-stretch border-y-[1px] border-r-[1px] border-black">
+                        <div className=" h-1/2 py-2 pl-10 border-b-[1px] border-black">
                           <h1 className="text-xl font-bold text-[#888888]">
                             Items Sold
                           </h1>
@@ -440,56 +375,276 @@ const ProductScreen = ({ showModal }) => {
                 </Accourdion>
               </div>
 
-              <div className="border-[2px] border-t-transparent border-black py-3 px-5">
-                <Accourdion title={"Questions about product"}>
+              <div className="border-[1px] border-t-transparent border-black py-3 px-5">
+                <Accourdion title={"Comments and offers"}>
                   <div className="pb-3">
-                    <div className="border-[2px] border-black rounded overflow-hidden flex items-start bg-lime-500">
+                    <div
+                      className="border-[1px] border-black rounded overflow-hidden flex items-start"
+                      style={{ backgroundColor: "#F8F8F8" }}
+                    >
                       <input
                         type="text"
-                        placeholder="Ask Questions from seller"
-                        className=" w-full px-4 py-2.5 text-black outline-none xl:text-xl  3xl:text-xl 4xl:text-[23px]"
+                        placeholder="Add a comment"
+                        className=" w-full px-4 py-2.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px] mt-1.5"
+                        style={{ backgroundColor: "#F8F8F8" }}
                       />
-                      <button className=" w-64 py-3 text-[12px] rounded-[2px] bg-sa-primary-yellow text-base text-black border-l-[1px] border-black font-semibold">
-                        Submit
+                      <button
+                        className=" px-4 py-3 rounded-[2px] border-l-[1px] border-black"
+                        style={{ background: "#F7CB45" }}
+                      >
+                        <SouthIcon />
                       </button>
                     </div>
                     <div>
-                      <div className="flex gap-3 mt-4 mb-3 pb-3 border-b-[2px] border-black">
+                      <div className="flex gap-3 mt-12 pb-3">
                         <div className="flex flex-col">
-                          <ThumbUp className="text-blue-100" fontSize="large" />
-                          <span className="text-black text-bse">04</span>
+                          <img
+                            className="w-[32px]"
+                            src={require("../assets/new design/user.png")}
+                          />
                         </div>
-                        <div>
-                          <h1 className="font-medium text-base">
-                            Q. I've received a phone and cable. But there is no
-                            adapter, is this phone box comes without an adapter?
+                        <div className="flex flex-row">
+                          <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                            @zubaankesari
                           </h1>
-                          <h1 className="text-base font-medium mt-1">
-                            A. You need to but the adapter separately, the box
-                            doesn't contains an adapter.
+                          <h1 className="ml-1 mt-[1px]">
+                            <CheckCircleRoundedIcon
+                              color="success"
+                              fontSize="x-small"
+                            />
+                          </h1>
+                          <h1
+                            className="ml-3 px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                            style={{ background: "#FFDC25" }}
+                          >
+                            Seller
+                          </h1>
+                          <h1 className="mt-1 pl-2.5 ">
+                            <NorthRoundedIcon />
+                          </h1>
+                          <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
+                          <h1
+                            className="pl-3 mt-1 text-[20px]"
+                            style={{ color: "#667085" }}
+                          >
+                            20 minutes ago
                           </h1>
                         </div>
                       </div>
-                      <div className="flex gap-3 mt-4 mb-3 pb-3">
-                        <div className="flex flex-col">
-                          <ThumbUp className="text-blue-100" fontSize="large" />
-                          <span className="text-black text-bse">04</span>
-                        </div>
-                        <div>
-                          <h1 className="font-medium text-base">
-                            Q. I've received a phone and cable. But there is no
-                            adapter, is this phone box comes without an adapter?
+                      <div className="flex flex-row ml-[42px] pb-3">
+                        <h1
+                          className="text-[23px]"
+                          style={{ color: "#344054" }}
+                        >
+                          Company Warranty has already ended, and no dents.
+                        </h1>
+                      </div>
+                      <div className="flex ml-[42px]">
+                        <div
+                          className="flex border-[1px] rounded border-radius-[2px]"
+                          style={{ borderColor: "#667085" }}
+                        >
+                          <h1 className="mt-1.5 pl-2">
+                            <NorthRoundedIcon
+                              style={{ fill: "#667085", height: "16px" }}
+                            />
                           </h1>
-                          <h1 className="text-base font-medium mt-1">
-                            A. You need to but the adapter separately, the box
-                            doesn't contains an adapter.
+                          <h1
+                            className="font-bold text-[18px] pr-2.5 pt-1.5"
+                            style={{ color: "#667085" }}
+                          >
+                            0
+                          </h1>
+                        </div>
+                        <div className="flex pl-[50px] cursor-pointer">
+                          <h1
+                            className="py-1.5 text-[18px]"
+                            style={{ color: "#667085" }}
+                          >
+                            Reply
+                          </h1>
+                          <h1 className="py-1">
+                            <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                          </h1>
+                        </div>
+                        <div className="flex pl-[50px] cursor-pointer">
+                          <h1
+                            className="py-1.5 text-[18px]"
+                            style={{ color: "#667085" }}
+                          >
+                            Report
+                          </h1>
+                          <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{ fill: "#667085" }}
+                            >
+                              <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
+                            </svg>
                           </h1>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="underline underline-offset-4 font-medium text-xl cursor-pointer text-blue-100 mt-2">
-                      See all questions
+                      <div>
+                        <div className="flex gap-3 mt-8 pb-3">
+                          <div className="flex flex-col">
+                            <img
+                              className="w-[32px]"
+                              style={{ background: "#9AA4AA" }}
+                              src={require("../assets/new design/user_icon.png")}
+                            />
+                          </div>
+                          <div className="flex flex-row">
+                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                              @rakesh12
+                            </h1>
+                            <h1 className="mt-1 pl-2.5 ">
+                              <NorthRoundedIcon />
+                            </h1>
+                            <h1 className="pl-0.5 font-bold text-[25px]">33</h1>
+                            <h1
+                              className="pl-3 mt-1 text-[20px]"
+                              style={{ color: "#667085" }}
+                            >
+                              1 hour ago
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex flex-row ml-[42px] pb-3">
+                          <h1
+                            className="text-[23px]"
+                            style={{ color: "#344054" }}
+                          >
+                            That’s a nice wagon… Doug, being a wagon guy, should
+                            have done a review of this one as this is the last
+                            BMW wagon offered here in the US
+                          </h1>
+                        </div>
+                        <div className="flex ml-[42px]">
+                          <div
+                            className="flex border-[1px] rounded border-radius-[2px]"
+                            style={{ borderColor: "#667085" }}
+                          >
+                            <h1 className="mt-1.5 pl-2">
+                              <NorthRoundedIcon
+                                style={{ fill: "#667085", height: "16px" }}
+                              />
+                            </h1>
+                            <h1
+                              className="font-bold text-[18px] pr-2.5 pt-1.5"
+                              style={{ color: "#667085" }}
+                            >
+                              4
+                            </h1>
+                          </div>
+                          <div className="flex pl-[50px] cursor-pointer">
+                            <h1
+                              className="py-1.5 text-[18px]"
+                              style={{ color: "#667085" }}
+                            >
+                              Reply
+                            </h1>
+                            <h1 className="py-1">
+                              <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                            </h1>
+                          </div>
+                          <div className="flex pl-[50px] cursor-pointer">
+                            <h1
+                              className="py-1.5 text-[18px]"
+                              style={{ color: "#667085" }}
+                            >
+                              Report
+                            </h1>
+                            <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                style={{ fill: "#667085" }}
+                              >
+                                <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
+                              </svg>
+                            </h1>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex gap-3 mt-8 pb-1">
+                            <div className="flex flex-col">
+                              <img
+                                className="w-[32px]"
+                                style={{ background: "#9AA4AA" }}
+                                src={require("../assets/new design/user_icon.png")}
+                              />
+                            </div>
+                            <div className="flex flex-row">
+                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                                @munnabhaimbbc
+                              </h1>
+                              <h1 className="ml-1 mt-[1px]">
+                                <CheckCircleRoundedIcon
+                                  color="success"
+                                  fontSize="x-small"
+                                />
+                              </h1>
+                              <h1 className="mt-1 pl-2.5 ">
+                                <NorthRoundedIcon />
+                              </h1>
+                              <h1 className="pl-0.5 font-bold text-[25px]">
+                                0
+                              </h1>
+                              <h1
+                                className="pl-3 mt-1 text-[20px]"
+                                style={{ color: "#667085" }}
+                              >
+                                2 hours ago
+                              </h1>
+                            </div>
+                          </div>
+                          <div className="flex ml-[42px]">
+                            <h1
+                              className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              style={{ background: "#2D2E30", color: "white" }}
+                            >
+                              Made an offer
+                            </h1>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex gap-3 mt-8 pb-1">
+                            <div className="flex flex-col">
+                              <img
+                                className="w-[32px]"
+                                style={{ background: "#9AA4AA" }}
+                                src={require("../assets/new design/user_icon.png")}
+                              />
+                            </div>
+                            <div className="flex flex-row">
+                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                                @abd
+                              </h1>
+                              <h1 className="mt-1 pl-2.5 ">
+                                <NorthRoundedIcon />
+                              </h1>
+                              <h1 className="pl-0.5 font-bold text-[25px]">
+                                0
+                              </h1>
+                              <h1
+                                className="pl-3 mt-1 text-[20px]"
+                                style={{ color: "#667085" }}
+                              >
+                                1 day
+                              </h1>
+                            </div>
+                          </div>
+                          <div className="flex ml-[42px]">
+                            <h1
+                              className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              style={{ background: "#2D2E30", color: "white" }}
+                            >
+                              Made an offer
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Accourdion>
@@ -498,7 +653,7 @@ const ProductScreen = ({ showModal }) => {
           </div>
 
           {/* Sold By */}
-          <div className=" w-[41.5%] h-fit border-r-[2px] border-l-[2px] sticky right-0 top-2 border-y-[2px] border-black px-5 py-4.5">
+          <div className=" w-[41.5%] h-fit border-r-[1px] border-l-[1px] sticky right-0 top-2 border-y-[1px] border-black px-5 py-4.5">
             <h1 className=" text-[24px] font-semibold tracking-wide">
               Sold By
             </h1>
@@ -523,12 +678,10 @@ const ProductScreen = ({ showModal }) => {
 
               <div className="flex h-full items-center space-x-2">
                 <button
-                  id="bookmarkButton"
-                  onClick={() => changeButtonColor("#FDC225")}
-                  onMouseOut={() => changeButtonColor("#FFFCF8")}
-                  className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center"
+                  onClick={() => setColor("#FDC225")}
+                  className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center"
                 >
-                  <TurnedInNot className=" text-xs" />
+                  <TurnedInNot sx={{ color: color }} className=" text-xs" />
                 </button>
                 <button
                   onClick={() => {
@@ -538,7 +691,7 @@ const ProductScreen = ({ showModal }) => {
                       modalSubTitle: "",
                     });
                   }}
-                  className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black font-semibold flex items-center justify-center"
+                  className=" w-full text-[12px] py-2 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-semibold flex items-center justify-center"
                 >
                   <MailOutline className=" text-xs" />
                 </button>
@@ -549,10 +702,10 @@ const ProductScreen = ({ showModal }) => {
               </div>
             </div>
             <div className=" flex items-cente justify-between mt-7">
-              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[2px] border-sa-border-black tracking-wider  font-semibold">
+              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-sa-border-black tracking-wider  font-semibold">
                 Pay Deposit
               </button>
-              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[2px] border-sa-border-black tracking-wider  font-semibold">
+              <button className=" w-[47%]  text-[15px] py-3.5 px-3 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black tracking-wider  font-semibold">
                 Make an Offer
               </button>
             </div>
@@ -598,16 +751,16 @@ const ProductScreen = ({ showModal }) => {
               </Accourdion>
             </div> */}
 
-            <div className="px-5 border-[2px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
+            <div className="px-5 border-[1px] flex flex-col space-y-3 py-3 border-black mt-5 rounded-lg">
               <h2 className="text-xl font-semibold">Location</h2>
               <div className="flex items-center space-x-1 -ml-2">
                 <LocationOnOutlined className="text-sa-text-gray" />
                 <p className="text-sa-text-gray">Rajendra nagar, New Delhi</p>
               </div>
-              <div className="rounded-lg border-[2px] border-black">
+              <div className="rounded-lg border-[1px] border-black">
                 {/* <img src={map} className="object-cover" /> */}
                 <iframe
-                  className="rounded-lg border-[2px] border-black"
+                  className="rounded-lg border-[1px] border-black"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14006.98438512234!2d77.18340760000001!3d28.6373709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02bcbb3b6d6b%3A0xaac7850da2a43dd9!2sRajinder%20Nagar%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1684321877094!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
@@ -677,7 +830,7 @@ const ProductScreen = ({ showModal }) => {
         </div> */}
           </div>
         </div>
-        <div className="py-10 hidden xl:flex xl:flex-col border-t-[2px] border-black mt-16">
+        <div className="py-10 hidden xl:flex xl:flex-col lg:flex lg:flex-col border-t-[1px] border-black mt-16">
           <h1 className="text-3xl font-semibold 2xl:text-4xl">
             Recommended Listings
           </h1>
@@ -688,16 +841,16 @@ const ProductScreen = ({ showModal }) => {
             aliquip ex ea commodo consequat.
           </p>
 
-          <div className="hidden xl:flex  items-center justify-between mt-10 mb-20 gap-5">
-            {otherproducts.map((e, i) => (
-              <ProductCard key={i} data={e} />
+          <div className="hidden xl:flex lg:flex items-center justify-between mt-10 mb-20 gap-5">
+            {[1, 2, 3, 4].map((e) => (
+              <ProductCard />
             ))}
           </div>
         </div>
       </div>
 
       {/* Mobile Version */}
-      <div className="px-[2.5px] mt-6 xl:hidden">
+      <div className="px-[2.5px] mt-6 xl:hidden lg:hidden">
         <div className="border-black pt-2.5 mb-4">
           <div>
             <div>
@@ -1082,36 +1235,550 @@ const ProductScreen = ({ showModal }) => {
                 </div>
               </Accourdion>
             </div>
-            <div className=" px-3 border-l-[1px] border-r-[1px] border-b-[1px] border-black pb-4 pt-4">
-              <h1 className=" text-sm font-semibold">
-                More Products by Akshat
-              </h1>
-              <div className=" flex items-center gap-x-4 mt-3">
-                {[0, 1].map((e) => (
-                  <div className="border-[1px] border-black buttonHover rounded relative mb-4">
-                    <div className="px-1.5 py-1.5">
-                      <div className="w-[60px] h-[28px] bg-bg-smallBookmark bg-no-repeat flex items-center justify-center absolute top-3 -left-2 rounded-sm">
-                        <h1 className="text-[10px] font-semibold text-black text-center">
-                          USED
-                        </h1>
-                      </div>
-                      <div className="w-[100%] border border-solid border-black rounded">
+            <div className="border-[1px] border-t-transparent border-black py-3 px-3">
+              <Accourdion
+                title={<p className="text-base">Comments and offers</p>}
+              >
+                <div className="pb-3">
+                  <div
+                    className="border-[1px] border-black rounded overflow-hidden flex items-start"
+                    style={{ backgroundColor: "#F8F8F8" }}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Add a comment"
+                      className=" w-full px-4 py-1.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px] mt-2"
+                      style={{ backgroundColor: "#F8F8F8" }}
+                    />
+                    <button
+                      className=" px-4 py-3 rounded-[2px] border-l-[1px] border-black"
+                      style={{ background: "#F7CB45" }}
+                    >
+                      <SouthIcon />
+                    </button>
+                  </div>
+                  <div>
+                    <div className="flex flex-row gap-3 mt-12 pb-3">
+                      <div className="w-10">
                         <img
-                          src={require("../assets/new design/car_img.png")}
+                          src={require("../assets/new design/user.png")}
                           alt=""
-                          className="w-full aspect-square rounded"
+                          className=" w-full"
                         />
                       </div>
-                      <div className="pt-1 pb-1">
-                        <h1 className="text-xs font-semibold text-black">
-                          Hyundai Venue(2019)
+                      <div className="flex ">
+                        <h1 className="font-bold underline text-[20px]">
+                          @zubaankesari
+                        </h1>
+                        <h1 className="ml-1 mt-[1px]">
+                          <CheckCircleRoundedIcon
+                            color="success"
+                            fontSize="x-small"
+                          />
+                        </h1>
+                        <h1
+                          className="ml-3 px-2 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold h-[30px]"
+                          style={{ background: "#FFDC25" }}
+                        >
+                          Seller
+                        </h1>
+                        <h1 className="mt-1 pl-2.5 h-[30px]">
+                          <NorthRoundedIcon />
+                        </h1>
+                        <h1 className="pl-0.5 font-bold text-[16px]">0</h1>
+                        <h1
+                          className="pl-3 mt-1 text-[10px]"
+                          style={{ color: "#667085" }}
+                        >
+                          20 minutes ago
                         </h1>
                       </div>
                     </div>
+                    <div className="flex flex-row ml-[42px] pb-3">
+                      <h1 className="text-[18px]" style={{ color: "#344054" }}>
+                        Company Warranty has already ended, and no dents.
+                      </h1>
+                    </div>
+                    <div className="flex ml-[42px]">
+                      <div
+                        className="flex border-[1px] rounded border-radius-[2px]"
+                        style={{ borderColor: "#667085" }}
+                      >
+                        <h1 className="mt-1.5 pl-2">
+                          <NorthRoundedIcon
+                            style={{ fill: "#667085", height: "16px" }}
+                          />
+                        </h1>
+                        <h1
+                          className="font-bold text-[18px] pr-2.5 pt-1.5"
+                          style={{ color: "#667085" }}
+                        >
+                          0
+                        </h1>
+                      </div>
+                      <div className="flex pl-[50px] cursor-pointer">
+                        <h1
+                          className="py-1.5 text-[18px]"
+                          style={{ color: "#667085" }}
+                        >
+                          Reply
+                        </h1>
+                        <h1 className="py-1">
+                          <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                        </h1>
+                      </div>
+                      <div className="flex pl-[50px] cursor-pointer">
+                        <h1
+                          className="py-1.5 text-[18px]"
+                          style={{ color: "#667085" }}
+                        >
+                          Report
+                        </h1>
+                        <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            style={{ fill: "#667085" }}
+                          >
+                            <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
+                          </svg>
+                        </h1>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex gap-3 mt-8 pb-3">
+                        <div className="flex flex-col">
+                          <img
+                            className="w-[32px]"
+                            style={{ background: "#9AA4AA" }}
+                            src={require("../assets/new design/user_icon.png")}
+                          />
+                        </div>
+                        <div className="flex flex-row">
+                          <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                            @rakesh12
+                          </h1>
+                          <h1 className="mt-1 pl-2.5 ">
+                            <NorthRoundedIcon />
+                          </h1>
+                          <h1 className="pl-0.5 font-bold text-[25px]">33</h1>
+                          <h1
+                            className="pl-3 mt-1 text-[20px]"
+                            style={{ color: "#667085" }}
+                          >
+                            1 hour ago
+                          </h1>
+                        </div>
+                      </div>
+                      <div className="flex flex-row ml-[42px] pb-3">
+                        <h1
+                          className="text-[18px]"
+                          style={{ color: "#344054" }}
+                        >
+                          That’s a nice wagon… Doug, being a wagon guy, should
+                          have done a review of this one as this is the last BMW
+                          wagon offered here in the US
+                        </h1>
+                      </div>
+                      <div className="flex ml-[42px]">
+                        <div
+                          className="flex border-[1px] rounded border-radius-[2px]"
+                          style={{ borderColor: "#667085" }}
+                        >
+                          <h1 className="mt-1.5 pl-2">
+                            <NorthRoundedIcon
+                              style={{ fill: "#667085", height: "16px" }}
+                            />
+                          </h1>
+                          <h1
+                            className="font-bold text-[18px] pr-2.5 pt-1.5"
+                            style={{ color: "#667085" }}
+                          >
+                            4
+                          </h1>
+                        </div>
+                        <div className="flex pl-[50px] cursor-pointer">
+                          <h1
+                            className="py-1.5 text-[18px]"
+                            style={{ color: "#667085" }}
+                          >
+                            Reply
+                          </h1>
+                          <h1 className="py-1">
+                            <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                          </h1>
+                        </div>
+                        <div className="flex pl-[50px] cursor-pointer">
+                          <h1
+                            className="py-1.5 text-[18px]"
+                            style={{ color: "#667085" }}
+                          >
+                            Report
+                          </h1>
+                          <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{ fill: "#667085" }}
+                            >
+                              <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
+                            </svg>
+                          </h1>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex gap-3 mt-8 pb-1">
+                          <div className="flex flex-col">
+                            <img
+                              className="w-[32px]"
+                              style={{ background: "#9AA4AA" }}
+                              src={require("../assets/new design/user_icon.png")}
+                            />
+                          </div>
+                          <div className="flex flex-row">
+                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                              @munnabhaimbbc
+                            </h1>
+                            <h1 className="ml-1 mt-[1px]">
+                              <CheckCircleRoundedIcon
+                                color="success"
+                                fontSize="x-small"
+                              />
+                            </h1>
+                            <h1 className="mt-1 pl-2.5 ">
+                              <NorthRoundedIcon />
+                            </h1>
+                            <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
+                            <h1
+                              className="pl-3 mt-1 text-[16px]"
+                              style={{ color: "#667085" }}
+                            >
+                              2 hours ago
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex ml-[42px]">
+                          <h1
+                            className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                            style={{ background: "#2D2E30", color: "white" }}
+                          >
+                            Made an offer
+                          </h1>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex gap-3 mt-8 pb-1">
+                          <div className="flex flex-col">
+                            <img
+                              className="w-[32px]"
+                              style={{ background: "#9AA4AA" }}
+                              src={require("../assets/new design/user_icon.png")}
+                            />
+                          </div>
+                          <div className="flex flex-row">
+                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                              @abd
+                            </h1>
+                            <h1 className="mt-1 pl-2.5 ">
+                              <NorthRoundedIcon />
+                            </h1>
+                            <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
+                            <h1
+                              className="pl-3 mt-1 text-[20px]"
+                              style={{ color: "#667085" }}
+                            >
+                              1 day
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex ml-[42px]">
+                          <h1
+                            className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                            style={{ background: "#2D2E30", color: "white" }}
+                          >
+                            Made an offer
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              </Accourdion>
             </div>
+            {/* <div className="border-[1px] border-t-transparent border-black py-3 px-3">
+                <Accourdion title={<p className="text-base">Offers and Comments</p>}>
+                  <div className="pb-3">
+                    <div
+                      className="border-[1px] border-black rounded overflow-hidden flex items-start"
+                      style={{ backgroundColor: "#F8F8F8" }}
+                    >
+                      <input
+                        type="text"
+                        placeholder="Add a comment"
+                        className=" w-full px-4 py-2.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px]"
+                      />
+                      <button
+                        className=" px-4 py-3 rounded-[2px] border-l-[1px] border-black"
+                        style={{ background: "#F7CB45" }}
+                      >
+                        <SouthIcon />
+                      </button>
+                    </div>
+                    <div>
+                      <div className="flex gap-3 mt-6 pb-3 h-[40px]">
+                        <div className="flex flex-col">
+                          <img
+                            className="w-[20px] "
+                            src={require("../assets/new design/user.png")}
+                            style = {{maxWidth: "fit-content"}}
+                          />
+                        </div>
+                        <div className="flex flex-row">
+                          <h1 className="font-bold mt-[1px] underline text-[15px]">
+                            @zubaankesari
+                          </h1>
+                          <h1 className="ml-1">
+                            <CheckCircleRoundedIcon
+                              color="success"
+                              fontSize="x-small"
+                            />
+                          </h1>
+                          <h1
+                            className="ml-3 px-3 text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                            style={{ background: "#FFDC25" }}
+                          >
+                            Seller
+                          </h1>
+                          <h1 className="mt-1 pl-2.5 ">
+                            <NorthRoundedIcon />
+                          </h1>
+                          <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
+                          <h1
+                            className="pl-3 mt-1 text-[20px]"
+                            style={{ color: "#667085" }}
+                          >
+                            20 minutes ago
+                          </h1>
+                        </div>
+                      </div>
+                      <div className="flex flex-row ml-[42px] pb-3">
+                        <h1
+                          className="text-[23px]"
+                          style={{ color: "#344054" }}
+                        >
+                          Company Warranty has already ended, and no dents.
+                        </h1>
+                      </div>
+                      <div className="flex ml-[42px]">
+                        <div
+                          className="flex border-[1px] rounded border-radius-[2px]"
+                          style={{ borderColor: "#667085" }}
+                        >
+                          <h1 className="mt-1.5 pl-2">
+                            <NorthRoundedIcon
+                              style={{ fill: "#667085", height: "16px" }}
+                            />
+                          </h1>
+                          <h1
+                            className="font-bold text-[18px] pr-2.5 pt-1.5"
+                            style={{ color: "#667085" }}
+                          >
+                            0
+                          </h1>
+                        </div>
+                        <div className="flex pl-[50px] cursor-pointer">
+                          <h1
+                            className="py-1.5 text-[18px]"
+                            style={{ color: "#667085" }}
+                          >
+                            Reply
+                          </h1>
+                          <h1 className="py-1">
+                            <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                          </h1>
+                        </div>
+                        <div className="flex pl-[50px] cursor-pointer">
+                          <h1
+                            className="py-1.5 text-[18px]"
+                            style={{ color: "#667085" }}
+                          >
+                            Report
+                          </h1>
+                          <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={{ fill: "#667085" }}
+                            >
+                              <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
+                            </svg>
+                          </h1>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex gap-3 mt-8 pb-3">
+                          <div className="flex flex-col">
+                            <img
+                              className="w-[32px]"
+                              style={{ background: "#9AA4AA" }}
+                              src={require("../assets/new design/user_icon.png")}
+                            />
+                          </div>
+                          <div className="flex flex-row">
+                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                              @rakesh12
+                            </h1>
+                            <h1 className="mt-1 pl-2.5 ">
+                              <NorthRoundedIcon />
+                            </h1>
+                            <h1 className="pl-0.5 font-bold text-[25px]">33</h1>
+                            <h1
+                              className="pl-3 mt-1 text-[20px]"
+                              style={{ color: "#667085" }}
+                            >
+                              1 hour ago
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex flex-row ml-[42px] pb-3">
+                          <h1
+                            className="text-[23px]"
+                            style={{ color: "#344054" }}
+                          >
+                            That’s a nice wagon… Doug, being a wagon guy, should
+                            have done a review of this one as this is the last
+                            BMW wagon offered here in the US
+                          </h1>
+                        </div>
+                        <div className="flex ml-[42px]">
+                          <div
+                            className="flex border-[1px] rounded border-radius-[2px]"
+                            style={{ borderColor: "#667085" }}
+                          >
+                            <h1 className="mt-1.5 pl-2">
+                              <NorthRoundedIcon
+                                style={{ fill: "#667085", height: "16px" }}
+                              />
+                            </h1>
+                            <h1
+                              className="font-bold text-[18px] pr-2.5 pt-1.5"
+                              style={{ color: "#667085" }}
+                            >
+                              4
+                            </h1>
+                          </div>
+                          <div className="flex pl-[50px] cursor-pointer">
+                            <h1
+                              className="py-1.5 text-[18px]"
+                              style={{ color: "#667085" }}
+                            >
+                              Reply
+                            </h1>
+                            <h1 className="py-1">
+                              <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                            </h1>
+                          </div>
+                          <div className="flex pl-[50px] cursor-pointer">
+                            <h1
+                              className="py-1.5 text-[18px]"
+                              style={{ color: "#667085" }}
+                            >
+                              Report
+                            </h1>
+                            <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                style={{ fill: "#667085" }}
+                              >
+                                <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
+                              </svg>
+                            </h1>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex gap-3 mt-8 pb-1">
+                            <div className="flex flex-col">
+                              <img
+                                className="w-[32px]"
+                                style={{ background: "#9AA4AA" }}
+                                src={require("../assets/new design/user_icon.png")}
+                              />
+                            </div>
+                            <div className="flex flex-row">
+                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                                @munnabhaimbbc
+                              </h1>
+                              <h1 className="ml-1 mt-[1px]">
+                                <CheckCircleRoundedIcon
+                                  color="success"
+                                  fontSize="x-small"
+                                />
+                              </h1>
+                              <h1 className="mt-1 pl-2.5 ">
+                                <NorthRoundedIcon />
+                              </h1>
+                              <h1 className="pl-0.5 font-bold text-[25px]">
+                                0
+                              </h1>
+                              <h1
+                                className="pl-3 mt-1 text-[20px]"
+                                style={{ color: "#667085" }}
+                              >
+                                2 hours ago
+                              </h1>
+                            </div>
+                          </div>
+                          <div className="flex ml-[42px]">
+                            <h1
+                              className="ml-3 px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              style={{ background: "#2D2E30", color: "white" }}
+                            >
+                              Made an offer
+                            </h1>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex gap-3 mt-8 pb-1">
+                            <div className="flex flex-col">
+                              <img
+                                className="w-[32px]"
+                                style={{ background: "#9AA4AA" }}
+                                src={require("../assets/new design/user_icon.png")}
+                              />
+                            </div>
+                            <div className="flex flex-row">
+                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                                @abd
+                              </h1>
+                              <h1 className="mt-1 pl-2.5 ">
+                                <NorthRoundedIcon />
+                              </h1>
+                              <h1 className="pl-0.5 font-bold text-[25px]">
+                                0
+                              </h1>
+                              <h1
+                                className="pl-3 mt-1 text-[20px]"
+                                style={{ color: "#667085" }}
+                              >
+                                1 day
+                              </h1>
+                            </div>
+                          </div>
+                          <div className="flex ml-[42px]">
+                            <h1
+                              className="ml-3 px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              style={{ background: "#2D2E30", color: "white" }}
+                            >
+                              Made an offer
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Accourdion>
+              </div> */}
 
             <div className=" px-3 border-x-[1px] border-b-[1px] border-black pb-4 pt-4">
               <h1 className=" text-sm font-semibold">Recommended Listings</h1>
@@ -1120,8 +1787,8 @@ const ProductScreen = ({ showModal }) => {
                 eiusmod tempor incididunt.
               </p>
               <div className="xl:hidden pt-5">
-                {otherproducts.map((e, i) => (
-                  <ProductCardMob key={i} data={e} />
+                {[0, 1, 2, 3].map((e) => (
+                  <ProductCardMob />
                 ))}
               </div>
               <div className="xl:hidden w-full flex items-center justify-center">
