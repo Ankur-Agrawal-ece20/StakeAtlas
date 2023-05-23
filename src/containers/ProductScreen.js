@@ -385,7 +385,7 @@ const ProductScreen = ({ showModal }) => {
                       <input
                         type="text"
                         placeholder="Add a comment"
-                        className=" w-full px-4 py-2.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px] mt-1.5"
+                        className=" w-full px-4 py-1.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px] mt-1.5"
                         style={{ backgroundColor: "#F8F8F8" }}
                       />
                       <button
@@ -433,7 +433,7 @@ const ProductScreen = ({ showModal }) => {
                       </div>
                       <div className="flex flex-row ml-[42px] pb-3">
                         <h1
-                          className="text-[23px]"
+                          className="text-base font-normal"
                           style={{ color: "#344054" }}
                         >
                           Company Warranty has already ended, and no dents.
@@ -512,7 +512,7 @@ const ProductScreen = ({ showModal }) => {
                         </div>
                         <div className="flex flex-row ml-[42px] pb-3">
                           <h1
-                            className="text-[23px]"
+                            className="text-base font-normal"
                             style={{ color: "#344054" }}
                           >
                             That’s a nice wagon… Doug, being a wagon guy, should
