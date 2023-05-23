@@ -65,11 +65,13 @@ const ProductCard = ({ isBuying, data, remove }) => {
         } -left-2 rounded-sm`}
         onClick={() => {if(!remove) navigate("/product")}}
       >
-        <TagRibbon
+        {/* <TagRibbon
           textClasses={"text-[14px] font-semibold text-black text-center"}
           tagText="USED"
           bgColor={"#FFDC25"}
-        />
+        /> */}
+        <img src = {require("../../assets/icons/Vector(3).png")} style = {{display: "block", marginTop: "-5px"}}/>
+        <h3 className = "font-bold" style = {{marginLeft: "-60px"}}>USED</h3>
       </div>
       <div className="p-3" onClick={() => {if(!remove) navigate("/product")}}>
         <div className="border border-solid border-black rounded-lg">
