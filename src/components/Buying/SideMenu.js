@@ -56,7 +56,7 @@ const SideMenu = () => {
   return (
     <div className="flex">
       <div
-        className={`bg-black border-r-2 border-black h-screen transition-all duration-300 ease-in-out ${
+        className={`bg-black border-r-2 border-black h-screen transition-all duration-700 ease-out ${
           open ? "  w-[64px] " : "w-[19.5vw]"
         }`}
       >
