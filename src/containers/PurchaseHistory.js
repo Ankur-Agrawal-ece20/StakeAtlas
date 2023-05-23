@@ -1,4 +1,4 @@
-import { ExpandMore, Cancel, Tty } from "@mui/icons-material";
+import { ExpandMore, Cancel, ExpandLess } from "@mui/icons-material";
 import { useState } from "react";
 import { connect } from "react-redux";
 import Accourdion from "../components/Accourdion";
@@ -92,9 +92,19 @@ const PurchaseHistory = ({ showModal }) => {
                   Failed
                 </button> */}
               </div>
-              <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-medium flex items-center justify-center">
+              <div className="grid grid-cols-[100%] place-items-center">
+                <button onClick={() => { setshowsort(!showsort) }} className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-medium flex items-center justify-center">
+                  Date: {sortarray[sorttype]} {showsort ? <ExpandMore /> : <ExpandLess />}
+                </button>
+                <div className={`absolute translate-y-[65%] z-20 grid grid-cols-[100%] bg-white px-4 rounded-lg border-[1px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
+                  {sortarray.map((type, i) => (
+                    <button className={`text-left py-3 border-b-[1px] border-gray-400 ${i !== sorttype ? "" : "font-bold"}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }}>{type}</button>
+                  ))}
+                </div>
+              </div>
+              {/* <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-medium flex items-center justify-center">
                 Date: All <ExpandMore />
-              </button>
+              </button> */}
             </div>
           </div>
           <div
