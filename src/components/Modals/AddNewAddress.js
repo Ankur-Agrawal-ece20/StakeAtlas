@@ -1,9 +1,16 @@
 import { useDispatch } from "react-redux";
 import { ADDRESS_MODAL, EDIT_ADDRESS_MODAL } from "../../extras/constants";
 import { showModal } from "../../redux/actions/modal";
+import { useState } from "react";
 
 const DeliveryLocationModal = () => {
   const dispatch = useDispatch();
+  const [index,setindex] = useState(0);
+  const [address,setaddress] = useState([
+    {"name":"Sarthak Mittal","contact":"+91 963074643","address":"E-7-52 Arera Colony Bhopal, ``Madhya Pradesh, 462016"},
+    {"name":"Sarthak Mittal","contact":"+91 963074643","address":"E-7-52 Arera Colony Bhopal, ``Madhya Pradesh, 462016"},
+    {"name":"Sarthak Mittal","contact":"+91 963074643","address":"E-7-52 Arera Colony Bhopal, ``Madhya Pradesh, 462016"},
+  ])
 
   return (
     <div>
@@ -13,15 +20,18 @@ const DeliveryLocationModal = () => {
           Delivery Address
         </h1>
         <div className=" h-[42vh] overflow-y-scroll p-1 no-scrollbar">
-          {[0, 1, 2].map((e) => (
-            <div className="px-3 py-3 border-2 border-black hover:bg-[#FCF9F4]  mb-4 cardHover rounded-md relative">
+          {address.map((e,i) => (
+            <div 
+            onClick={()=>{setindex(i)}}
+            className={`px-3 py-3 border-2 border-black transition-all duration-800 ease mb-4 ${i==index?"cardSelect":"cardHover"} rounded-md relative`}
+            >
               <div className=" flex items-center">
                 <div className=" flex-1 flex items-center">
                   <h1 className=" w-[25%] text-lg font-semibold text-black">
                     Name
                   </h1>
                   <h1 className=" w-[50%] text-lg font-normal text-black ml-4">
-                    Sarthak Mittal
+                    {e.name}  
                   </h1>
                 </div>
                 <button
@@ -44,7 +54,7 @@ const DeliveryLocationModal = () => {
                   Contact No:
                 </h1>
                 <h1 className=" w-[50%] text-lg font-normal text-black">
-                  +91 963074643
+                  {e.contact}
                 </h1>
               </div>
               <div className=" flex items-center">
@@ -52,7 +62,7 @@ const DeliveryLocationModal = () => {
                   Address:
                 </h1>
                 <h1 className=" w-[50%] text-lg font-normal text-black">
-                  E-7-52 Arera Colony Bhopal, ``Madhya Pradesh, 462016
+                {e.address}
                 </h1>
               </div>
             </div>
@@ -86,14 +96,14 @@ const DeliveryLocationModal = () => {
           Delivery Address
         </h1>
         <div className=" h-[42vh] overflow-y-scroll p-1 no-scrollbar">
-          {[0, 1, 2].map((e) => (
+          {address.map((e,i) => (
             <div className="px-3 py-3 border-2 border-black hover:bg-[#FCF9F4]  mb-4 cardHover rounded-md relative">
               <div className=" flex items-start mb-1">
                 <h1 className=" w-[40%] text-sm font-semibold text-black">
                   Name
                 </h1>
                 <h1 className=" w-[60%] text-sm font-normal text-black">
-                  Sarthak Mittal
+                  {e.name}
                 </h1>
               </div>
               <div className=" flex items-start mb-1">
@@ -101,7 +111,7 @@ const DeliveryLocationModal = () => {
                   Contact No:
                 </h1>
                 <h1 className=" w-[60%] text-sm font-normal text-black">
-                  +91 963074643
+                  {e.contact}
                 </h1>
               </div>
               <div className=" flex items-start mb-1">
@@ -109,7 +119,7 @@ const DeliveryLocationModal = () => {
                   Address:
                 </h1>
                 <h1 className=" w-[60%] text-sm font-normal text-black">
-                  E-7-52 Arera Colony Bhopal, ``Madhya Pradesh, 462016
+                  {e.address}
                 </h1>
               </div>
               <button

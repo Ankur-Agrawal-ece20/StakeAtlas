@@ -9,6 +9,7 @@ module.exports = {
         "bg-smallBookmark": "url(../src/assets/new design/small_bookmark.png)",
       },
       boxShadow: {
+        none: "0px 0px 0px #000000",
         hover: "3px 3px 0px #000000",
         hoverCard: "5px 5px 0px #000000",
         hoverMenu: "4px 4px 0px #000000",

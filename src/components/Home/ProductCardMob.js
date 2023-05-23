@@ -1,14 +1,14 @@
-import { AccessTimeOutlined, LocationOnOutlined } from "@mui/icons-material";
+import { AccessTimeOutlined,Favorite, LocationOnOutlined } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import TagRibbon from "../TagRibbon";
 import { useDispatch } from "react-redux";
 import { ACCEPT_OFFER_MODAL } from "../../extras/constants";
 import { showModal } from "../../redux/actions/modal";
 
-const ProductCardMob = ({ isBuying, data }) => {
+const ProductCardMob = ({ isBuying, data, remove }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  if(!data) data={
+  if (!data) data = {
     id: 1,
     seller: '@AkshatTripathi',
     title: "Hyundai Venue",
@@ -24,6 +24,9 @@ const ProductCardMob = ({ isBuying, data }) => {
     distance: "5000 KMS",
     ownership: "1st"
   }
+  const addToWishlist=()=>{
+    // code to add to wishlist
+  }
   return (
     <div className="border-[1px] border-black buttonHover rounded relative mb-5">
       {isBuying && (
@@ -33,7 +36,7 @@ const ProductCardMob = ({ isBuying, data }) => {
               {data.acceptprice}
             </h1>
           </div>
-          <div 
+          <div
             onClick={() => {
               dispatch(
                 showModal({
@@ -51,7 +54,7 @@ const ProductCardMob = ({ isBuying, data }) => {
           </div>
         </div>
       )}
-      <div onClick={() => navigate("/product")} className="pl-1.5 py-1.5 flex">
+      <div onClick={() => { if (!remove) navigate("/product") }} className="pl-1.5 py-1.5 flex">
         <div
           className={`flex absolute ${isBuying ? "top-14" : "top-3"
             } -left-2 rounded-sm`}
@@ -97,19 +100,27 @@ const ProductCardMob = ({ isBuying, data }) => {
             </div>
           </div>
           <div className="flex items-center justify-between p-3">
-            <div className="flex items-center gap-5">
-              <div>
+            <div className="flex w-full items-center gap-2">
+              {!remove && <div >
                 <h1 className="text-[12px] font-semibold text-sa-light-brown">
-                {data.distance.split(" ")[1]}
+                  {data.distance.split(" ")[1]}
                 </h1>
                 <h1 className="text-sm font-black ">{data.distance.split(" ")[0]}</h1>
-              </div>
+              </div>}
               <div>
                 <h1 className="text-[12px] font-semibold text-sa-light-brown">
                   OWNERSHIP
                 </h1>
                 <h1 className="text-sm font-black ">{data.ownership}</h1>
               </div>
+              {remove && <div
+                onClick={() => {
+                  if (remove) remove(data);
+                  else addToWishlist();
+                }}
+                className="ml-auto bg-white border-[1px]  border-black buttonHover rounded-md p-2">
+                <Favorite className="text-sa-brick-red " />
+              </div>}
             </div>
           </div>
         </div>

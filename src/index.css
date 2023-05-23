@@ -112,3 +112,9 @@ code {
 .cardHover {
   @apply cursor-pointer hover:shadow-hoverCard transition-all duration-100 ease-in-out  hover:-translate-x-1 hover:-translate-y-1;
 }
+.cardHover:active {
+  @apply cursor-pointer shadow-none transition-all duration-100 ease-in-out  -translate-x-0 -translate-y-0;
+}
+.cardSelect {
+  @apply cursor-pointer bg-[#FCF9F4] shadow-hoverCard -translate-x-1 -translate-y-1;
+}

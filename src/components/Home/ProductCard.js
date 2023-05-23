@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { ACCEPT_OFFER_MODAL } from "../../extras/constants";
 import { showModal } from "../../redux/actions/modal";
 
-const ProductCard = ({ isBuying, data }) => {
+const ProductCard = ({ isBuying, data, remove }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   if(!data) data={
@@ -27,6 +27,9 @@ const ProductCard = ({ isBuying, data }) => {
     time: "02 D 12 Hr",
     distance: "5000 KMS",
     ownership: "1st"
+  }
+  const addToWishlist=()=>{
+    // code to add to wishlist
   }
   return (
     <div className="border-[1px] border-black cardSelect cardHover rounded-md relative mb-5">
@@ -60,7 +63,7 @@ const ProductCard = ({ isBuying, data }) => {
         className={`flex absolute ${
           isBuying ? "top-14" : "top-3"
         } -left-2 rounded-sm`}
-        onClick={() => {navigate("/product")}}
+        onClick={() => {if(!remove) navigate("/product")}}
       >
         <TagRibbon
           textClasses={"text-[14px] font-semibold text-black text-center"}
@@ -68,7 +71,7 @@ const ProductCard = ({ isBuying, data }) => {
           bgColor={"#FFDC25"}
         />
       </div>
-      <div className="p-3" onClick={() => {navigate("/product")}}>
+      <div className="p-3" onClick={() => {if(!remove) navigate("/product")}}>
         <div className="border border-solid border-black rounded-lg">
           <img
             src={data.img}
@@ -76,7 +79,7 @@ const ProductCard = ({ isBuying, data }) => {
             className="w-full aspect-square rounded-lg"
           />
         </div>
-        <div onClick={() => {navigate("/product")}}>
+        <div onClick={() => {if(!remove) navigate("/product")}}>
           <div className="flex items-center gap-x-1 mt-2">
             <LocationOnOutlined className="text-sa-icon-green" fontSize="10" />
             <h1 className="text-sm font-medium text-sa-text-gray">
@@ -88,7 +91,7 @@ const ProductCard = ({ isBuying, data }) => {
           </h1>
         </div>
       </div>
-      <div onClick={() => {navigate("/product")}} className="border-b-[1px] border-black border-t-[1px] flex items-center">
+      <div onClick={() => {if(!remove) navigate("/product")}} className="border-b-[1px] border-black border-t-[1px] flex items-center">
         <div className="border-r-[1px] border-black w-[60%]">
           <h1 className="text-2xl boldFont text-sa-dark-green text-left py-2 pl-3">
             {data.price}
@@ -99,7 +102,7 @@ const ProductCard = ({ isBuying, data }) => {
           <h1 className="text-[15px] font-medium text-black">{data.time}</h1>
         </div>
       </div>
-      <div onClick={() => {navigate("/product")}} className="flex items-center justify-between p-3">
+      <div onClick={() => {if(!remove) navigate("/product")}} className="flex items-center justify-between p-3">
         <div className="flex items-center gap-5">
           <div>
             <h1 className="text-sm font-semibold text-sa-light-brown">{data.distance.split(" ")[1]}</h1>
@@ -112,7 +115,12 @@ const ProductCard = ({ isBuying, data }) => {
             <h1 className="text-xl font-black text-semibold">{data.ownership}</h1>
           </div>
         </div>
-        <div className="bg-white border-[1px]  border-black buttonHover rounded-md p-2">
+        <div 
+        onClick={()=>{
+          if(remove) remove(data);
+          else addToWishlist();
+        }}
+        className="bg-white border-[1px]  border-black buttonHover rounded-md p-2">
           <Favorite className="text-sa-brick-red " />
         </div>
       </div>
