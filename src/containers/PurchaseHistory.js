@@ -1,4 +1,4 @@
-import { ExpandMore, Cancel } from "@mui/icons-material";
+import { ExpandMore, Cancel, Tty } from "@mui/icons-material";
 import { useState } from "react";
 import { connect } from "react-redux";
 import Accourdion from "../components/Accourdion";
@@ -14,8 +14,8 @@ import { showModal } from "../redux/actions/modal";
 const PurchaseHistory = ({ showModal }) => {
   const [fontSize, setFontSize] = useState("text-4xl");
   const [activeTab, setActiveTab] = useState("All Purchases");
-  const [phonesidenav, showphonesidenav] = useState(false);
-  const [showsort, setshowsort] = useState(false);
+  const [phonesidenav, showphonesidenav] = useState(true);
+  const [showsort, setshowsort] = useState(true);
   const [sorttype, setsorttype] = useState(0);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
 

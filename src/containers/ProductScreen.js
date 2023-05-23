@@ -163,6 +163,72 @@ const tabMenuContent = {
 };
 
 const ProductScreen = ({ showModal }) => {
+  const [otherproducts, setotherproducts] = useState([
+    {
+      id: 1,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+    {
+      id: 2,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+    {
+      id: 3,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+    {
+      id: 4,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+  ])
   const map = require("../assets/new design/map.png");
 
   const allImages = [
@@ -623,8 +689,8 @@ const ProductScreen = ({ showModal }) => {
           </p>
 
           <div className="hidden xl:flex  items-center justify-between mt-10 mb-20 gap-5">
-            {[1, 2, 3, 4].map((e) => (
-              <ProductCard />
+            {otherproducts.map((e, i) => (
+              <ProductCard key={i} data={e} />
             ))}
           </div>
         </div>
@@ -1054,8 +1120,8 @@ const ProductScreen = ({ showModal }) => {
                 eiusmod tempor incididunt.
               </p>
               <div className="xl:hidden pt-5">
-                {[0, 1, 2, 3].map((e) => (
-                  <ProductCardMob />
+                {otherproducts.map((e, i) => (
+                  <ProductCardMob key={i} data={e} />
                 ))}
               </div>
               <div className="xl:hidden w-full flex items-center justify-center">

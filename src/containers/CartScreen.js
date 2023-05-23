@@ -5,16 +5,87 @@ import TagRibbon from "../components/TagRibbon";
 import { DELIVERY_LOCATION_MODAL, PAYMENT_MODAL } from "../extras/constants";
 import { showModal } from "../redux/actions/modal";
 import classNames from "../utils/classNames";
+import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
+
 // import { showModal } from '../redux/actions/modal';
 
 const CartScreen = ({ showModal }) => {
+  const location = useLocation();
+  const [otherproducts, setotherproducts] = useState([
+    {
+      id: 1,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+    {
+      id: 2,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+    {
+      id: 3,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+    {
+      id: 4,
+      seller: '@AkshatTripathi',
+      title: "Hyundai Venue",
+      desc: "Interested Buyers Contact Me Shipping All Over India",
+      shipping: "200.00",
+      deliverydate: "12 Dec 2022",
+      price: "₹4,60,000",
+      acceptprice: "₹4,00,000",
+      img: require("../assets/new design/car_img.png"),
+      location: " Ashok Vihar Delhi",
+      year: "2019",
+      time: "02 D 12 Hr",
+      distance: "5000 KMS",
+      ownership: "1st"
+    },
+  ])
+
   let data = [
     {
       id: 1,
       seller: '@AkshatTripathi',
       title: "DeepCool PM850D Power Supply Including shipping",
       desc: "Interested Buyers Contact Me Shipping All Over India",
-      price: "3,000",
+      price: "₹3,000",
       img: require("../assets/new design/car_img.png"),
       shipping: "200.00",
       deliverydate: "12 Dec 2022"
@@ -24,7 +95,7 @@ const CartScreen = ({ showModal }) => {
       seller: '@AkshatTripathi',
       title: "Nvidia RTX 3070 Foundation Edition",
       desc: "Manufacturing Date- December 2021 Purchased Bill Feb 2022. Used for CAD Application.",
-      price: "3,000",
+      price: "₹3,000",
       img: require("../assets/new design/car_img.png"),
       shipping: "200.00",
       deliverydate: "12 Dec 2022"
@@ -34,7 +105,7 @@ const CartScreen = ({ showModal }) => {
       seller: '@AkshatTripathi',
       title: "DeepCool PM850D Power Supply Including shipping",
       desc: "Interested Buyers Contact Me Shipping All Over India",
-      price: "3,000",
+      price: "₹3,000",
       img: require("../assets/new design/car_img.png"),
       shipping: "200.00",
       deliverydate: "12 Dec 2022"
@@ -44,12 +115,14 @@ const CartScreen = ({ showModal }) => {
       seller: '@RakshitTripathi',
       title: "Nvidia RTX 3070 Foundation Edition",
       desc: "Manufacturing Date- December 2021 Purchased Bill Feb 2022. Used for CAD Application.",
-      price: "3,000",
+      price: "₹3,000",
       img: require("../assets/new design/car_img.png"),
       shipping: "200.00",
       deliverydate: "12 Dec 2022"
     },
   ];
+  if(location.state && location.state.data) data=[location.state.data];
+  console.log(data);
 
   let arr = [];
   let cdata = data.sort((a, b) => a.seller > b.seller);
@@ -153,7 +226,7 @@ const CartScreen = ({ showModal }) => {
                               {product.title} - {product.desc}
                             </h1>
                             <h1 className="text-lg font-semibold text-black mt-1">
-                              ₹{product.price}
+                              {product.price}
                             </h1>
                           </div>
                         </div>
@@ -242,11 +315,11 @@ const CartScreen = ({ showModal }) => {
                             </div>
                             <div className="flex justify-end flex-col items-end">
                               <h1 className="text-lg font-semibold leading-3 2xl:text-[22px]">
-                                ₹{e.price}
+                                {e.price}
                               </h1>
 
                               <h1 className="text-[13px] mt-1.5 text-[#5C5C5C] 2xl:text-base 2xl:mt-2.5">
-                                Free Shipping
+                                {e.shipping}
                               </h1>
                             </div>
                           </div>
@@ -366,8 +439,8 @@ const CartScreen = ({ showModal }) => {
         </p>
 
         <div className="hidden xl:flex  items-center justify-between mt-10 mb-20">
-          {[1, 2, 3, 4].map((e) => (
-            <ProductCard />
+          {otherproducts.map((e,i) => (
+            <ProductCard key={i} data={e} />
           ))}
         </div>
       </div>
