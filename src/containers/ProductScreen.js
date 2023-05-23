@@ -396,35 +396,35 @@ const ProductScreen = ({ showModal }) => {
                       </button>
                     </div>
                     <div>
-                      <div className="flex gap-3 mt-12 pb-3">
+                      <div className="flex items-center gap-3 mt-12 pb-3">
                         <div className="flex flex-col">
                           <img
                             className="w-[32px]"
                             src={require("../assets/new design/user.png")}
                           />
                         </div>
-                        <div className="flex flex-row">
-                          <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                        <div className="flex flex-row items-center">
+                          <h1 className="font-bold mt-[2.0px] underline text-base">
                             @zubaankesari
                           </h1>
-                          <h1 className="ml-1 mt-[1px]">
+                          <h1 className="ml-1">
                             <CheckCircleRoundedIcon
                               color="success"
                               fontSize="x-small"
                             />
                           </h1>
                           <h1
-                            className="ml-3 px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                            className="flex items-center ml-3 px-3 text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
                             style={{ background: "#FFDC25" }}
                           >
                             Seller
                           </h1>
-                          <h1 className="mt-1 pl-2.5 ">
+                          <h1 className=" pl-2.5 ">
                             <NorthRoundedIcon />
                           </h1>
-                          <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
+                          <h1 className="pl-0.5 font-bold text-lg">0</h1>
                           <h1
-                            className="pl-3 mt-1 text-[20px]"
+                            className="pl-3 text-[0.9rem] "
                             style={{ color: "#667085" }}
                           >
                             20 minutes ago
@@ -439,42 +439,42 @@ const ProductScreen = ({ showModal }) => {
                           Company Warranty has already ended, and no dents.
                         </h1>
                       </div>
-                      <div className="flex ml-[42px]">
+                      <div className="flex ml-[42px] align-center">
                         <div
-                          className="flex border-[1px] rounded border-radius-[2px]"
+                          className="flex items-center border-[1px] rounded border-radius-[2px]"
                           style={{ borderColor: "#667085" }}
                         >
-                          <h1 className="mt-1.5 pl-2">
+                          <h1 className="pl-2 mb-[5px]">
                             <NorthRoundedIcon
-                              style={{ fill: "#667085", height: "16px" }}
+                              style={{ fill: "#667085", height: "0.95rem" }}
                             />
                           </h1>
                           <h1
-                            className="font-bold text-[18px] pr-2.5 pt-1.5"
+                            className="font-bold text-[0.9rem] pr-2.5"
                             style={{ color: "#667085" }}
                           >
                             0
                           </h1>
                         </div>
-                        <div className="flex pl-[50px] cursor-pointer">
+                        <div className="flex items-center pl-[50px]">
                           <h1
-                            className="py-1.5 text-[18px]"
+                            className="text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
                           >
                             Reply
                           </h1>
-                          <h1 className="py-1">
+                          <h1 className="py-1 cursor-pointer">
                             <TurnRightRoundedIcon sx={{ color: "#667085" }} />
                           </h1>
                         </div>
-                        <div className="flex pl-[50px] cursor-pointer">
+                        <div className="flex items-center pl-[50px]">
                           <h1
-                            className="py-1.5 text-[18px]"
+                            className="py-1.5 text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
                           >
                             Report
                           </h1>
-                          <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                          <h1 className="py-1 w-[16px] mt-1.5 ml-1 cursor-pointer">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
@@ -486,7 +486,7 @@ const ProductScreen = ({ showModal }) => {
                         </div>
                       </div>
                       <div>
-                        <div className="flex gap-3 mt-8 pb-3">
+                        <div className="flex items-center gap-3 mt-8 pb-3">
                           <div className="flex flex-col">
                             <img
                               className="w-[32px]"
@@ -494,16 +494,16 @@ const ProductScreen = ({ showModal }) => {
                               src={require("../assets/new design/user_icon.png")}
                             />
                           </div>
-                          <div className="flex flex-row">
-                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                          <div className="flex flex-row items-center">
+                            <h1 className="font-bold mt-[2.0px] underline text-base">
                               @rakesh12
                             </h1>
-                            <h1 className="mt-1 pl-2.5 ">
+                            <h1 className=" pl-2.5 ">
                               <NorthRoundedIcon />
                             </h1>
-                            <h1 className="pl-0.5 font-bold text-[25px]">33</h1>
+                            <h1 className="pl-0.5 font-bold text-lg">33</h1>
                             <h1
-                              className="pl-3 mt-1 text-[20px]"
+                              className="pl-3 text-[0.9rem] "
                               style={{ color: "#667085" }}
                             >
                               1 hour ago
@@ -520,42 +520,42 @@ const ProductScreen = ({ showModal }) => {
                             BMW wagon offered here in the US
                           </h1>
                         </div>
-                        <div className="flex ml-[42px]">
+                        <div className="flex ml-[42px] align-center">
                           <div
-                            className="flex border-[1px] rounded border-radius-[2px]"
+                            className="flex items-center border-[1px] rounded border-radius-[2px]"
                             style={{ borderColor: "#667085" }}
                           >
-                            <h1 className="mt-1.5 pl-2">
+                            <h1 className="pl-2 mb-[5px]">
                               <NorthRoundedIcon
-                                style={{ fill: "#667085", height: "16px" }}
+                                style={{ fill: "#667085", height: "0.95rem" }}
                               />
                             </h1>
                             <h1
-                              className="font-bold text-[18px] pr-2.5 pt-1.5"
+                              className="font-bold text-[0.9rem] pr-2.5"
                               style={{ color: "#667085" }}
                             >
                               4
                             </h1>
                           </div>
-                          <div className="flex pl-[50px] cursor-pointer">
+                          <div className="flex items-center pl-[50px]">
                             <h1
-                              className="py-1.5 text-[18px]"
+                              className="text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
                             >
                               Reply
                             </h1>
-                            <h1 className="py-1">
+                            <h1 className="py-1 cursor-pointer">
                               <TurnRightRoundedIcon sx={{ color: "#667085" }} />
                             </h1>
                           </div>
-                          <div className="flex pl-[50px] cursor-pointer">
+                          <div className="flex items-center pl-[50px]">
                             <h1
-                              className="py-1.5 text-[18px]"
+                              className="py-1.5 text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
                             >
                               Report
                             </h1>
-                            <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                            <h1 className="py-1 w-[16px] mt-1.5 ml-1 cursor-pointer">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -567,7 +567,7 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         </div>
                         <div>
-                          <div className="flex gap-3 mt-8 pb-1">
+                          <div className="flex items-center gap-3 mt-8 pb-3">
                             <div className="flex flex-col">
                               <img
                                 className="w-[32px]"
@@ -575,33 +575,31 @@ const ProductScreen = ({ showModal }) => {
                                 src={require("../assets/new design/user_icon.png")}
                               />
                             </div>
-                            <div className="flex flex-row">
-                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                            <div className="flex flex-row items-center">
+                              <h1 className="font-bold mt-[2.0px] underline text-base">
                                 @munnabhaimbbc
                               </h1>
-                              <h1 className="ml-1 mt-[1px]">
+                              <h1 className="ml-1">
                                 <CheckCircleRoundedIcon
                                   color="success"
                                   fontSize="x-small"
                                 />
                               </h1>
-                              <h1 className="mt-1 pl-2.5 ">
+                              <h1 className=" pl-2.5 ">
                                 <NorthRoundedIcon />
                               </h1>
-                              <h1 className="pl-0.5 font-bold text-[25px]">
-                                0
-                              </h1>
+                              <h1 className="pl-0.5 font-bold text-lg">0</h1>
                               <h1
-                                className="pl-3 mt-1 text-[20px]"
+                                className="pl-3 text-[0.9rem] "
                                 style={{ color: "#667085" }}
                               >
                                 2 hours ago
                               </h1>
                             </div>
                           </div>
-                          <div className="flex ml-[42px]">
+                          <div className="flex ml-[42px] align-center">
                             <h1
-                              className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              className="p-1 flex content-center align-center text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
                               style={{ background: "#2D2E30", color: "white" }}
                             >
                               Made an offer
@@ -609,7 +607,7 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         </div>
                         <div>
-                          <div className="flex gap-3 mt-8 pb-1">
+                        <div className="flex items-center gap-3 mt-8 pb-3">
                             <div className="flex flex-col">
                               <img
                                 className="w-[32px]"
@@ -617,27 +615,25 @@ const ProductScreen = ({ showModal }) => {
                                 src={require("../assets/new design/user_icon.png")}
                               />
                             </div>
-                            <div className="flex flex-row">
-                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                            <div className="flex flex-row items-center">
+                              <h1 className="font-bold mt-[2.0px] underline text-base">
                                 @abd
                               </h1>
-                              <h1 className="mt-1 pl-2.5 ">
+                              <h1 className=" pl-2.5 ">
                                 <NorthRoundedIcon />
                               </h1>
-                              <h1 className="pl-0.5 font-bold text-[25px]">
-                                0
-                              </h1>
+                              <h1 className="pl-0.5 font-bold text-lg">0</h1>
                               <h1
-                                className="pl-3 mt-1 text-[20px]"
+                                className="pl-3 text-[0.9rem] "
                                 style={{ color: "#667085" }}
                               >
                                 1 day
                               </h1>
                             </div>
                           </div>
-                          <div className="flex ml-[42px]">
+                          <div className="flex ml-[42px] align-center">
                             <h1
-                              className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              className="p-1 flex content-center align-center text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
                               style={{ background: "#2D2E30", color: "white" }}
                             >
                               Made an offer
@@ -1240,274 +1236,6 @@ const ProductScreen = ({ showModal }) => {
                 title={<p className="text-base">Comments and offers</p>}
               >
                 <div className="pb-3">
-                  <div
-                    className="border-[1px] border-black rounded overflow-hidden flex items-start"
-                    style={{ backgroundColor: "#F8F8F8" }}
-                  >
-                    <input
-                      type="text"
-                      placeholder="Add a comment"
-                      className=" w-full px-4 py-1.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px] mt-2"
-                      style={{ backgroundColor: "#F8F8F8" }}
-                    />
-                    <button
-                      className=" px-4 py-3 rounded-[2px] border-l-[1px] border-black"
-                      style={{ background: "#F7CB45" }}
-                    >
-                      <SouthIcon />
-                    </button>
-                  </div>
-                  <div>
-                    <div className="flex flex-row gap-3 mt-12 pb-3">
-                      <div className="w-10">
-                        <img
-                          src={require("../assets/new design/user.png")}
-                          alt=""
-                          className=" w-full"
-                        />
-                      </div>
-                      <div className="flex ">
-                        <h1 className="font-bold underline text-[20px]">
-                          @zubaankesari
-                        </h1>
-                        <h1 className="ml-1 mt-[1px]">
-                          <CheckCircleRoundedIcon
-                            color="success"
-                            fontSize="x-small"
-                          />
-                        </h1>
-                        <h1
-                          className="ml-3 px-2 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold h-[30px]"
-                          style={{ background: "#FFDC25" }}
-                        >
-                          Seller
-                        </h1>
-                        <h1 className="mt-1 pl-2.5 h-[30px]">
-                          <NorthRoundedIcon />
-                        </h1>
-                        <h1 className="pl-0.5 font-bold text-[16px]">0</h1>
-                        <h1
-                          className="pl-3 mt-1 text-[10px]"
-                          style={{ color: "#667085" }}
-                        >
-                          20 minutes ago
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="flex flex-row ml-[42px] pb-3">
-                      <h1 className="text-[18px]" style={{ color: "#344054" }}>
-                        Company Warranty has already ended, and no dents.
-                      </h1>
-                    </div>
-                    <div className="flex ml-[42px]">
-                      <div
-                        className="flex border-[1px] rounded border-radius-[2px]"
-                        style={{ borderColor: "#667085" }}
-                      >
-                        <h1 className="mt-1.5 pl-2">
-                          <NorthRoundedIcon
-                            style={{ fill: "#667085", height: "16px" }}
-                          />
-                        </h1>
-                        <h1
-                          className="font-bold text-[18px] pr-2.5 pt-1.5"
-                          style={{ color: "#667085" }}
-                        >
-                          0
-                        </h1>
-                      </div>
-                      <div className="flex pl-[50px] cursor-pointer">
-                        <h1
-                          className="py-1.5 text-[18px]"
-                          style={{ color: "#667085" }}
-                        >
-                          Reply
-                        </h1>
-                        <h1 className="py-1">
-                          <TurnRightRoundedIcon sx={{ color: "#667085" }} />
-                        </h1>
-                      </div>
-                      <div className="flex pl-[50px] cursor-pointer">
-                        <h1
-                          className="py-1.5 text-[18px]"
-                          style={{ color: "#667085" }}
-                        >
-                          Report
-                        </h1>
-                        <h1 className="py-1 w-[16px] mt-1.5 ml-1">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            style={{ fill: "#667085" }}
-                          >
-                            <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
-                          </svg>
-                        </h1>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex gap-3 mt-8 pb-3">
-                        <div className="flex flex-col">
-                          <img
-                            className="w-[32px]"
-                            style={{ background: "#9AA4AA" }}
-                            src={require("../assets/new design/user_icon.png")}
-                          />
-                        </div>
-                        <div className="flex flex-row">
-                          <h1 className="font-bold mt-[2.0px] underline text-[20px]">
-                            @rakesh12
-                          </h1>
-                          <h1 className="mt-1 pl-2.5 ">
-                            <NorthRoundedIcon />
-                          </h1>
-                          <h1 className="pl-0.5 font-bold text-[25px]">33</h1>
-                          <h1
-                            className="pl-3 mt-1 text-[20px]"
-                            style={{ color: "#667085" }}
-                          >
-                            1 hour ago
-                          </h1>
-                        </div>
-                      </div>
-                      <div className="flex flex-row ml-[42px] pb-3">
-                        <h1
-                          className="text-[18px]"
-                          style={{ color: "#344054" }}
-                        >
-                          That’s a nice wagon… Doug, being a wagon guy, should
-                          have done a review of this one as this is the last BMW
-                          wagon offered here in the US
-                        </h1>
-                      </div>
-                      <div className="flex ml-[42px]">
-                        <div
-                          className="flex border-[1px] rounded border-radius-[2px]"
-                          style={{ borderColor: "#667085" }}
-                        >
-                          <h1 className="mt-1.5 pl-2">
-                            <NorthRoundedIcon
-                              style={{ fill: "#667085", height: "16px" }}
-                            />
-                          </h1>
-                          <h1
-                            className="font-bold text-[18px] pr-2.5 pt-1.5"
-                            style={{ color: "#667085" }}
-                          >
-                            4
-                          </h1>
-                        </div>
-                        <div className="flex pl-[50px] cursor-pointer">
-                          <h1
-                            className="py-1.5 text-[18px]"
-                            style={{ color: "#667085" }}
-                          >
-                            Reply
-                          </h1>
-                          <h1 className="py-1">
-                            <TurnRightRoundedIcon sx={{ color: "#667085" }} />
-                          </h1>
-                        </div>
-                        <div className="flex pl-[50px] cursor-pointer">
-                          <h1
-                            className="py-1.5 text-[18px]"
-                            style={{ color: "#667085" }}
-                          >
-                            Report
-                          </h1>
-                          <h1 className="py-1 w-[16px] mt-1.5 ml-1">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              style={{ fill: "#667085" }}
-                            >
-                              <path d="M21.1384 3C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3H21.1384ZM18.5536 5H4V15H18.5536L15.6965 10L18.5536 5Z"></path>
-                            </svg>
-                          </h1>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex gap-3 mt-8 pb-1">
-                          <div className="flex flex-col">
-                            <img
-                              className="w-[32px]"
-                              style={{ background: "#9AA4AA" }}
-                              src={require("../assets/new design/user_icon.png")}
-                            />
-                          </div>
-                          <div className="flex flex-row">
-                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
-                              @munnabhaimbbc
-                            </h1>
-                            <h1 className="ml-1 mt-[1px]">
-                              <CheckCircleRoundedIcon
-                                color="success"
-                                fontSize="x-small"
-                              />
-                            </h1>
-                            <h1 className="mt-1 pl-2.5 ">
-                              <NorthRoundedIcon />
-                            </h1>
-                            <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
-                            <h1
-                              className="pl-3 mt-1 text-[16px]"
-                              style={{ color: "#667085" }}
-                            >
-                              2 hours ago
-                            </h1>
-                          </div>
-                        </div>
-                        <div className="flex ml-[42px]">
-                          <h1
-                            className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
-                            style={{ background: "#2D2E30", color: "white" }}
-                          >
-                            Made an offer
-                          </h1>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex gap-3 mt-8 pb-1">
-                          <div className="flex flex-col">
-                            <img
-                              className="w-[32px]"
-                              style={{ background: "#9AA4AA" }}
-                              src={require("../assets/new design/user_icon.png")}
-                            />
-                          </div>
-                          <div className="flex flex-row">
-                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
-                              @abd
-                            </h1>
-                            <h1 className="mt-1 pl-2.5 ">
-                              <NorthRoundedIcon />
-                            </h1>
-                            <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
-                            <h1
-                              className="pl-3 mt-1 text-[20px]"
-                              style={{ color: "#667085" }}
-                            >
-                              1 day
-                            </h1>
-                          </div>
-                        </div>
-                        <div className="flex ml-[42px]">
-                          <h1
-                            className="px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
-                            style={{ background: "#2D2E30", color: "white" }}
-                          >
-                            Made an offer
-                          </h1>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Accourdion>
-            </div>
-            {/* <div className="border-[1px] border-t-transparent border-black py-3 px-3">
-                <Accourdion title={<p className="text-base">Offers and Comments</p>}>
-                  <div className="pb-3">
                     <div
                       className="border-[1px] border-black rounded overflow-hidden flex items-start"
                       style={{ backgroundColor: "#F8F8F8" }}
@@ -1515,7 +1243,8 @@ const ProductScreen = ({ showModal }) => {
                       <input
                         type="text"
                         placeholder="Add a comment"
-                        className=" w-full px-4 py-2.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px]"
+                        className=" w-full px-4 py-1.5 text-black outline-none xl:text-xl 3xl:text-xl 4xl:text-[23px] mt-1.5"
+                        style={{ backgroundColor: "#F8F8F8" }}
                       />
                       <button
                         className=" px-4 py-3 rounded-[2px] border-l-[1px] border-black"
@@ -1525,16 +1254,15 @@ const ProductScreen = ({ showModal }) => {
                       </button>
                     </div>
                     <div>
-                      <div className="flex gap-3 mt-6 pb-3 h-[40px]">
+                      <div className="flex items-center gap-3 mt-12 pb-3">
                         <div className="flex flex-col">
                           <img
-                            className="w-[20px] "
+                            className="w-[32px]"
                             src={require("../assets/new design/user.png")}
-                            style = {{maxWidth: "fit-content"}}
                           />
                         </div>
-                        <div className="flex flex-row">
-                          <h1 className="font-bold mt-[1px] underline text-[15px]">
+                        <div className="flex flex-row items-center">
+                          <h1 className="font-bold mt-[2.0px] underline text-base">
                             @zubaankesari
                           </h1>
                           <h1 className="ml-1">
@@ -1544,18 +1272,18 @@ const ProductScreen = ({ showModal }) => {
                             />
                           </h1>
                           <h1
-                            className="ml-3 px-3 text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                            className="flex items-center ml-3 px-3 text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
                             style={{ background: "#FFDC25" }}
                           >
                             Seller
                           </h1>
-                          <h1 className="mt-1 pl-2.5 ">
+                          <h1 className=" pl-2.5 ">
                             <NorthRoundedIcon />
                           </h1>
-                          <h1 className="pl-0.5 font-bold text-[25px]">0</h1>
+                          <h1 className="pl-0.5 font-bold text-lg">0</h1>
                           <h1
-                            className="pl-3 mt-1 text-[20px]"
-                            style={{ color: "#667085" }}
+                            className="pl-3 text-[0.9rem] "
+                            style={{ color: "#667085"}}
                           >
                             20 minutes ago
                           </h1>
@@ -1563,48 +1291,48 @@ const ProductScreen = ({ showModal }) => {
                       </div>
                       <div className="flex flex-row ml-[42px] pb-3">
                         <h1
-                          className="text-[23px]"
+                          className="text-base font-normal"
                           style={{ color: "#344054" }}
                         >
                           Company Warranty has already ended, and no dents.
                         </h1>
                       </div>
-                      <div className="flex ml-[42px]">
+                      <div className="flex ml-[42px] align-center">
                         <div
-                          className="flex border-[1px] rounded border-radius-[2px]"
+                          className="flex items-center border-[1px] rounded border-radius-[2px]"
                           style={{ borderColor: "#667085" }}
                         >
-                          <h1 className="mt-1.5 pl-2">
+                          <h1 className="pl-2 mb-[5px]">
                             <NorthRoundedIcon
-                              style={{ fill: "#667085", height: "16px" }}
+                              style={{ fill: "#667085", height: "0.95rem" }}
                             />
                           </h1>
                           <h1
-                            className="font-bold text-[18px] pr-2.5 pt-1.5"
+                            className="font-bold text-[0.9rem] pr-2.5"
                             style={{ color: "#667085" }}
                           >
                             0
                           </h1>
                         </div>
-                        <div className="flex pl-[50px] cursor-pointer">
+                        <div className="flex items-center pl-[50px]">
                           <h1
-                            className="py-1.5 text-[18px]"
+                            className="text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
                           >
                             Reply
                           </h1>
-                          <h1 className="py-1">
+                          <h1 className="py-1 cursor-pointer">
                             <TurnRightRoundedIcon sx={{ color: "#667085" }} />
                           </h1>
                         </div>
-                        <div className="flex pl-[50px] cursor-pointer">
+                        <div className="flex items-center pl-[50px]">
                           <h1
-                            className="py-1.5 text-[18px]"
+                            className="py-1.5 text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
                           >
                             Report
                           </h1>
-                          <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                          <h1 className="py-1 w-[16px] mt-1.5 ml-1 cursor-pointer">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
@@ -1616,7 +1344,7 @@ const ProductScreen = ({ showModal }) => {
                         </div>
                       </div>
                       <div>
-                        <div className="flex gap-3 mt-8 pb-3">
+                        <div className="flex items-center gap-3 mt-8 pb-3">
                           <div className="flex flex-col">
                             <img
                               className="w-[32px]"
@@ -1624,16 +1352,16 @@ const ProductScreen = ({ showModal }) => {
                               src={require("../assets/new design/user_icon.png")}
                             />
                           </div>
-                          <div className="flex flex-row">
-                            <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                          <div className="flex flex-row items-center">
+                            <h1 className="font-bold mt-[2.0px] underline text-base">
                               @rakesh12
                             </h1>
-                            <h1 className="mt-1 pl-2.5 ">
+                            <h1 className=" pl-2.5 ">
                               <NorthRoundedIcon />
                             </h1>
-                            <h1 className="pl-0.5 font-bold text-[25px]">33</h1>
+                            <h1 className="pl-0.5 font-bold text-lg">33</h1>
                             <h1
-                              className="pl-3 mt-1 text-[20px]"
+                              className="pl-3 text-[0.9rem] margin-right-0"
                               style={{ color: "#667085" }}
                             >
                               1 hour ago
@@ -1642,7 +1370,7 @@ const ProductScreen = ({ showModal }) => {
                         </div>
                         <div className="flex flex-row ml-[42px] pb-3">
                           <h1
-                            className="text-[23px]"
+                            className="text-base font-normal"
                             style={{ color: "#344054" }}
                           >
                             That’s a nice wagon… Doug, being a wagon guy, should
@@ -1650,42 +1378,42 @@ const ProductScreen = ({ showModal }) => {
                             BMW wagon offered here in the US
                           </h1>
                         </div>
-                        <div className="flex ml-[42px]">
+                        <div className="flex ml-[42px] align-center">
                           <div
-                            className="flex border-[1px] rounded border-radius-[2px]"
+                            className="flex items-center border-[1px] rounded border-radius-[2px]"
                             style={{ borderColor: "#667085" }}
                           >
-                            <h1 className="mt-1.5 pl-2">
+                            <h1 className="pl-2 mb-[5px]">
                               <NorthRoundedIcon
-                                style={{ fill: "#667085", height: "16px" }}
+                                style={{ fill: "#667085", height: "0.95rem" }}
                               />
                             </h1>
                             <h1
-                              className="font-bold text-[18px] pr-2.5 pt-1.5"
+                              className="font-bold text-[0.9rem] pr-2.5"
                               style={{ color: "#667085" }}
                             >
                               4
                             </h1>
                           </div>
-                          <div className="flex pl-[50px] cursor-pointer">
+                          <div className="flex items-center pl-[50px]">
                             <h1
-                              className="py-1.5 text-[18px]"
+                              className="text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
                             >
                               Reply
                             </h1>
-                            <h1 className="py-1">
+                            <h1 className="py-1 cursor-pointer">
                               <TurnRightRoundedIcon sx={{ color: "#667085" }} />
                             </h1>
                           </div>
-                          <div className="flex pl-[50px] cursor-pointer">
+                          <div className="flex items-center pl-[50px]">
                             <h1
-                              className="py-1.5 text-[18px]"
+                              className="py-1.5 text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
                             >
                               Report
                             </h1>
-                            <h1 className="py-1 w-[16px] mt-1.5 ml-1">
+                            <h1 className="py-1 w-[16px] mt-1.5 ml-1 cursor-pointer">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -1697,7 +1425,7 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         </div>
                         <div>
-                          <div className="flex gap-3 mt-8 pb-1">
+                          <div className="flex items-center gap-3 mt-8 pb-3">
                             <div className="flex flex-col">
                               <img
                                 className="w-[32px]"
@@ -1705,69 +1433,31 @@ const ProductScreen = ({ showModal }) => {
                                 src={require("../assets/new design/user_icon.png")}
                               />
                             </div>
-                            <div className="flex flex-row">
-                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
+                            <div className="flex flex-row items-center">
+                              <h1 className="font-bold mt-[2.0px] underline text-base">
                                 @munnabhaimbbc
                               </h1>
-                              <h1 className="ml-1 mt-[1px]">
+                              <h1 className="ml-1">
                                 <CheckCircleRoundedIcon
                                   color="success"
                                   fontSize="x-small"
                                 />
                               </h1>
-                              <h1 className="mt-1 pl-2.5 ">
+                              <h1 className=" pl-2.5 ">
                                 <NorthRoundedIcon />
                               </h1>
-                              <h1 className="pl-0.5 font-bold text-[25px]">
-                                0
-                              </h1>
+                              <h1 className="pl-0.5 font-bold text-lg">0</h1>
                               <h1
-                                className="pl-3 mt-1 text-[20px]"
+                                className="pl-3 text-[0.9rem] "
                                 style={{ color: "#667085" }}
                               >
                                 2 hours ago
                               </h1>
                             </div>
                           </div>
-                          <div className="flex ml-[42px]">
+                          <div className="flex ml-[42px] align-center">
                             <h1
-                              className="ml-3 px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
-                              style={{ background: "#2D2E30", color: "white" }}
-                            >
-                              Made an offer
-                            </h1>
-                          </div>
-                        </div>
-                        <div>
-                          <div className="flex gap-3 mt-8 pb-1">
-                            <div className="flex flex-col">
-                              <img
-                                className="w-[32px]"
-                                style={{ background: "#9AA4AA" }}
-                                src={require("../assets/new design/user_icon.png")}
-                              />
-                            </div>
-                            <div className="flex flex-row">
-                              <h1 className="font-bold mt-[2.0px] underline text-[20px]">
-                                @abd
-                              </h1>
-                              <h1 className="mt-1 pl-2.5 ">
-                                <NorthRoundedIcon />
-                              </h1>
-                              <h1 className="pl-0.5 font-bold text-[25px]">
-                                0
-                              </h1>
-                              <h1
-                                className="pl-3 mt-1 text-[20px]"
-                                style={{ color: "#667085" }}
-                              >
-                                1 day
-                              </h1>
-                            </div>
-                          </div>
-                          <div className="flex ml-[42px]">
-                            <h1
-                              className="ml-3 px-3 py-[5px] text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
+                              className="p-1 flex content-center align-center text-[10px] rounded-[4px] text-base text-black border-[1px] border-black font-semibold"
                               style={{ background: "#2D2E30", color: "white" }}
                             >
                               Made an offer
@@ -1777,11 +1467,11 @@ const ProductScreen = ({ showModal }) => {
                       </div>
                     </div>
                   </div>
-                </Accourdion>
-              </div> */}
+              </Accourdion>
+            </div>
 
             <div className=" px-3 border-x-[1px] border-b-[1px] border-black pb-4 pt-4">
-              <h1 className=" text-sm font-semibold">Recommended Listings</h1>
+              <h1 className=" text-[1.1rem] font-bold">Recommended Listings</h1>
               <p className=" text-xs font-medium mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt.
