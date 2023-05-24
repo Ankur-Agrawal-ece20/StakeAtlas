@@ -133,7 +133,7 @@ const WatchlistScreen = () => {
   return (
     <div>
       {/* desktop */}
-      <div className="hidden xl:flex items-start min-h-screen">
+      <div className="hidden min-[950px]:flex items-start min-h-screen">
         <div className=" self-stretch">
           <SideMenu setnavexpand={setnavexpand} />
         </div>
@@ -186,7 +186,7 @@ const WatchlistScreen = () => {
           <div
             onScroll={handleScroll}
             style={{ width: navexpand ? "100%" : "95vw" }}
-            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-center gap-x-[3%]">
+            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-evenly gap-x-[3%]">
             {data.map((e, i) => (
               (e === remove) ?
                 (<div className="w-min min-w-[300px] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
@@ -211,7 +211,7 @@ const WatchlistScreen = () => {
       </div>
 
       {/* mobile */}
-      <div className=" mb-28 xl:hidden">
+      <div className=" mb-28 min-[950px]:hidden">
         <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
           <SideMenu />
         </div>

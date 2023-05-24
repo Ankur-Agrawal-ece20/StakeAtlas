@@ -60,9 +60,7 @@ const SideMenu = (props) => {
   return (
     <div className="inline">
       <div
-        className={`bg-black border-r-2 border-black h-screen duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px] " : "w-[100%] xl:w-[255px]"
-          }`}
-      >
+        className={`bg-black border-r-2 border-black h-full duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px]" : "w-[17vw] min-w-[218px]"}`}>
         {open ? (
           <div
             className={`bg-white  px-6  py-3 float-left`}
@@ -84,7 +82,7 @@ const SideMenu = (props) => {
             />
           </div>
         )}
-        <div className={`py-7 ${open ? "pl-4" : "pl-6"}`}>
+        <div className={`py-7 ${open ? "pl-4" : "pl-[6%]"}`}>
           {open ? (
             <div className="float-center pt-11 pr-2">
               <img
@@ -94,10 +92,10 @@ const SideMenu = (props) => {
             </div>
           ) : (
             <>
-              <h1 className="text-3xl font-medium text-white tracking-wide w-[100vw] xl:w-[255px] overflow-hidden">
+              <h1 className="w-[100vw] text-3xl font-medium text-white tracking-wide overflow-hidden">
                 Hi, Sarthak
               </h1>
-              <h1 className=" text-lg font-medium text-[#FFDC25]  w-[100vw] xl:w-[255px]">
+              <h1 className="w-[100vw] text-lg font-medium text-[#FFDC25] ">
                 Member Since Jan 2022
               </h1>
             </>
@@ -118,11 +116,11 @@ const SideMenu = (props) => {
 
           return (
             <div
-              className={`py-3.5  w-[100%] xl:w-[255px] border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6"
+              className={`py-3.5 border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6 max-[1340px]:pl-5"
                 }`}
             >
               <div
-                className="flex items-start justify-start"
+                className={`grid grid-cols-[10%_80%_10%] ${!open?"":"w-[255px]"}`}
                 onClick={() =>
                   e.title === "Buying" &&
                   setExpand(!expand) &&
@@ -145,7 +143,7 @@ const SideMenu = (props) => {
 
                 <div className="flex justify-start items-center flex-1">
                   <h1
-                    className={`text-[17px] font-medium text-white tracking-wide ml-4 pl-3
+                    className={`text-[17px] font-medium text-white tracking-wide ml-[7%] pl-[5%]
                   `}
                   >
                     <Link
@@ -159,7 +157,7 @@ const SideMenu = (props) => {
                   </h1>
                 </div>
 
-                <div className="flex items-end justify-center pr-2">
+                <div className="flex items-end justify-center mr-[6%]">
                   {e.title === "Buying" &&
                     !open &&
                     (!expand ? (
@@ -227,7 +225,7 @@ const SideMenu = (props) => {
                     <div className="flex items-center cursor-pointer" key={j}>
                       <Link
                         to={subItem.navigation}
-                        className={`text-[16px] font-medium tracking-wide ml-10 mt-2 block
+                        className={`text-[16px] font-medium tracking-wide ml-10 max-[1340px]:ml-8 mt-2 block
                        
                         ${location.pathname.includes(subItem.navigation)
                             ? "text-[#FFDC25]"

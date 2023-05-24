@@ -1,6 +1,6 @@
 import { ExpandMore, ExpandLess, Cancel, Delete, Search, Star } from "@mui/icons-material";
 import SideMenu from "../components/Buying/SideMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { CONTACT_SELLER_MODAL } from "../extras/constants";
@@ -10,9 +10,11 @@ const SavedSeller = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [fontSize, setFontSize] = useState("text-4xl");
-  const [activeTab, setActiveTab] = useState("All");
+  const [showSeller, setShowSeller] = useState(false);
   const [phonesidenav, showphonesidenav] = useState(true);
   const [showsort, setshowsort] = useState(false);
+  const [value, setValue] = useState("");
+  const [categories, setCategories] = useState([]);
   const [sorttype, setsorttype] = useState(0);
   const [navexpand, setnavexpand] = useState(true);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
@@ -67,6 +69,16 @@ const SavedSeller = () => {
       location: "LA, USA"
     },
   ])
+  useEffect(() => {
+    let category = [];
+    for (let i in data) {
+      let loc = data[i].location.toLowerCase();
+      if (loc.includes("india") && loc.slice(0, value.length) == value.toLowerCase()) {
+        category.push(data[i].location);
+      }
+    }
+    setCategories(category.slice(0, 4));
+  }, [value])
   const recentlistTabs = [
     "All",
   ];
@@ -86,7 +98,7 @@ const SavedSeller = () => {
   return (
     <div>
       {/* desktop */}
-      <div className="hidden xl:flex items-start min-h-screen">
+      <div className="hidden min-[950px]:flex items-start min-h-screen">
         <div className=" self-stretch">
           <SideMenu setnavexpand={setnavexpand} />
         </div>
@@ -102,11 +114,33 @@ const SavedSeller = () => {
               className={`${fontSize === "text-4xl" ? "mt-5" : "mt-2"
                 } transition-all duration-300 ease-in-out flex items-center justify-between`}
             >
-              <div className="flex items-center gap-x-4">
-                <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#769ED9] text-white border-[1px] border-sa-border-black font-medium flex items-center justify-center">
+              <div className="relative z-20 w-max place-items-center gap-x-4">
+                <button onClick={() => { setShowSeller(!showSeller) }}
+                  className={` text-[18px] mt-2.5 py-2 px-5 rounded-[4px] border-[1px] border-sa-border-black
+                    ${(showSeller) ? "rounded-b-none border-b-0" : "rounded-[4px]"} 
+                   bg-[#769ED9] text-white font-medium flex items-center justify-center`}>
                   Sellers from India
                   <Search className="ml-5 text-white text-xs" />
                 </button>
+                <div className={`flex-col absolute pt-1 w-full border-[1px] rounded rounded-t-none border-black bg-white ${(showSeller) ? "flex" : "hidden"}`}>
+                  <div className='flex align-center justify-center  relative w-full my-1 xl:mt-1.5'>
+                    <input
+                      type="text"
+                      value={value}
+                      onChange={(e) => setValue(e.currentTarget.value)}
+                      className={`w-[95%] border-[1px] border-black py-1.5 pr-6 px-5 }`}
+                      placeholder='Enter pincode/city/state'
+                    />
+                  </div>
+                  {categories.map((type, i) => (
+                    <>
+                      <hr className="w-[90%] bg-gray-700" />
+                      <div key={`cat${i}`} onClick={() => { setShowSeller(!showSeller); }} className='py-1 relative cursor-pointer hover:bg-[#FFDC2530] font-medium last:border-b-[0px] border-black px-3'>
+                        <p><b>{type.slice(0, value.length)}</b>{type.slice(value.length)}</p>
+                      </div>
+                    </>
+                  ))}
+                </div>
               </div>
               <div className="relative z-20 w-max place-items-center">
                 <button
@@ -129,10 +163,10 @@ const SavedSeller = () => {
           <div
             onScroll={handleScroll}
             style={{ width: navexpand ? "100%" : "95vw" }}
-            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-center gap-x-[3%]">
+            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-evenly gap-x-[3%]">
             {data.map((e, i) => (
               <div className="w-min min-w-[300px] mb-10">
-                <div  onClick={() => navigate("/sellerShop")} className="border-[1px] border-black cardHover rounded-md relative">
+                <div onClick={() => navigate("/sellerShop")} className="border-[1px] border-black cardHover rounded-md relative">
                   <div className="p-3">
                     <div className="border border-solid border-black rounded-md overflow-hidden">
                       <img
@@ -160,7 +194,7 @@ const SavedSeller = () => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between mt-3 gap-3">
-                  <button 
+                  <button
                     onClick={() => {
                       dispatch(
                         showModal({
@@ -173,7 +207,7 @@ const SavedSeller = () => {
                     className="buttonHover flex-1 text-sm   py-2 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-black font-medium">
                     Contact {e.name}
                   </button>
-                  <button onClick={()=>deleteSavedSeller(e)} className="buttonHover text-sm py-1.5 px-3 rounded-[4px] bg-[#D1503B] text-white border-[1px] border-black font-medium">
+                  <button onClick={() => deleteSavedSeller(e)} className="buttonHover text-sm py-1.5 px-3 rounded-[4px] bg-[#D1503B] text-white border-[1px] border-black font-medium">
                     <Delete />
                   </button>
                 </div>
@@ -184,7 +218,7 @@ const SavedSeller = () => {
       </div>
 
       {/* mobile */}
-      <div className=" mb-28 xl:hidden">
+      <div className=" mb-28 min-[950px]:hidden">
         <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
           <SideMenu />
         </div>
@@ -196,16 +230,44 @@ const SavedSeller = () => {
             Saved Sellers
           </h1>
         </div>
-        <div className="pt-7 px-4">
-          <div className="w-full text-[18px] mb-7 py-2 px-5 rounded-[4px] bg-[#769ED9] flex items-center justify-between border-[1px] border-black">
-            <button className="  text-white font-medium text-left flex-1">
-              Sellers from India
-            </button>
-            <Search className=" text-white text-xs" />
+        <div className="px-4 ">
+          <div
+            className={`${fontSize === "text-4xl" ? "mt-5" : "mt-2"
+              } transition-all duration-300 pb-7 ease-in-out flex items-center justify-between`}
+          >
+            <div className="relative z-20 w-full place-items-center gap-x-4">
+              <button onClick={() => { setShowSeller(!showSeller) }}
+                className={` text-[18px] mt-2.5 py-2 px-5 rounded-[4px] border-[1px] border-sa-border-black
+                    ${(showSeller) ? "rounded-b-none border-b-0" : "rounded-[4px]"} 
+                   bg-[#769ED9] text-white w-full font-medium flex items-center justify-between`}>
+                Sellers from India
+                <Search className="ml-5 text-white text-xs" />
+              </button>
+              <div className={`flex-col absolute pt-1 w-full border-[1px] rounded rounded-t-none border-black bg-white ${(showSeller) ? "flex" : "hidden"}`}>
+                <div className='flex align-center justify-center  relative w-full my-1 xl:mt-1.5'>
+                  <input
+                    type="text"
+                    value={value}
+                    onChange={(e) => setValue(e.currentTarget.value)}
+                    className={`w-[95%] border-[1px] border-black py-1.5 pr-6 px-5 }`}
+                    placeholder='Enter pincode/city/state'
+                  />
+                </div>
+                {categories.map((type, i) => (
+                  <>
+                    <hr className="w-[90%] bg-gray-700" />
+                    <div key={`cat${i}`} onClick={() => { setShowSeller(!showSeller); }} className='py-1 relative cursor-pointer hover:bg-[#FFDC2530] font-medium last:border-b-[0px] border-black px-3'>
+                      <p><b>{type.slice(0, value.length)}</b>{type.slice(value.length)}</p>
+                    </div>
+                  </>
+                ))}
+              </div>
+            </div>
           </div>
+          {/* </div> */}
           {data.map((e, i) => (
             <div className="mb-10">
-              <div  onClick={() => navigate("/sellerShop")} className="border-[1px] border-black cardHover rounded-md relative">
+              <div onClick={() => navigate("/sellerShop")} className="border-[1px] border-black cardHover rounded-md relative">
                 <div className="p-3">
                   <div className="border border-solid border-black rounded-md overflow-hidden">
                     <img
@@ -233,7 +295,7 @@ const SavedSeller = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between mt-3 gap-3">
-                <button 
+                <button
                   onClick={() => {
                     dispatch(
                       showModal({
@@ -246,7 +308,7 @@ const SavedSeller = () => {
                   className=" flex-1 text-lg py-2 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-black font-medium">
                   Contact {e.name}
                 </button>
-                <button onClick={()=>deleteSavedSeller(e)} className=" text-lg py-1.5 px-3 rounded-[4px] bg-[#D1503B] text-white border-[1px] border-black font-medium">
+                <button onClick={() => deleteSavedSeller(e)} className=" text-lg py-1.5 px-3 rounded-[4px] bg-[#D1503B] text-white border-[1px] border-black font-medium">
                   <Delete />
                 </button>
               </div>

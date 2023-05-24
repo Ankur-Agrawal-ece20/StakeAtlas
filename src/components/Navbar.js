@@ -56,7 +56,7 @@ const NavBar = () => {
         <div className="hidden min-[950px]:flex min-[950px]:w-auto min-[950px]:h-auto flex-1 bg-white border-b-[2px] border-black 4min-[950px]:border-b-2">
           <div
             onClick={() => navigate("/")}
-            className="border-r-2 border-black px-[30.7px] cursor-pointer flex items-center justify-center"
+            className="border-r-2 border-black align-center justify-center w-[17vw] min-w-[218px] cursor-pointer flex items-center justify-center"
           >
             <h1 className="mediumFont text-black text-right min-[950px]:text-4xl line 3min-[950px]:text-[44px]  4min-[950px]:text-5xl">
               Stake Atlas

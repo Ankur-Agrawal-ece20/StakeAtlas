@@ -133,7 +133,7 @@ const OffersScreen = ({ showModal }) => {
   return (
     <div>
       {/* desktop */}
-      <div className="hidden xl:flex items-start min-h-screen">
+      <div className="hidden min-[950px]:flex items-start min-h-screen">
         <div className="self-stretch">
           <SideMenu setnavexpand={setnavexpand} />
         </div>
@@ -207,7 +207,7 @@ const OffersScreen = ({ showModal }) => {
       </div>
 
       {/* mobile */}
-      <div className=" mb-28 xl:hidden">
+      <div className=" mb-28 min-[950px]:hidden">
         <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
           <SideMenu />
         </div>
