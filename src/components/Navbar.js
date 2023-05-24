@@ -73,7 +73,7 @@ const NavBar = () => {
             </div>
           </div>
           <div className="flex items-center justify-center border-r-2 border-black min-[950px]:py-4 min-[950px]:w-[34.5%] 3min-[950px]:py-5 3min-[950px]:w-[34.8%] 4min-[950px]:py-6 4min-[950px]:w-[34.8%]">
-            <div className="grid grid-cols-[30%_30%_30%] px-[5%] w-full justify-items-center">
+            <div className="flex flex-col-[30%_30%_30%] px-[5%] w-full justify-around">
               <button className="group transition-all w-fit duration-300 ease-in-out font-normal text-black min-[950px]:text-base  3min-[950px]:text-lg 4min-[950px]:text-[22px]">
                 <span class="bg-left-bottom  pb-1  bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-no-repeat group-hover:bg-[length:100%_1px] transition-all duration-500 ease-out">
                   Categories
