@@ -60,10 +60,10 @@ const SideMenu = (props) => {
   return (
     <div className="inline">
       <div
-        className={`bg-black border-r-2 border-black h-full duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px]" : "w-[17vw] min-w-[218px]"}`}>
+        className={`bg-black max-[950px]:w-[100%] h-full duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px]" : " w-[17vw] max-[1286px]:w-[218px]"}`}>
         {open ? (
           <div
-            className={`bg-white  px-6  py-3 float-left`}
+            className={`bg-white border-r-2 border-black px-6  py-3 float-left`}
             onClick={() => setOpen(!open)}
           >
             <img
@@ -73,7 +73,7 @@ const SideMenu = (props) => {
           </div>
         ) : (
           <div
-            className={`bg-white px-5 py-3 float-right`}
+            className={`bg-white  border-r-2 border-black px-5 py-3 float-right`}
             onClick={() => setOpen(!open)}
           >
             <img
@@ -116,7 +116,7 @@ const SideMenu = (props) => {
 
           return (
             <div
-              className={`py-3.5 border-y-[1px] menuBorder relative ${open ? "pl-5" : "pl-6 max-[1340px]:pl-5"
+              className={`py-3.5 border-b-[1px] ${i===0 && "border-t-[1px]"} menuBorder relative ${open ? "pl-5" : "pl-6 max-[1340px]:pl-5"
                 }`}
             >
               <div
@@ -143,7 +143,7 @@ const SideMenu = (props) => {
 
                 <div className="flex justify-start items-center flex-1">
                   <h1
-                    className={`text-[17px] font-medium text-white tracking-wide ml-[7%] pl-[5%]
+                    className={`text-[17px] font-medium text-white tracking-wide ml-[7%] max-[950px]:ml-4 pl-[5%] max-[950px]:pl-3
                   `}
                   >
                     <Link
@@ -157,7 +157,7 @@ const SideMenu = (props) => {
                   </h1>
                 </div>
 
-                <div className="flex items-end justify-center mr-[6%]">
+                <div className="flex items-end justify-center mr-[100%]">
                   {e.title === "Buying" &&
                     !open &&
                     (!expand ? (
@@ -220,12 +220,13 @@ const SideMenu = (props) => {
               )} */}
 
               {!open && hasSubItems && (
-                <div className={`pl-4 overflow-hidden transition-all duration-500 ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
                   {e.subItems.map((subItem, j) => (
-                    <div className="flex items-center cursor-pointer" key={j}>
+                    <div className="grid grid-cols-[10%_90%] items-center cursor-pointer" key={j}>
+                      <div></div>
                       <Link
                         to={subItem.navigation}
-                        className={`text-[16px] font-medium tracking-wide ml-10 max-[1340px]:ml-8 mt-2 block
+                        className={`text-[16px] ml-[9%] max-[950px]:ml-6 pl-[5%] max-[950px]:pl-3 font-medium tracking-wide mt-2 block
                        
                         ${location.pathname.includes(subItem.navigation)
                             ? "text-[#FFDC25]"

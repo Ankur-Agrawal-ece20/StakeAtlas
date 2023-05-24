@@ -121,3 +121,13 @@ code {
 .cardSelect {
   @apply cursor-pointer bg-[#FCF9F4] shadow-hoverCard -translate-x-1 -translate-y-1;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}

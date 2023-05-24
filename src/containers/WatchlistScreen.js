@@ -2,7 +2,7 @@ import { ExpandMore, ExpandLess, Cancel } from "@mui/icons-material";
 import SideMenu from "../components/Buying/SideMenu";
 import ProductCard from "../components/Home/ProductCard";
 import ProductCardMob from "../components/Home/ProductCardMob";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const WatchlistScreen = () => {
   const [fontSize, setFontSize] = useState("text-4xl");
@@ -130,6 +130,22 @@ const WatchlistScreen = () => {
       setFontSize("text-4xl");
     }
   };
+  const [gridCols,setgridCols] = useState("grid-cols-3")
+  const change_cols = () =>{
+    let e=document.getElementById("card-container1");
+    if(!e) return;
+    let width=e.offsetWidth;
+    let boxwidth=e.childNodes[0].offsetWidth;
+    let cols=Math.trunc(width/boxwidth);
+    let grid=`grid-cols-${cols}`
+    setgridCols(grid);
+  }
+  window.addEventListener('resize', change_cols);
+  useEffect(()=>{
+    setInterval(() => {
+      change_cols();
+    }, 100);
+  },[navexpand])
   return (
     <div>
       {/* desktop */}
@@ -173,9 +189,9 @@ const WatchlistScreen = () => {
                   text-black font-medium flex items-center justify-center bg-[#FCF9F4]`}>
                   Sort: {sortarray[sorttype]}  &nbsp;{!showsort ? <ExpandMore /> : <ExpandLess />}
                 </button>
-                <div className={`flex-col absolute w-full border-[1px] rounded rounded-t-none border-black bg-[#FCF9F4] ${(showsort) ? "flex" : "hidden"}`}>
+                <div className={`flex-col absolute w-full rounded rounded-t-none border-black bg-[#FCF9F4] overflow-hidden transition-all duration-500 ease-in-out ${showsort ? "max-h-[100vh] border-[1px]" : "max-h-0 border-[0px]"}`}>
                   {sortarray.map((type, i) => (
-                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='relative cursor-pointer py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
+                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='mt-2.5 py-2 relative cursor py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
                       <p>{type}</p>
                     </div>
                   ))}
@@ -184,12 +200,14 @@ const WatchlistScreen = () => {
             </div>
           </div>
           <div
+            id="card-container1"
             onScroll={handleScroll}
-            style={{ width: navexpand ? "100%" : "95vw" }}
-            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-evenly gap-x-[3%]">
+            style={{ width: navexpand ? "100%" : "calc(100%-65px)" }}
+            className={ `no-scrollbar transition-all duration-600 ease w-[100%] pl-12 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden grid ${gridCols} gap-x-[3%]`}>
+            {/* className="no-scrollbar transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-evenly gap-x-[3%]"> */}
             {data.map((e, i) => (
               (e === remove) ?
-                (<div className="w-min min-w-[300px] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
+                (<div className="w-min  min-w-[330px] px-[10px] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
                   <h1 className="text-xl font-medium text-white text-center w-[80%] mb-3 mx-auto ">
                     Are you sure you want to remove this?
                   </h1>
@@ -202,7 +220,7 @@ const WatchlistScreen = () => {
                     </button>
                   </div>
                 </div>) :
-                <div className="w-min min-w-[300px] mb-10">
+                <div className="w-min  min-w-[330px] px-[10px] mb-10">
                   <ProductCard data={e} remove={setremove} />
                 </div>
             ))}
@@ -211,7 +229,7 @@ const WatchlistScreen = () => {
       </div>
 
       {/* mobile */}
-      <div className=" mb-28 min-[950px]:hidden">
+      <div className=" mb-28 bg-[#FCF9F4] min-[950px]:hidden">
         <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
           <SideMenu />
         </div>
@@ -223,10 +241,10 @@ const WatchlistScreen = () => {
             Watchlist
           </h1>
         </div>
-        <div className="pt-7 px-4">
+        <div className="pt-7 px-4 grid grid-flow-row align-center justify-center">
           {data.map((e, i) => (
             (e === remove) ?
-              (<div className="bg-sa-menu-green py-10 rounded mb-5">
+              (<div className="max-w-[662px] bg-sa-menu-green py-10 rounded mb-5">
                 <h1 className="text-base font-medium text-white text-center w-[60%] mx-auto ">
                   Are you sure you want to remove this
                 </h1>
@@ -245,7 +263,7 @@ const WatchlistScreen = () => {
           ))}
         </div>
         <div className="fixed  z-50 bottom-0 w-full grid grid-cols-[100%]">
-          <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
+          <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "" : "hidden"}`}>
             <h2 className="text-2xl py-t-2 font-bold">Sorting</h2>
             <div
               onClick={() => { setshowsort(!showsort) }}

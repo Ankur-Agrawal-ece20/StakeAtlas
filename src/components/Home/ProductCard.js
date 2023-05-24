@@ -37,7 +37,7 @@ const ProductCard = ({ isBuying, data, remove }) => {
     settoggleliked(!toggleliked);
   }
   return (
-    <div className={`border-[1px] border-black ${fixcardHover?"cardHover":"cardSelect"} rounded-md relative mb-5`}>
+    <div className={`border-[1px] bg-white border-black ${fixcardHover?"cardHover":"!bg-white cardSelect"} rounded-md relative mb-5`}>
       {isBuying && (
         <div className="border-b-[1px] border-black flex items-center">
           <div className="border-r-[1px] border-black w-[50%]">

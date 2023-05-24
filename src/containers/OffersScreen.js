@@ -1,5 +1,5 @@
 import { ExpandMore, ExpandLess, Cancel } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import SideMenu from "../components/Buying/SideMenu";
 import ProductCard from "../components/Home/ProductCard";
@@ -130,6 +130,22 @@ const OffersScreen = ({ showModal }) => {
       setFontSize("text-4xl");
     }
   };
+  const [gridCols,setgridCols] = useState("grid-cols-3")
+  const change_cols = () =>{
+    let e=document.getElementById("card-container");
+    if(!e) return;
+    let width=e.offsetWidth;
+    let boxwidth=e.childNodes[0].offsetWidth;
+    let cols=Math.trunc(width/boxwidth);
+    let grid=`grid-cols-${cols}`
+    setgridCols(grid);
+  }
+  window.addEventListener('resize', change_cols);
+  useEffect(()=>{
+    setInterval(() => {
+      change_cols();
+    }, 100);
+  },[navexpand])
   return (
     <div>
       {/* desktop */}
@@ -147,14 +163,14 @@ const OffersScreen = ({ showModal }) => {
               className={`${fontSize === "text-4xl" ? "mt-5" : "mt-2"
                 } transition-all duration-300 ease-in-out flex items-center justify-between`}
             >
-              <div className="flex items-center gap-x-4">
+              <div className="flex items-center flex-wrap max-w-[600px] mr-10 grow justify-between">
                 {offerTabs.map(function (e, i) {
                   return (
                     <button
                       onClick={() => setActiveTab(e)}
                       key={i}
-                      className={`text-[18px] mt-2.5 py-2 px-5  rounded-md ${activeTab === e
-                        ? "bg-white border-[1px] border-sa-border-black"
+                      className={`text-[18px] mt-2.5 py-2  rounded-md ${activeTab === e
+                        ? "px-5 bg-white border-[1px] border-sa-border-black"
                         : "bg-[#FCF9F4]  border-[1px] border-[#FCF9F4]"
                         } text-black font-medium flex items-center justify-center`}
                     >
@@ -163,7 +179,7 @@ const OffersScreen = ({ showModal }) => {
                   );
                 })}
               </div>
-              <div className="relative z-20 w-max place-items-center">
+              {/* <div className="relative z-20 w-max place-items-center">
                 <button
                   onClick={() => { setshowsort(!showsort) }}
                   className={`text-[18px] mt-2.5 py-2 px-5 border-[1px] border-sa-border-black
@@ -171,14 +187,14 @@ const OffersScreen = ({ showModal }) => {
                   text-black font-medium flex items-center justify-center bg-[#FCF9F4]`}>
                   Sort: {sortarray[sorttype]}  &nbsp;{!showsort ? <ExpandMore /> : <ExpandLess />}
                 </button>
-                <div className={`flex-col absolute w-full border-[1px] rounded rounded-t-none border-black bg-[#FCF9F4] ${(showsort) ? "flex" : "hidden"}`}>
+                <div className={`flex-col absolute w-full rounded rounded-t-none border-black bg-[#FCF9F4] overflow-hidden transition-all duration-500 ease-in-out ${showsort ? "max-h-[100vh] border-[1px]" : "max-h-0 border-[0px]"}`}>
                   {sortarray.map((type, i) => (
-                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='relative cursor-pointer py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
+                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='mt-2.5 py-2 relative cursor py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
                       <p>{type}</p>
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
               <button
                 onClick={() => {
                   showModal({
@@ -195,10 +211,11 @@ const OffersScreen = ({ showModal }) => {
           </div>
           <div
             onScroll={handleScroll}
-            style={{ width: navexpand ? "100%" : "95vw" }}
-            className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-evenly gap-x-[3%]">
+            id="card-container"
+            style={{ width: navexpand ? "100%" : "calc(100%-65px)" }}
+            className={ `no-scrollbar transition-all duration-600 ease w-[100%] pl-12 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden grid ${gridCols} gap-x-[3%]`}>
             {data.map((e, i) => (
-              <div className="w-min min-w-[300px]">
+              <div className="w-min min-w-[330px] px-[10px]">
                 <ProductCard isBuying key={i} data={e} />
               </div>
             ))}
@@ -207,7 +224,7 @@ const OffersScreen = ({ showModal }) => {
       </div>
 
       {/* mobile */}
-      <div className=" mb-28 min-[950px]:hidden">
+      <div className=" bg-[#FCF9F4] mb-28 min-[950px]:hidden">
         <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
           <SideMenu />
         </div>
@@ -219,13 +236,13 @@ const OffersScreen = ({ showModal }) => {
             Offers
           </h1>
         </div>
-        <div className="pt-7 px-4 transition-all  duration-500 ease">
+        <div className="pt-7 px-4 grid grid-flow-row align-center justify-center transition-all  duration-500 ease">
           {data.map((e, i) => (
             <ProductCardMob isBuying key={i} data={e} />
           ))}
         </div>
         <div className="fixed  z-50 bottom-0 w-full grid grid-cols-[100%]">
-          <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
+          <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "" : "hidden"}`}>
             <h2 className="text-2xl py-t-2 font-bold">Sorting</h2>
             <div
               onClick={() => { setshowsort(!showsort) }}

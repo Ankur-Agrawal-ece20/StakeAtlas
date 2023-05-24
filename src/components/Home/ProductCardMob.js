@@ -28,7 +28,7 @@ const ProductCardMob = ({ isBuying, data, remove }) => {
     // code to add to wishlist
   }
   return (
-    <div className="border-[1px] border-black buttonHover rounded relative mb-5">
+    <div className=" max-w-[662px] bg-white border-[1px] border-black buttonHover rounded relative mb-5">
       {isBuying && (
         <div className="border-b-[1px] border-black flex items-center">
           <div className="border-r-[1px] border-black w-[50%]">
