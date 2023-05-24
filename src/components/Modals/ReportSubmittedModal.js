@@ -2,6 +2,7 @@ import React from "react";
 import { Cancel, Star, StarOutline } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { hideModal, showModal } from "../../redux/actions/modal";
+import { CUSTOMER_SERVICE_MODAL } from "../../extras/constants";
 
 const ReportSubmittedModal = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,10 @@ const ReportSubmittedModal = () => {
                 className="text-base text-red-400"
               />
             </div>
-            <div className="bg-white px-7 py-5">
+            <div className="bg-[#FCF9F4] px-3 rounded px-7 py-5">
               <div>
                 <div className="mb-2">
-                  <h1 className="text-[40px] font-semibold text-black text-center">
+                  <h1 className="text-[36px] font-semibold text-black text-center">
                     We’re here to resolve your problem
                   </h1>
                   <div className="flex items-center justify-center gap-x-8">
@@ -35,10 +36,10 @@ const ReportSubmittedModal = () => {
                           }
                         />
                       </div>
-                      <h1 className="text-lg font-medium text-gray-400 mt-1">
+                      <h1 className="text-[18px] font-medium text-gray-400 mt-1">
                         Call us at
                       </h1>
-                      <h1 className="text-xl font-semibold text-black">
+                      <h1 className="text-[20px] font-semibold text-black">
                         +91 85674 83647
                       </h1>
                     </div>
@@ -51,10 +52,20 @@ const ReportSubmittedModal = () => {
                           }
                         />
                       </div>
-                      <h1 className="text-lg font-medium text-gray-400 mt-1">
+                      <h1 className="text-[18px] font-medium text-gray-400 mt-1">
                         Send a message
                       </h1>
-                      <h1 className="text-xl font-semibold text-black">
+                      <h1
+                        onClick={()=>{
+                          dispatch(
+                            showModal({
+                              modalType: CUSTOMER_SERVICE_MODAL,
+                              modalTitle: ``,
+                              modalSubTitle: ""
+                            })
+                          );
+                        }}
+                       className="text-[20px] underline cursor-pointer font-semibold text-black">
                         Tell us in detail
                       </h1>
                     </div>
@@ -66,10 +77,10 @@ const ReportSubmittedModal = () => {
                           }
                         />
                       </div>
-                      <h1 className="text-lg font-medium text-gray-400 mt-1">
+                      <h1 className="text-[18px] font-medium text-gray-400 mt-1">
                         Mail us at
                       </h1>
-                      <h1 className="text-xl font-semibold text-black">
+                      <h1 className="text-[20px] font-semibold text-black">
                         help@stakeatlas.in
                       </h1>
                     </div>
@@ -130,7 +141,17 @@ const ReportSubmittedModal = () => {
                       <h1 className="text-sm font-medium text-gray-400 mt-1">
                         Send a message
                       </h1>
-                      <h1 className="text-base font-semibold text-black">
+                      <h1
+                        onClick={()=>{
+                          dispatch(
+                            showModal({
+                              modalType: CUSTOMER_SERVICE_MODAL,
+                              modalTitle: ``,
+                              modalSubTitle: ""
+                            })
+                          );
+                        }}
+                       className="text-base underline cursor-pointer font-semibold text-black">
                         Tell us in detail
                       </h1>
                     </div>

@@ -33,34 +33,34 @@ const ReviewModal = () => {
                   />
                 </div>
                 <div>
-                  <h1 className=" text-xl underline font-medium text-white">
+                  <h1 className=" text-[20px] underline font-medium text-white">
                     Akshat Tripathi
                   </h1>
-                  <h1 className="text-base font-normal text-white">
+                  <h1 className="text-[16px] font-normal text-white">
                     Member since July 2022
                   </h1>
                 </div>
               </div>
               <div className=" flex items-center gap-x-0.5">
-                <h1 className=" text-2xl font-bold text-white">4.5</h1>
+                <h1 className=" text-[32px] font-bold text-white">4.5</h1>
                 <Star className=" text-yellow-100 text-xs" />
               </div>
             </div>
             <div className="bg-sa-primary-yellow border-y-[1px] border-black py-3.5 flex items-center justify-center gap-x-3">
-              <h1 className="text-lg font-medium text-black">
+              <h1 className="text-[18px] font-medium text-black">
                 Leave a review and get ₹100 off on your next order
               </h1>
-              <p className="text-lg text-[#0076BE] underline underline-offset-2">
+              <p className="text-[18px] text-[#0076BE] underline underline-offset-2">
                 View Details
               </p>
             </div>
             <div className="bg-white px-7 py-5">
               <div>
-                <h1 className="text-2xl font-semibold text-[#344054]">
+                <h1 className="text-[28px] font-semibold text-[#344054]">
                   How would you rate your experience with Akshat?
                 </h1>
                 <div className="flex items-center mb-2 mt-3">
-                  <h1 className="text-xl font-semibold text-[#344054] w-[25%]">
+                  <h1 className="text-[20px] font-semibold text-[#344054] w-[25%]">
                     Communication
                   </h1>
                   <div className="flex items-center mr-2">
@@ -77,10 +77,10 @@ const ReviewModal = () => {
                     <Ratings />
                     <Ratings />
                   </div>
-                  <h1 className="text-base font-semibold text-black">Bad</h1>
+                  <h1 className="text-[22px] font-semibold text-black">Bad</h1>
                 </div>
                 <div className="flex items-center mb-2">
-                  <h1 className="text-xl font-semibold text-[#344054] w-[25%]">
+                  <h1 className="text-[20px] font-semibold text-[#344054] w-[25%]">
                     On Time Shipment
                   </h1>
                   <div className="flex items-center mr-2">
@@ -97,10 +97,10 @@ const ReviewModal = () => {
                     <Ratings />
                     <Ratings />
                   </div>
-                  <h1 className="text-base font-semibold text-black">Bad</h1>
+                  <h1 className="text-[22px] font-semibold text-black">Bad</h1>
                 </div>
                 <div className="flex items-center mb-2">
-                  <h1 className="text-xl font-semibold text-[#344054] w-[25%]">
+                  <h1 className="text-[20px] font-semibold text-[#344054] w-[25%]">
                     Item as described
                   </h1>
                   <div className="flex items-center mr-2">
@@ -117,7 +117,7 @@ const ReviewModal = () => {
                     <Ratings />
                     <Ratings />
                   </div>
-                  <h1 className="text-base font-semibold text-black">Bad</h1>
+                  <h1 className="text-[22px] font-semibold text-black">Bad</h1>
                 </div>
               </div>
               <div className="mt-2">
@@ -128,7 +128,7 @@ const ReviewModal = () => {
                 />
               </div>
               <div>
-                <p className="text-[13px] leading-4 mt-2 font-medium ">
+                <p className="text-[12px] leading-4 mt-2 font-medium ">
                   To keep everyone safe on Stake Atlas, we prohibit sharing
                   contact information on messages. Do not share your email,
                   phone number or address as multiple attempts might lead to

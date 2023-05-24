@@ -24,7 +24,7 @@ const ProductCardMob = ({ isBuying, data, remove }) => {
     distance: "5000 KMS",
     ownership: "1st"
   }
-  const addToWishlist=()=>{
+  const toggleToWishlist=()=>{
     // code to add to wishlist
   }
   return (
@@ -116,7 +116,7 @@ const ProductCardMob = ({ isBuying, data, remove }) => {
               {remove && <div
                 onClick={() => {
                   if (remove) remove(data);
-                  else addToWishlist();
+                  else toggleToWishlist();
                 }}
                 className="ml-auto bg-white border-[1px]  border-black buttonHover rounded-md p-2">
                 <Favorite className="text-sa-brick-red " />

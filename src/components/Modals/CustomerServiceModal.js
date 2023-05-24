@@ -4,7 +4,7 @@ import { CONTACT_SELLER_SUBMIT_MESSAGE_MODAL } from "../../extras/constants";
 import { hideModal, showModal } from "../../redux/actions/modal";
 import TagRibbon from "../TagRibbon";
 
-const ContactSellerModal = () => {
+const CustomerServiceModal = () => {
   const dispatch = useDispatch();
   return (
     <div>
@@ -41,57 +41,14 @@ const ContactSellerModal = () => {
               </div>
             </div>
             <div className="bg-white px-7 py-5">
-              <div className="flex relative items-start">
-                <div className="w-[20%] border-[1px] border-black rounded">
-                  <div className="absolute">
-                    <TagRibbon
-                      textClasses={
-                        "text-[12px] font-semibold text-black text-center"
-                      }
-                      tagText="USED"
-                      bgColor={"#FFDC25"}
-                      customClassesBG={"w-[80px] h-[30px]"}
-                      customClasses={"w-[74px] h-[26px]"}
-                    />
-                  </div>
-                  <img
-                    src={require("../../assets/new design/car_img.png")}
-                    alt=""
-                    className="w-full aspect-square"
-                  />
-                </div>
-                <div className="ml-3 flex-1 pr-3 flex justify-between flex-col self-stretch">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h1 className="text-xl font-semibold text-black underline underline-offset-4">
-                        Hyundai Venue(2019)
-                      </h1>
-                      <h1 className="font-semibold text-black text-[22px]">
-                        ₹60,990.00
-                      </h1>
-                    </div>
-                    <button className="bg-sa-success-green text-[15px] px-4 py-1 rounded text-white border-[1px] border-black">
-                      Sold
-                    </button>
-                  </div>
-                  <div className=" w-full  flex items-center mt-3">
-                    <div className="flex justify-end flex-col w-1/2 py-1 px-2">
-                      <h1 className="text-[14px] font-bold text-[#667085]">
-                        Shipping
-                      </h1>
-                      <h1 className="text-[18px] font-bold text-black">
-                        +200.00
-                      </h1>
-                    </div>
-                    <div className="flex items-end justify-end flex-col w-1/2 py-1 px-2">
-                      <h1 className="text-[14px] font-medium text-[#667085]">
-                        Purchase date
-                      </h1>
-                      <h1 className="text-[18px] font-bold text-black">
-                        07/03/2023
-                      </h1>
-                    </div>
-                  </div>
+              <div className="mt-3">
+                <div
+                  className={`cardSelect !bg-[#F8FFF8] border-[#139F00] border-[1px] p-2 flex items-start align-center gap-x-3 cardHover rounded-md relative mb-3`}>
+                  <input checked={true} type="checkbox" name="" id="" className="mt-1 scale-125 accent-[#139F00]" />
+                  <p className="text-[20px] font-medium text-black xl:text-xl">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit.
+                  </p>
                 </div>
               </div>
               <div className="mt-2">
@@ -171,55 +128,20 @@ const ContactSellerModal = () => {
                 </div>
                 <div>
                   <h1 className=" text-[16px] underline font-semibold text-white">
-                    Akshat Tripathi
-                  </h1>
-                  <h1 className="text-[14px] font-normal text-white">
-                    Member since July 2022
+                    Customer Service
                   </h1>
                 </div>
-              </div>
-              <div className=" flex items-center gap-x-0.5">
-                <h1 className=" text-[28px] font-bold text-white">4.5</h1>
-                <Star className=" text-yellow-100 text-xs" />
               </div>
             </div>
             <div className="bg-white px-3 py-5">
-              <div className="flex relative">
-                <div className="w-[27%] border-[1px] border-black rounded">
-                  <img
-                    src={require("../../assets/new design/car_img.png")}
-                    alt=""
-                    className="w-full aspect-square"
-                  />
-                </div>
-                <div className="ml-3 flex-1 pr-3">
-                  <h1 className="text-[18px] font-semibold text-black underline underline-offset-4">
-                    Hyundai Venue(2019)
-                  </h1>
-                  <div className="flex mt-2 items-start justify-between">
-                    <h1 className="font-semibold text-[22px] text-black">
-                      ₹60,990.00
-                    </h1>
-                    <button className="bg-sa-success-green text-xs px-4 py-1 text-[12px] rounded text-white mb-2.5">
-                      Sold
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className=" w-full border-y-[1px] border-black flex items-center mt-3">
-                <div className="flex justify-end flex-col border-r-[1px] border-black w-1/2 py-1 px-2">
-                  <h1 className="text-[14px] font-bold text-[#667085]">
-                    Shipping
-                  </h1>
-                  <h1 className="text-[18px] font-bold text-black">+200.00</h1>
-                </div>
-                <div className="flex items-end justify-end flex-col w-1/2 py-1 px-2">
-                  <h1 className="text-[14px] font-medium text-[#667085]">
-                    Purchase date
-                  </h1>
-                  <h1 className="text-[18px] font-bold text-black">
-                    07/03/2023
-                  </h1>
+              <div className="mt-3">
+                <div
+                  className={`cardSelect !bg-[#F8FFF8] border-[#139F00] border-[1px] p-2 flex items-start align-center gap-x-3 cardHover rounded-md relative mb-3`}>
+                  <input checked={true} type="checkbox" name="" id="" className="mt-1 scale-125 accent-[#139F00]" />
+                  <p className="text-[16px] font-medium text-black xl:text-xl">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit.
+                  </p>
                 </div>
               </div>
               <div className="mt-2">
@@ -278,8 +200,8 @@ const ContactSellerModal = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
-export default ContactSellerModal;
+export default CustomerServiceModal;

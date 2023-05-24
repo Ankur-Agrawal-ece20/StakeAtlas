@@ -2,15 +2,17 @@ import { Cancel } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { hideModal, showModal } from "../../redux/actions/modal";
 import { REPORT_SUBMITTED_MODAL } from "../../extras/constants";
+import { useState } from "react";
 
 const ReportModal = () => {
   const dispatch = useDispatch();
+  const [problem,selectproblem] = useState(-1);
   return (
     <div>
       <div className="w-screen xl:w-full">
         <div className="px-4 xl:px-7">
           <div className="border-[1px] border-black rounded relative">
-            <div className=" bg-white px-3 rounded pb-5 xl:px-6">
+            <div className=" bg-[#FCF9F4] px-3 rounded pb-5 xl:px-6">
               <div
                 onClick={() => dispatch(hideModal())}
                 className=" absolute top-0 right-0">
@@ -21,14 +23,16 @@ const ReportModal = () => {
               </div>
 
               <div className="pt-6">
-                <h1 className="text-2xl font-semibold text-black xl:text-4xl">
+                <h1 className="text-2xl py-3 font-semibold text-black xl:text-4xl">
                   Report a problem
                 </h1>
                 <div className="mt-3">
                   {[0, 1, 2, 3].map((e) => (
-                    <div className="border-[1px] border-black p-2 flex items-start gap-x-3 cardHover rounded-md relative mb-3">
-                      <input type="checkbox" name="" id="" className="mt-1" />
-                      <p className="text-sm font-medium text-black xl:text-xl">
+                    <div 
+                      onClick={()=>{selectproblem(e)}} 
+                      className={`${e===problem?"cardSelect !bg-[#F8FFF8] border-[#139F00]":"bg-white border-black"} border-[1px] p-2 flex items-start align-center gap-x-3 cardHover rounded-md relative mb-3`}>
+                      <input checked={e===problem} type="checkbox" name="" id="" className="mt-1 scale-125 accent-[#139F00]" />
+                      <p className="text-[20px] font-medium text-black xl:text-xl">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit.
                       </p>

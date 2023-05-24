@@ -8,7 +8,7 @@ const WatchlistScreen = () => {
   const [fontSize, setFontSize] = useState("text-4xl");
   const [activeTab, setActiveTab] = useState("All");
   const [phonesidenav, showphonesidenav] = useState(true);
-  const [showsort, setshowsort] = useState(true);
+  const [showsort, setshowsort] = useState(false);
   const [sorttype, setsorttype] = useState(0);
   const [navexpand, setnavexpand] = useState(true);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
@@ -121,7 +121,6 @@ const WatchlistScreen = () => {
     setdata(data.filter(item => item !== remove));
     setremove({ "id": "-1" });
   }
-  const [scrollTop, setScrollTop] = useState(0);
 
   const handleScroll = (event) => {
     console.log(event.currentTarget.scrollTop);
@@ -136,7 +135,7 @@ const WatchlistScreen = () => {
       {/* desktop */}
       <div className="hidden xl:flex items-start min-h-screen">
         <div className=" self-stretch">
-          <SideMenu  setnavexpand={setnavexpand}/>
+          <SideMenu setnavexpand={setnavexpand} />
         </div>
         <div className="flex-1 w-full overflow-hidden bg-[#FCF9F4]">
           <div
@@ -165,118 +164,109 @@ const WatchlistScreen = () => {
                     </button>
                   );
                 })}
-                {/* <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black  font-medium flex items-center justify-center">
-                  Shipped
-                </button>
-                <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black  font-medium flex items-center justify-center">
-                  Pending
-                </button>
-                <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black  font-medium flex items-center justify-center">
-                  Returned
-                </button>
-                <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black  font-medium flex items-center justify-center">
-                  Failed
-                </button> */}
               </div>
-              <div className="grid grid-cols-[100%] place-items-center">
-                <button onClick={() => { setshowsort(!showsort) }} className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-medium flex items-center justify-center">
-                  Sort: {sortarray[sorttype]} {showsort ? <ExpandMore /> : <ExpandLess />}
+              <div className="relative z-20 w-max place-items-center">
+                <button
+                  onClick={() => { setshowsort(!showsort) }}
+                  className={`text-[18px] mt-2.5 py-2 px-5 border-[1px] border-sa-border-black
+                  ${(showsort) ? "rounded rounded-b-none border-b-0" : "rounded"} 
+                  text-black font-medium flex items-center justify-center bg-[#FCF9F4]`}>
+                  Sort: {sortarray[sorttype]}  &nbsp;{!showsort ? <ExpandMore /> : <ExpandLess />}
                 </button>
-                <div className={`absolute translate-y-[65%] z-20 grid grid-cols-[100%] bg-white px-4 rounded-lg border-[1px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
+                <div className={`flex-col absolute w-full border-[1px] rounded rounded-t-none border-black bg-[#FCF9F4] ${(showsort) ? "flex" : "hidden"}`}>
                   {sortarray.map((type, i) => (
-                    <button className={`text-left py-3 border-b-[1px] border-gray-400 ${i !== sorttype ? "" : "font-bold"}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }}>{type}</button>
+                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='relative cursor-pointer py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
+                      <p>{type}</p>
+                    </div>
                   ))}
                 </div>
               </div>
-              {/* <button className=" text-[18px] mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black border-[1px] border-sa-border-black font-medium flex items-center justify-center">
-                Date: All <ExpandMore />
-              </button> */}
             </div>
           </div>
           <div
             onScroll={handleScroll}
-            style={{width:navexpand?"100%":"95vw"}}
+            style={{ width: navexpand ? "100%" : "95vw" }}
             className="transition-all duration-600 ease w-[100%] pl-7 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden flex flex-wrap justify-center gap-x-[3%]">
+            {data.map((e, i) => (
+              (e === remove) ?
+                (<div className="w-min min-w-[300px] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
+                  <h1 className="text-xl font-medium text-white text-center w-[80%] mb-3 mx-auto ">
+                    Are you sure you want to remove this?
+                  </h1>
+                  <div className="flex items-center px-2 w-full gap-x-4">
+                    <button onClick={() => { setremove(-1) }} className=" w-1/2 text-sm mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black font-medium flex items-center justify-center border-[1px] border-black">
+                      Cancel
+                    </button>
+                    <button onClick={() => { removeFromWishlist() }} className=" w-1/2 text-sm mt-2.5 py-2 px-5 rounded-[4px] bg-[#D1503B] text-white font-medium flex items-center justify-center border-[1px] border-black">
+                      Remove
+                    </button>
+                  </div>
+                </div>) :
+                <div className="w-min min-w-[300px] mb-10">
+                  <ProductCard data={e} remove={setremove} />
+                </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* mobile */}
+      <div className=" mb-28 xl:hidden">
+        <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
+          <SideMenu />
+        </div>
+        <div className="pt-9 px-4 pb-3.5 border-b-[1px] border-black">
+          <h1 className="text-[20px] font-semibold text-sa-menu-green">
+            Buying
+          </h1>
+          <h1 className="text-[26px] font-semibold text-black tracking-wide">
+            Watchlist
+          </h1>
+        </div>
+        <div className="pt-7 px-4">
           {data.map((e, i) => (
             (e === remove) ?
-              (<div className="w-min min-w-[300px] bg-sa-menu-green rounded-md mb-10 self-stretch flex items-center justify-center flex-col">
-                <h1 className="text-xl font-medium text-white text-center w-[80%] mb-3 mx-auto ">
-                  Are you sure you want to remove this?
+              (<div className="bg-sa-menu-green py-10 rounded mb-5">
+                <h1 className="text-base font-medium text-white text-center w-[60%] mx-auto ">
+                  Are you sure you want to remove this
                 </h1>
-                <div className="flex items-center px-2 w-full gap-x-4">
-                  <button onClick={() => { setremove(-1) }} className=" w-1/2 text-sm mt-2.5 py-2 px-5 rounded-[4px] bg-[#FCF9F4] text-black font-medium flex items-center justify-center border-[1px] border-black">
+                <div className="flex items-center gap-x-8 px-5">
+                  <button onClick={() => { setremove(-1) }} className=" w-1/2 text-sm mt-2.5 py-1 px-5 rounded-[4px] bg-[#FCF9F4] text-black font-medium flex items-center justify-center border-[1px] border-black">
                     Cancel
                   </button>
-                  <button onClick={() => { removeFromWishlist() }} className=" w-1/2 text-sm mt-2.5 py-2 px-5 rounded-[4px] bg-[#D1503B] text-white font-medium flex items-center justify-center border-[1px] border-black">
+                  <button onClick={() => { removeFromWishlist() }} className=" w-1/2 text-sm mt-2.5 py-1 px-5 rounded-[4px] bg-[#D1503B] text-white font-medium flex items-center justify-center border-[1px] border-black">
                     Remove
                   </button>
                 </div>
               </div>) :
-              <div className="w-min min-w-[300px] mb-10">
-                <ProductCard data={e} remove={setremove} />
-              </div>
+              (<div className="mb-5">
+                <ProductCardMob data={e} remove={setremove} />
+              </div>)
           ))}
         </div>
-      </div>
-
-      {/* mobile */ }
-  <div className=" mb-28 xl:hidden">
-    <div className={`fixed z-40 w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
-      <SideMenu />
-    </div>
-    <div className="pt-9 px-4 pb-3.5 border-b-[1px] border-black">
-      <h1 className="text-[20px] font-semibold text-sa-menu-green">
-        Buying
-      </h1>
-      <h1 className="text-[26px] font-semibold text-black tracking-wide">
-        Watchlist
-      </h1>
-    </div>
-    <div className="pt-7 px-4">
-      {data.map((e, i) => (
-        (e === remove) ?
-          (<div className="bg-sa-menu-green py-10 rounded mb-5">
-            <h1 className="text-base font-medium text-white text-center w-[60%] mx-auto ">
-              Are you sure you want to remove this
-            </h1>
-            <div className="flex items-center gap-x-8 px-5">
-              <button onClick={() => { setremove(-1) }} className=" w-1/2 text-sm mt-2.5 py-1 px-5 rounded-[4px] bg-[#FCF9F4] text-black font-medium flex items-center justify-center border-[1px] border-black">
-                Cancel
-              </button>
-              <button onClick={() => { removeFromWishlist() }} className=" w-1/2 text-sm mt-2.5 py-1 px-5 rounded-[4px] bg-[#D1503B] text-white font-medium flex items-center justify-center border-[1px] border-black">
-                Remove
-              </button>
+        <div className="fixed  z-50 bottom-0 w-full grid grid-cols-[100%]">
+          <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
+            <h2 className="text-2xl py-t-2 font-bold">Sorting</h2>
+            <div
+              onClick={() => { setshowsort(!showsort) }}
+              className=" absolute top-4 right-3"
+            >
+              <Cancel className="text-base " />
             </div>
-          </div>) :
-          (<div className="mb-5">
-            <ProductCardMob data={e} remove={setremove} />
-          </div>)
-      ))}
-    </div>
-    <div className="fixed  z-50 bottom-0 w-full grid grid-cols-[100%]">
-      <div className={`grid grid-cols-[100%] bg-white px-4 py-4 rounded-t-lg border-[2px] border-sa-border-black ${showsort ? "hidden" : ""}`}>
-        <h2 className="text-2xl py-t-2 font-bold">Sorting</h2>
-        <div
-          onClick={() => { setshowsort(!showsort) }}
-          className=" absolute top-4 right-3"
-        >
-          <Cancel className="text-base " />
+            {sortarray.map((type, i) => (
+              <button className={`text-left py-3 border-b-[1px] border-gray-400 ${i !== sorttype ? "" : "font-bold"}`} onClick={() => { setsorttype(i) }}>{type}</button>
+            ))}
+          </div>
+          <div className="grid grid-cols-[50%_50%]">
+            <button onClick={() => { showphonesidenav(!phonesidenav) }} className={` w-full text-base py-2 ${phonesidenav ? "bg-black text-sa-primary-yellow" : "bg-sa-primary-yellow text-black"} border-[1px] border-sa-border-black font-medium`}>
+              Watchlist
+            </button>
+            <button onClick={() => { setshowsort(!showsort) }} className=" w-full text-base py-2 bg-white text-sa-menu-green border-[1px] border-sa-border-black font-medium">
+              Sort: {sortarray[sorttype]}
+            </button>
+          </div>
         </div>
-        {sortarray.map((type, i) => (
-          <button className={`text-left py-3 border-b-[1px] border-gray-400 ${i !== sorttype ? "" : "font-bold"}`} onClick={() => { setsorttype(i) }}>{type}</button>
-        ))}
       </div>
-      <div className="grid grid-cols-[50%_50%]">
-        <button onClick={() => { showphonesidenav(!phonesidenav) }} className={` w-full text-base py-2 ${phonesidenav ? "bg-black text-sa-primary-yellow" : "bg-sa-primary-yellow text-black"} border-[1px] border-sa-border-black font-medium`}>
-          Watchlist
-        </button>
-        <button onClick={() => { setshowsort(!showsort) }} className=" w-full text-base py-2 bg-white text-sa-menu-green border-[1px] border-sa-border-black font-medium">
-          Sort: {sortarray[sorttype]}
-        </button>
-      </div>
-    </div>
-  </div>
-    </div >
     </div >
   );
 };

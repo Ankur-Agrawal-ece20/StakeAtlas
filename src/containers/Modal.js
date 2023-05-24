@@ -21,7 +21,8 @@ import {
   REVIEW_MODAL,
   REVIEW_SUBMITTED_MODAL,
   SEND_MESSAGE_MODAL,
-  PAYMENT_MODAL
+  PAYMENT_MODAL,
+  CUSTOMER_SERVICE_MODAL
 } from "../extras/constants";
 import useClose from "../hooks/useClose";
 import { hideModal } from "../redux/actions/modal";
@@ -39,6 +40,7 @@ import CounterOfferModal from "../components/Modals/CounterOfferModal";
 import DeclineOfferModal from "../components/Modals/DeclineOfferModal";
 // import SendMessageModal from "../components/Modals/ReviewModal";
 import PaymentScreenModal from "../components/Modals/PaymentModal";
+import CustomerServiceModal from "../components/Modals/CustomerServiceModal";
 import SendMessageModal from "../components/Modals/SendMessageModal";
 
 const Modal = ({ modal, hideModal }) => {
@@ -73,6 +75,9 @@ const Modal = ({ modal, hideModal }) => {
     case CONTACT_SELLER_SUBMIT_MESSAGE_MODAL:
       Component = ContactSellerSubmitMessageModal;
       break;
+    case CUSTOMER_SERVICE_MODAL:
+      Component = CustomerServiceModal;
+      break;
     case REVIEW_SUBMITTED_MODAL:
       Component = ReviewSubmittedModal;
       break;
@@ -96,6 +101,9 @@ const Modal = ({ modal, hideModal }) => {
       break;
     case PAYMENT_MODAL:
       Component = PaymentScreenModal;
+      break;
+    case REPORT_SUBMITTED_MODAL:
+      Component = ReportSubmittedModal;
       break;
     default:
       Component = null;

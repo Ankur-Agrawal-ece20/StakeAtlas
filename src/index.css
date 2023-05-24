@@ -104,6 +104,9 @@ code {
 .buttonHover {
   @apply hover:shadow-hover hover:-translate-x-1 hover:-translate-y-1 transition-all duration-100 ease-in-out;
 }
+.buttonHover:active {
+  @apply cursor-pointer shadow-none transition-all duration-100 ease-in-out  -translate-x-0 -translate-y-0;
+}
 
 .menuHover {
   @apply hover:shadow-hoverMenu hover:-translate-x-1 hover:-translate-y-1 transition-all duration-100 ease-in-out;
@@ -112,7 +115,7 @@ code {
 .cardHover {
   @apply cursor-pointer hover:shadow-hoverCard transition-all duration-100 ease-in-out  hover:-translate-x-1 hover:-translate-y-1;
 }
-.cardHover:active {
+.cardHover:active{
   @apply cursor-pointer shadow-none transition-all duration-100 ease-in-out  -translate-x-0 -translate-y-0;
 }
 .cardSelect {
