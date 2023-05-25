@@ -10,7 +10,7 @@ import DropDown from "../components/DropDown";
 import PreviewCard from "../components/Seller/PreviewCard";
 import { useDispatch, useSelector } from "react-redux";
 import { saveProductDetails } from "../redux/actions/product";
-import NestedFilterDropDown from '../components/NestedFilterDropDown';
+import NestedFilterDropDown from "../components/NestedFilterDropDown";
 
 const GeneralScreen = () => {
   const navigate = useNavigate();
@@ -30,62 +30,65 @@ const GeneralScreen = () => {
           name: "Parts & Accessories",
           subcategories: [
             {
-              name: "Wheels"
+              name: "Wheels",
             },
             {
-              name: "Alloys"
-            }
-          ]
+              name: "Alloys",
+            },
+          ],
         },
         {
           name: "Cars & Trucks",
           subcategories: [
             {
-              name: "Hatchbacks"
+              name: "Hatchbacks",
             },
             {
-              name: "Sedans"
+              name: "Sedans",
             },
             {
-              name: "Pickups"
-            }
-          ]
+              name: "Pickups",
+            },
+          ],
         },
         {
-          name: "Motorcycle"
+          name: "Motorcycle",
         },
         {
-          name: "Other Vehicles"
-        }
-      ]
+          name: "Other Vehicles",
+        },
+      ],
     },
     {
       name: "Electronics",
       subcategories: [
         {
-          name: "Phones and Computers"
+          name: "Phones and Computers",
         },
         {
-          name: "Electronics Accessories"
-        }
-      ]
+          name: "Electronics Accessories",
+        },
+      ],
     },
     {
       name: "Collectibles and Art",
     },
     {
-      name: "Clothing and Accessories"
+      name: "Clothing and Accessories",
     },
     {
-      name: "Other Categories"
-    }
-  ]
+      name: "Other Categories",
+    },
+  ];
 
   const dispatch = useDispatch();
   const productDetailHandler = () => {
     dispatch(saveProductDetails(info));
     navigate("/sellnow/listing/details");
   };
+
+  const [offerButton, setOfferButton] = useState(false);
+  const [priceButton, setPriceButton] = useState(false);
 
   return (
     <div>
@@ -104,7 +107,7 @@ const GeneralScreen = () => {
                 What are you selling today?
               </h1>
             </div>
-            <div className="xl:h-[50vh] xl:overflow-y-auto xl:pr-7 md:h-[60vh] md:overflow-y-auto md:pr-7">
+            <div className="xl:h-[40vh] xl:overflow-y-auto xl:pr-7 md:h-[60vh] md:overflow-y-auto md:pr-7">
               <div className="mt-6 border-b-[1px] border-black pb-2.5">
                 <h1 className=" text-[21px] xl:text-2xl font-semibold text-black">
                   General Description
@@ -115,7 +118,11 @@ const GeneralScreen = () => {
                   <h1 className="text-sm xl:text-base font-semibold text-blue-900">
                     Condition
                   </h1>
-                  <DropDown setInfo={setInfo} info={info.condition} product={product?.condition} />
+                  <DropDown
+                    setInfo={setInfo}
+                    info={info.condition}
+                    product={product?.condition}
+                  />
                 </div>
                 <div className="mt-5">
                   <h1 className="text-sm xl:text-base font-semibold text-blue-900">
@@ -131,20 +138,65 @@ const GeneralScreen = () => {
                   />
                 </div>
                 <div className="mt-5">
-                  <h1 className="text-sm xl:text-base font-semibold text-blue-900">
-                    Price
-                  </h1>
-                  <input
-                    onChange={(e) =>
-                      setInfo({ ...info, price: e.target.value })
-                    }
-                    type="number"
-                    className="w-full rounded border-[1px] border-black mt-1 xl:mt-1.5 py-1.5 px-3 focus:outline-none"
-                  />
+                  <div className="flex flex-row gap-x-[50px]">
+                    <div className = {priceButton == true ? "w-1/2": "w-full"}>
+                    <h1 className="text-sm xl:text-base font-semibold text-blue-900">
+                      Price
+                    </h1>
+                    <input
+                      onChange={(e) =>
+                        setInfo({ ...info, price: e.target.value })
+                      }
+                      type="number"
+                      className={"w-full rounded border-[1px] border-black mt-1 xl:mt-1.5 py-1.5 px-3 focus:outline-none"}
+                    />
+                    </div>
+                    <div className = {priceButton == true ? "w-1/2": "hidden"}>
+                    <h1 className="text-sm xl:text-base font-semibold text-blue-900">
+                      Minimum offer amount
+                    </h1>
+                    <input
+                      onChange={(e) =>
+                        setInfo({ ...info, price: e.target.value })
+                      }
+                      type="number"
+                      className={"w-full rounded border-[1px] border-black mt-1 xl:mt-1.5 py-1.5 px-3 focus:outline-none"}
+                    />
+                    </div>
+                  </div>
                   <div className="flex items-center mt-4 gap-x-2">
-                    <input type="checkbox" name="" id="" className="focus:outline-none" />
+                    <input
+                      type="checkbox"
+                      name=""
+                      id=""
+                      className="focus:outline-none"
+                      onClick={() => setOfferButton(!offerButton)}
+                      styles={{
+                        webkitOuterSpinButton: "none",
+                        webkitInnerSpinButton: "none",
+                        mozAppearnace: "none",
+                      }}
+                    />
                     <h1 className="text-sm xl:text-base font-semibold text-black">
                       Accept Offers
+                    </h1>
+                  </div>
+                  <div
+                    className={
+                      offerButton === true
+                        ? "flex items-center mt-4 gap-x-2"
+                        : "hidden items-center mt-4 gap-x-2"
+                    }
+                  >
+                    <input
+                      type="checkbox"
+                      name=""
+                      id="setMinimumOffer"
+                      className="focus:outline-none"
+                      onClick={() => setPriceButton(!priceButton)}
+                    />
+                    <h1 className="text-sm xl:text-base font-semibold text-black">
+                      Set Minimum Offer
                     </h1>
                   </div>
                 </div>
@@ -164,7 +216,8 @@ const GeneralScreen = () => {
                   </h1>
                   <label
                     for="file-upload"
-                    className="w-32 h-28 outline-none  mt-2 text-center px-2 font-light flex items-center justify-center border-2 border-dashed border-black rounded cursor-pointer">
+                    className="w-32 h-28 outline-none  mt-2 text-center px-2 font-light flex items-center justify-center border-2 border-dashed border-black rounded cursor-pointer"
+                  >
                     Add More Images
                     <input
                       style={{ display: "none" }}
@@ -189,12 +242,14 @@ const GeneralScreen = () => {
                 <div className=" flex items-center gap-2 mt-5 mb-7 xl:hidden">
                   <button
                     onClick={() => productDetailHandler()}
-                    className=" w-1/2 text-[14px] py-3 px-3 rounded-[4px] bg-[#00BEA7] text-black border-[1px] border-sa-border-black font-semibold">
+                    className=" w-1/2 text-[14px] py-3 px-3 rounded-[4px] bg-[#00BEA7] text-black border-[1px] border-sa-border-black font-semibold"
+                  >
                     Save
                   </button>
                   <button
                     onClick={() => productDetailHandler()}
-                    className=" w-1/2 text-[14px] py-3 px-3 rounded-[4px] bg-[#005C51] text-white border-[1px] border-sa-border-black font-semibold">
+                    className=" w-1/2 text-[14px] py-3 px-3 rounded-[4px] bg-[#005C51] text-white border-[1px] border-sa-border-black font-semibold"
+                  >
                     Next
                   </button>
                 </div>
@@ -203,12 +258,14 @@ const GeneralScreen = () => {
             <div className="hidden xl:flex items-center justify-end gap-2 mt-5 mb-7">
               <button
                 onClick={() => productDetailHandler()}
-                className="text-[14px] py-3 px-10 rounded-[4px] bg-[#00BEA7] text-black border-[1px] border-sa-border-black font-semibold">
+                className="text-[14px] py-3 px-10 rounded-[4px] bg-[#00BEA7] text-black border-[1px] border-sa-border-black font-semibold"
+              >
                 Save
               </button>
               <button
                 onClick={() => productDetailHandler()}
-                className="text-[14px] py-3 px-10 rounded-[4px] bg-[#005C51] text-white border-[1px] border-sa-border-black font-semibold">
+                className="text-[14px] py-3 px-10 rounded-[4px] bg-[#005C51] text-white border-[1px] border-sa-border-black font-semibold"
+              >
                 Next
               </button>
             </div>

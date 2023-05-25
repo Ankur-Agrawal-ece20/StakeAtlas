@@ -40,13 +40,12 @@ const PreviewCard = ({ info }) => {
             },
           ].map((e) => (
             <div
-              className=" flex px-2 py-2 border-t-[1px] border-black"
+              className=" flex flex-row justify-between px-2 py-1 border-t-[1px] border-black"
               style={{}}
             >
-              <h1 className=" w-1/2 text-sm">{e.title} : </h1>
+              <h1 className="text-[6px] 3md:text-[8px] 4md:text-[10px]">{e.title} : </h1>
               <h1
-                className=" w-1/2 font-bold text-sm"
-                style={{ display: "flex", justifyContent: "center" }}
+                className="font-bold text-[6px] 3md:text-[8px] 4md:text-[10px]"
               >
                 {e.value}
               </h1>
@@ -72,13 +71,13 @@ const PreviewCard = ({ info }) => {
             },
           ].map((e) => (
             <div
-              className=" flex items-center justify-between px-2 py-1 border-t-[1px] border-black"
+              className=" flex flex-row justify-between px-2 py-1 border-t-[1px] border-black"
               style={{}}
             >
-              <h1 className=" w-1/2 text-sm ">{e.title} : </h1>
+              <h1 className="text-[6px] 3md:text-[8px] 4md:text-[10px]">{e.title} : </h1>
               <h1
-                className=" w-1/2 font-bold text-sm "
-                style={{ display: "flex", justifyContent: "center" }}
+                className=" font-bold text-[6px] 3md:text-[8px] 4md:text-[10px] "
+                style={{  }}
               >
                 {e.value}
               </h1>
@@ -96,7 +95,7 @@ const PreviewCard = ({ info }) => {
     "Buyers Guide": (
       <div
         className=""
-        style={{ fontWeight: "400" }}
+        style={{ fontWeight: "400", fontSize: "12px" }}
       >
         <p>This is the Buyers guide</p>
         <p>This is the Buyers guide</p>
@@ -111,11 +110,11 @@ const PreviewCard = ({ info }) => {
   const [menu, setMenu] = useState(1);
   
   return (
-    <div className=" hidden md:flex md:flex-col flex-1 border-l-[1px] border-black pt-10 xl:px-8 md:px-4">
-      <div className="w-[90%] border-[1px] border-black h-3 mb-8 relative ml-auto mr-auto max-[1024]:w-[100%]">
+    <div className=" hidden md:flex md:flex-col flex-1 border-l-[1px] border-black pt-10 2xl:px-8 md:px-4">
+      <div className="w-[90%] border-[1px] border-black h-3 mb-8 relative ml-auto mr-auto max-laptop:w-[100%]">
         <div className="w-40 h-3 bg-[#00BEA7] absolute left-0"></div>
       </div>
-      <div className="ml-auto mr-auto">
+      <div className="ml-4 mr-4">
         <div className="border-[1px] border-black">
           <div className=" border-b-[1px] border-black">
             <div className=" w-full py-1 bg-yellow-200 px-4 border-black flex items-center justify-between">
@@ -241,7 +240,7 @@ const PreviewCard = ({ info }) => {
               </div>
             </div>
           </div> */}
-          <div className = "flex p-2 border-l-[1px] border-r-[1px] border-t-[1px] border-black">
+          <div className = "flex w-2/3 p-2 border-l-[1px] border-r-[1px] border-t-[1px] border-black">
           <TabMenuListing
                   state={menu}
                   setState={setMenu}
@@ -250,36 +249,36 @@ const PreviewCard = ({ info }) => {
           </div>
 
           {/* Sold By */}
-          <div className="min-h-[100px] h-auto border-r-[1px] border-y-[1px] border-black px-3 py-4.5 max-[1024px]:hidden">
-            <h1 className=" text-base font-bold tracking-wide">Sold By</h1>
+          <div className="w-1/3 min-h-[100px] h-auto border-r-[1px] border-y-[1px] border-black px-3 py-4.5 ">
+            <h1 className=" text-[1vw] font-bold tracking-wide">Sold By</h1>
             <div className="flex items-start justify-between mt-3">
-              <div className=" flex items-start gap-x-3">
+              <div className=" flex items-start gap-x-1">
                 <div className=" ">
                   <img
                     src={require("../../assets/new design/user.png")}
                     alt=""
-                    className="w-9 border-[1px] border-black rounded-full"
+                    className="w-[1.5vw] border-[1px] border-black rounded-full"
                   />
                 </div>
                 <div>
-                  <h1 className=" xl:text-sm md:text-[5px] underline underline-offset-[6px] font-bold tracking-wide">
+                  <h1 className="flex justify-left items-center 4md:text-[0.8vw] md:text-[0.7vw] underline lg:underline-offset-[6px] font-bold tracking-wide">
                     Akshat Tripathi
                   </h1>
-                  <h1 className="xl:text-[12px] md:text-[7px] font-semibold text-grey-100 mt-0.5">
+                  <h1 className="flex justify-left 4md:text-[0.6vw] md:text-[0.5vw] font-semibold text-grey-100 mt-0.5">
                     Member since July 2022
                   </h1>
                 </div>
               </div>
 
-              <div className=" flex items-center">
+              <div className=" flex items-top justify-center">
                 <div className=" flex items-center gap-x-0.5">
-                  <h1 className=" xl:text-base md:text-[9px] font-bold">4.5</h1>
-                  <Star className=" h-2 text-yellow-100 text-[8px]" />
+                  <h1 className=" md:text-[0.7vw] font-bold">4.5</h1>
+                  <Star className=" h-2 text-yellow-100 text-[0.8vw]" />
                 </div>
               </div>
             </div>
             <div className=" flex items-center justify-between mt-2">
-              <button className=" w-full text-xs py-1.5 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-sa-border-black tracking-wider  font-semibold">
+              <button className=" w-full text-[0.75vw]  py-0.5 xl:py-1.5 px-3 rounded-[4px] bg-sa-primary-yellow text-black border-[1px] border-sa-border-black tracking-wider  font-semibold">
                 Add to Cart
               </button>
             </div>

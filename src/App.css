@@ -266,3 +266,14 @@
 .right {
   @apply sm:border-[1px] sm:border-[#DCDCDC] rounded-[8px] mt-2 sm:ml-7  px-3 pt-4 pb-3  flex-1 items-start;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Works for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
