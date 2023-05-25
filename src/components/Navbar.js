@@ -53,40 +53,40 @@ const NavBar = () => {
   return (
     <div>
       <div>
-        <div className="hidden min-[950px]:flex min-[950px]:w-auto min-[950px]:h-auto flex-1 bg-white border-b-[2px] border-black 4min-[950px]:border-b-2">
+        <div className="hidden md:flex 2md:w-auto 2md:h-auto flex-1 bg-white border-b-[2px] border-black 2md:border-b-2">
           <div
             onClick={() => navigate("/")}
             className="border-r-2 border-black align-center justify-center w-[17vw] min-w-[218px] cursor-pointer flex items-center justify-center"
           >
-            <h1 className="mediumFont text-black text-right min-[950px]:text-4xl line 3min-[950px]:text-[44px]  4min-[950px]:text-5xl">
+            <h1 className="mediumFont text-black text-right 2md:text-4xl line 2md:text-[44px]  42md:text-5xl">
               Stake Atlas
             </h1>
           </div>
-          <div className="border-r-2 border-black min-[950px]:py-4 min-[950px]:px-7 min-[950px]:w-[23.5%]  flex items-center 3min-[950px]:py-5 3min-[950px]:w-[23.2%]  4min-[950px]:py-6 4min-[950px]:w-[23.2%]">
+          <div className="border-r-2 border-black 2md:py-4 2md:px-7 2md:w-[23.5%]  flex items-center 2md:py-5 2md:w-[23.2%]  42md:py-6 2md:w-[23.2%]">
             <div className=" flex-1 flex items-center gap-1">
               <Search />
               <input
                 type="text"
                 placeholder="iPhone 12 mini, skoda fabia,"
-                className=" w-full h-10 px-2 3min-[950px]:text-xl 4min-[950px]:text-[23px] focus:outline-none outline-none"
+                className=" w-full h-10 px-2 2md:text-xl 2md:text-[23px] focus:outline-none outline-none"
               />
             </div>
           </div>
-          <div className="flex items-center justify-center border-r-2 border-black min-[950px]:py-4 min-[950px]:w-[34.5%] 3min-[950px]:py-5 3min-[950px]:w-[34.8%] 4min-[950px]:py-6 4min-[950px]:w-[34.8%]">
+          <div className="flex items-center justify-center border-r-2 border-black 2md:py-4 2md:w-[34.5%] 2md:py-5 32md:w-[34.8%] 2md:py-6 2md:w-[34.8%]">
             <div className="flex flex-col-[30%_30%_30%] px-[5%] w-full justify-around">
-              <button className="group transition-all w-fit duration-300 ease-in-out font-normal text-black min-[950px]:text-base  3min-[950px]:text-lg 4min-[950px]:text-[22px]">
+              <button className="group transition-all w-fit duration-300 ease-in-out font-normal text-black 2md:text-base  2md:text-lg 2md:text-[22px]">
                 <span class="bg-left-bottom  pb-1  bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-no-repeat group-hover:bg-[length:100%_1px] transition-all duration-500 ease-out">
                   Categories
                 </span>
               </button>
-              <button className="group transition-all w-fit duration-300 ease-in-out font-normal text-black min-[950px]:text-base  3min-[950px]:text-lg 4min-[950px]:text-[22px]">
+              <button className="group transition-all w-fit duration-300 ease-in-out font-normal text-black 2md:text-base  2md:text-lg 2md:text-[22px]">
                 <span class="bg-left-bottom  pb-1  bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-no-repeat group-hover:bg-[length:100%_1px] transition-all duration-500 ease-out">
                   Wishlist
                 </span>
               </button>
               <Link
                 to="/signin/username"
-                className=" group w-fit transition-all duration-300 ease-in-out font-normal text-black min-[950px]:text-base  3min-[950px]:text-lg 4min-[950px]:text-[22px] relative h-full"
+                className=" group w-fit transition-all duration-300 ease-in-out font-normal text-black 2md:text-base  2md:text-lg 2md:text-[22px] relative h-full"
               >
                 <span class="bg-left-bottom pb-1 bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-no-repeat group-hover:bg-[length:100%_1px] transition-all duration-500 ease-out">
                   Account
@@ -124,7 +124,7 @@ const NavBar = () => {
           <div className="flex-1 flex items-center">
             <Link
               to="/sellnow/drafts"
-              className="group transition-all duration-300 ease-in-out  h-full font-medium bg-sa-primary-yellow text-black w-[50%] flex items-center justify-center border-r-[2px] border-black min-[950px]:text-base 3min-[950px]:text-lg 4min-[950px]:text-[22px] "
+              className="group transition-all duration-300 ease-in-out  h-full font-medium bg-sa-primary-yellow text-black w-[50%] flex items-center justify-center border-r-[2px] border-black 2md:text-base 2md:text-lg 2md:text-[22px] "
             >
               <span class="bg-left-bottom bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-no-repeat group-hover:bg-[length:100%_1px] transition-all duration-500 ease-out">
                 Sell Now
@@ -132,7 +132,7 @@ const NavBar = () => {
             </Link>
             <Link
               to="/cart"
-              className="group transition-all duration-300 ease-in-out  h-full font-normal text-black w-[50%] flex items-center justify-center min-[950px]:text-base 3min-[950px]:text-lg 4min-[950px]:text-[22px] "
+              className="group transition-all duration-300 ease-in-out  h-full font-normal text-black w-[50%] flex items-center justify-center 2md:text-base 32md:text-lg 2md:text-[22px] "
             >
               <span class="bg-left-bottom bg-gradient-to-r from-black to-black bg-[length:0%_1px] bg-no-repeat group-hover:bg-[length:100%_1px] transition-all duration-500 ease-out">
                 <ShoppingCartOutlined className="mb-1" />
@@ -142,7 +142,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="min-[950px]:hidden border-t-[1px] border-b-[1px] border-black  flex items-center justify-between px-2">
+        <div className="2md:hidden border-t-[1px] border-b-[1px] border-black  flex items-center justify-between px-2">
           <div className="flex items-center">
             <button onClick={() => setHamBurgerShow(!hamBurgerShow)}>
               <Menu />

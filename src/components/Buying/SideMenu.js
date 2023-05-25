@@ -60,7 +60,7 @@ const SideMenu = (props) => {
   return (
     <div className="inline">
       <div
-        className={`bg-black max-[950px]:w-[100%] h-full duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px]" : " w-[17vw] max-[1286px]:w-[218px]"}`}>
+        className={`bg-black h-full duration-500 ease-in-out overflow-hidden ${open ? "  w-[64px]" : " w-[218px] max-2md:w-[100%] 3md:w-[17vw]"}`}>
         {open ? (
           <div
             className={`bg-white border-r-2 border-black px-6  py-3 float-left`}
@@ -143,7 +143,7 @@ const SideMenu = (props) => {
 
                 <div className="flex justify-start items-center flex-1">
                   <h1
-                    className={`text-[17px] font-medium text-white tracking-wide ml-[7%] max-[950px]:ml-4 pl-[5%] max-[950px]:pl-3
+                    className={`text-[17px] font-medium text-white tracking-wide ml-[7%] max-2md:ml-4 pl-[5%] max-2md:pl-3
                   `}
                   >
                     <Link
@@ -226,7 +226,7 @@ const SideMenu = (props) => {
                       <div></div>
                       <Link
                         to={subItem.navigation}
-                        className={`text-[16px] ml-[9%] max-[950px]:ml-6 pl-[5%] max-[950px]:pl-3 font-medium tracking-wide mt-2 block
+                        className={`text-[16px] ml-[9%] max-2md:ml-6 pl-[5%] max-2md:pl-3 font-medium tracking-wide mt-2 block
                        
                         ${location.pathname.includes(subItem.navigation)
                             ? "text-[#FFDC25]"

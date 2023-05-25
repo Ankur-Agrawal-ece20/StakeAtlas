@@ -7,7 +7,7 @@ export default function TabMenu({ state, setState, items }) {
             return (
               <div id={index} onClick={() => {
                 setState(index)
-              }} className={index === state ? "border-t border-l border-r border-black px-3 cursor-pointer min-[1560px]:py-3 relative text-sm" : `height-auto border-t border-r border-l border-b-[1px] border-b-black min-[1560px]:py-3 border-gray-300 px-3 py cursor-pointer text-sm ${index === state - 1 && "border-r-transparent"} ${index === state + 1 && "height-auto border-l-transparent text-sm"}`}>
+              }} className={index === state ? "border-t border-l border-r border-black px-3 cursor-pointer min-[1560px]:py-3 relative text-[8px]" : `height-auto border-t border-r border-l border-b-[1px] border-b-black min-[1560px]:py-3 border-gray-300 px-3 py cursor-pointer text-[8px] ${index === state - 1 && "border-r-transparent"} ${index === state + 1 && "height-auto border-l-transparent text-[8px]"}`}>
                 {key}
               </div>
             )

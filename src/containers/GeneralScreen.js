@@ -91,7 +91,7 @@ const GeneralScreen = () => {
     <div>
       <div className="px-4.5 mt-7 md:px-[4vw] md:mt-10">
         <div className=" border-[1px] border-black pl-3 max-[768px]:pr-3 mb-7 xl:border-[2px] xl:px-0 md:flex md:items-start md:mb-10">
-          <div className=" md:w-[51%] md:px-[2vw] lg:w-[45%]">
+          <div className=" md:w-[51%] md:px-[2vw] lg:w-[51%]">
             <div className=" flex items-start mt-7 gap-x-3 ">
               <div>
                 <img

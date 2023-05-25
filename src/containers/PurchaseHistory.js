@@ -47,7 +47,7 @@ const PurchaseHistory = ({ showModal }) => {
   return (
     <div>
       {/* desktop */}
-      <div className="hidden min-[950px]:flex items-start min-h-screen">
+      <div className="hidden 2md:flex items-start min-h-screen">
         <div className="self-stretch">
           <SideMenu />
         </div>
@@ -231,7 +231,7 @@ const PurchaseHistory = ({ showModal }) => {
       </div>
 
       {/* mobile */}
-      <div className=" bg-[#FCF9F4] mb-28 min-[950px]:hidden">
+      <div className=" bg-[#FCF9F4] mb-28 2md:hidden">
         <div className={`fixed w-full self-stretch transition-all duration-300 ease ${phonesidenav ? "h-0" : "h-full"} overflow-hidden`}>
           <SideMenu />
         </div>
