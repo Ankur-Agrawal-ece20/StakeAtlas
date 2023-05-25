@@ -4,17 +4,120 @@ import {
   Star,
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
+import TabMenuListing from "../../components/TabMenuListing";
+import { useState } from "react";
 
 const PreviewCard = ({ info }) => {
+
   const { product } = useSelector((state) => state);
+
+  const tabMenuContent = {
+    Description: (
+      <div className="flex flex-col space-y-2">
+        <p className = "overflow-y-auto">
+        {product?.description || info?.description}
+        </p>
+      </div>
+    ),
+    "Item Specifics": (
+      <div style={{ display: "flex", justifyContent: "space-around"}}>
+        <div
+          className=" border-x-[1px] border-b-[1px] border-black"
+          style={{ width: "50%", background: "#FCF9F4" }}
+        >
+          {[
+            {
+              title: "Make",
+              value: "BMW",
+            },
+            {
+              title: "Year",
+              value: "2012",
+            },
+            {
+              title: "Ownership",
+              value: "BMW",
+            },
+          ].map((e) => (
+            <div
+              className=" flex px-2 py-2 border-t-[1px] border-black"
+              style={{}}
+            >
+              <h1 className=" w-1/2 text-sm">{e.title} : </h1>
+              <h1
+                className=" w-1/2 font-bold text-sm"
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                {e.value}
+              </h1>
+            </div>
+          ))}
+        </div>
+        <div
+          className=" border-x-[1px] border-b-[1px] border-black"
+          style={{ width: "50%", marginLeft: "25px", background: "#FCF9F4" }}
+        >
+          {[
+            {
+              title: "KM Run",
+              value: "25,000/-",
+            },
+            {
+              title: "Color",
+              value: "White",
+            },
+            {
+              title: "Registration State",
+              value: "Delhi",
+            },
+          ].map((e) => (
+            <div
+              className=" flex items-center justify-between px-2 py-1 border-t-[1px] border-black"
+              style={{}}
+            >
+              <h1 className=" w-1/2 text-sm ">{e.title} : </h1>
+              <h1
+                className=" w-1/2 font-bold text-sm "
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                {e.value}
+              </h1>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+    "Known Flaws": (
+      <div className="flex flex-col space-y-2">
+        <p>
+        </p>
+      </div>
+    ),
+    "Buyers Guide": (
+      <div
+        className=""
+        style={{ fontWeight: "400" }}
+      >
+        <p>This is the Buyers guide</p>
+        <p>This is the Buyers guide</p>
+        <p>This is the Buyers guide</p>
+        <p>This is the Buyers guide</p>
+        <p>This is the Buyers guide</p>
+        <p>This is the Buyers guide</p>
+      </div>
+    ),
+  };
+
+  const [menu, setMenu] = useState(1);
+  
   return (
-    <div className=" hidden xl:flex xl:flex-col flex-1 border-l-[1px] border-black pt-10 px-8">
-      <div className="w-full border-[1px] border-black h-3 mb-8 relative">
+    <div className=" hidden md:flex md:flex-col flex-1 border-l-[1px] border-black pt-10 xl:px-8 md:px-4">
+      <div className="w-[90%] border-[1px] border-black h-3 mb-8 relative ml-auto mr-auto max-[1024]:w-[100%]">
         <div className="w-40 h-3 bg-[#00BEA7] absolute left-0"></div>
       </div>
-      <div className="px-14">
+      <div className="ml-auto mr-auto">
         <div className="border-[1px] border-black">
-          <div className=" border-[1px] border-black">
+          <div className=" border-b-[1px] border-black">
             <div className=" w-full py-1 bg-yellow-200 px-4 border-black flex items-center justify-between">
               <h1 className=" text-xs font-semibold ">
                 Condition: {product?.condition || info?.condition}
@@ -51,32 +154,34 @@ const PreviewCard = ({ info }) => {
               ₹{product?.price || info?.price || "...."}
             </h1>
           </div>
-          <div className=" px-3.5 py-3 flex items-center justify-center gap-x-2">
-            <div className="">
+          <div className="px-3.5 py-3 flex items-center justify-center gap-x-2">
+            <div className="md:1/4 xl:w-1/5 ">
               <img
                 src={require("../../assets/new design/grey.png")}
                 alt=""
-                className="w-80 h-40 object-cover"
+                className="w-[100%] h-44 object-cover"
               />
             </div>
-            <div className=" grid grid-cols-2">
+            <div className = "md:2/5 xl:w-1/4">
+            <div className=" grid grid-cols-2 gap-y-4 gap-x-2">
               {[0, 1, 2, 3].map((e) => (
-                <div className="mb-1.5 mr-1.5">
+                <div>
                   <img
                     src={require("../../assets/new design/grey.png")}
                     alt=""
-                    className="h-[75px]"
+                    className="w-[100%] h-20"
                   />
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </div>
         <div className="mt-2.5 flex items-start">
           {/* Description  */}
-          <div className=" flex-1">
-            <div className="h-fit border-[1px] border-black pt-4.5 pb-2">
-              <div className=" border-b-[1px] border-black px-4 pb-5 min-h-[150px] h-auto">
+          {/* <div className=" flex-1">
+            <div className="h-fit border-l-[1px] border-r-[1px] border-t-[1px] border-black pt-4.5 pb-2">
+              <div className=" border-b-[1px] border-black px-4 pb-3 overflow-y-auto">
                 <h1 className=" text-sm font-semibold tracking-wide">
                   Description{" "}
                 </h1>
@@ -86,9 +191,9 @@ const PreviewCard = ({ info }) => {
                   </p>
                 </div>
               </div>
-              <div className=" px-4 pt-5 min-h-[150px] h-auto">
+              <div className=" px-4 pt-5 h-auto">
                 <h1 className="text-sm font-semibold">Item Specifics</h1>
-                <div className=" mb-4 flex items-center flex-wrap mt-4 justify-between">
+                <div className=" my-4 flex items-center flex-wrap justify-between">
                   {[
                     {
                       title: "Make",
@@ -135,25 +240,32 @@ const PreviewCard = ({ info }) => {
                 </div>
               </div>
             </div>
+          </div> */}
+          <div className = "flex p-2 border-l-[1px] border-r-[1px] border-t-[1px] border-black">
+          <TabMenuListing
+                  state={menu}
+                  setState={setMenu}
+                  items={tabMenuContent}
+                />
           </div>
 
           {/* Sold By */}
-          <div className=" w-[41.5%] min-h-[200px] h-auto border-r-[1px]  border-y-[1px] border-black px-3 py-4.5">
-            <h1 className=" text-sm font-semibold tracking-wide">Sold By</h1>
-            <div className="flex items-start justify-between mt-4">
+          <div className="min-h-[100px] h-auto border-r-[1px] border-y-[1px] border-black px-3 py-4.5 max-[1024px]:hidden">
+            <h1 className=" text-base font-bold tracking-wide">Sold By</h1>
+            <div className="flex items-start justify-between mt-3">
               <div className=" flex items-start gap-x-3">
-                <div className=" border-[1px] border-black rounded-full">
+                <div className=" ">
                   <img
                     src={require("../../assets/new design/user.png")}
                     alt=""
-                    className=" w-full"
+                    className="w-9 border-[1px] border-black rounded-full"
                   />
                 </div>
                 <div>
-                  <h1 className=" text-[8px] underline underline-offset-[6px] font-semibold tracking-wide">
+                  <h1 className=" xl:text-sm md:text-[5px] underline underline-offset-[6px] font-bold tracking-wide">
                     Akshat Tripathi
                   </h1>
-                  <h1 className="text-[10px] font-normal text-grey-100 mt-0.5">
+                  <h1 className="xl:text-[12px] md:text-[7px] font-semibold text-grey-100 mt-0.5">
                     Member since July 2022
                   </h1>
                 </div>
@@ -161,8 +273,8 @@ const PreviewCard = ({ info }) => {
 
               <div className=" flex items-center">
                 <div className=" flex items-center gap-x-0.5">
-                  <h1 className=" text-[12px] font-bold">4.5</h1>
-                  <Star className=" text-yellow-100 text-[8px]" />
+                  <h1 className=" xl:text-base md:text-[9px] font-bold">4.5</h1>
+                  <Star className=" h-2 text-yellow-100 text-[8px]" />
                 </div>
               </div>
             </div>
@@ -172,6 +284,7 @@ const PreviewCard = ({ info }) => {
               </button>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
