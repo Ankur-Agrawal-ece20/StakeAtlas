@@ -16,7 +16,6 @@ const SavedSeller = () => {
   const [value, setValue] = useState("");
   const [categories, setCategories] = useState([]);
   const [sorttype, setsorttype] = useState(0);
-  const [navexpand, setnavexpand] = useState(true);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
 
   const [data, setdata] = useState([
@@ -95,28 +94,12 @@ const SavedSeller = () => {
     // delete saved seller api
     setdata(data.filter(item => item !== e));
   };
-  const [gridCols,setgridCols] = useState("grid-cols-3")
-  const change_cols = () =>{
-    let e=document.getElementById("card-container2");
-    if(!e) return;
-    let width=e.offsetWidth;
-    let boxwidth=e.childNodes[0].offsetWidth;
-    let cols=Math.trunc(width/boxwidth);
-    let grid=`grid-cols-${cols}`
-    setgridCols(grid);
-  }
-  window.addEventListener('resize', change_cols);
-  useEffect(()=>{
-    setInterval(() => {
-      change_cols();
-    }, 100);
-  },[navexpand])
   return (
     <div>
       {/* desktop */}
       <div className="hidden min-[950px]:flex items-start min-h-screen">
         <div className=" self-stretch">
-          <SideMenu setnavexpand={setnavexpand} />
+          <SideMenu/>
         </div>
         <div className="flex-1 w-full overflow-hidden bg-[#FCF9F4]">
           <div
@@ -138,7 +121,7 @@ const SavedSeller = () => {
                   Sellers from India
                   <Search className="ml-5 text-white text-xs" />
                 </button>
-                <div className={`flex-col absolute pt-1 w-full border-[1px] rounded rounded-t-none border-black bg-white ${(showSeller) ? "flex" : "hidden"}`}>
+                <div className={`flex-col absolute w-full border-[1px] rounded rounded-t-none border-black bg-white ${(showSeller) ? "flex" : "hidden"}`}>
                   <div className='flex align-center justify-center  relative w-full my-1 xl:mt-1.5'>
                     <input
                       type="text"
@@ -151,7 +134,7 @@ const SavedSeller = () => {
                   {categories.map((type, i) => (
                     <>
                       <hr className="w-[90%] bg-gray-700" />
-                      <div key={`cat${i}`} onClick={() => { setShowSeller(!showSeller); }} className='py-1 relative cursor-pointer hover:bg-[#FFDC2530] font-medium last:border-b-[0px] border-black px-3'>
+                      <div key={`cat${i}`} onClick={() => { setShowSeller(!showSeller); }} className='py-2 relative cursor-pointer hover:bg-[#FFDC2530] font-medium last:border-b-[0px] border-black px-3'>
                         <p><b>{type.slice(0, value.length)}</b>{type.slice(value.length)}</p>
                       </div>
                     </>
@@ -168,7 +151,7 @@ const SavedSeller = () => {
                 </button>
                 <div className={`flex-col absolute w-full rounded rounded-t-none border-black bg-[#FCF9F4] overflow-hidden transition-all duration-500 ease-in-out ${showsort ? "max-h-[100vh] border-[1px]" : "max-h-0 border-[0px]"}`}>
                   {sortarray.map((type, i) => (
-                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='mt-2.5 py-2 relative cursor py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
+                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='mt-2.5 py-2 px-5 relative cursor py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
                       <p>{type}</p>
                     </div>
                   ))}
@@ -177,10 +160,8 @@ const SavedSeller = () => {
             </div>
           </div>
           <div
-            id="card-container2"
             onScroll={handleScroll}
-            style={{ width: navexpand ? "100%" : "calc(100%-65px)" }}
-            className={ `no-scrollbar transition-all duration-600 ease w-[100%] pl-12 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden grid ${gridCols} gap-x-[3%]`}>
+            className="no-scrollbar transition-all duration-600 ease w-[100%] pl-12 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden grid grid-cols-fluid">
             {data.map((e, i) => (
               <div className="w-min min-w-[330px] px-[10px] mb-10">
                 <div onClick={() => navigate("/sellerShop")} className="border-[1px] border-black cardHover rounded-md relative">

@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        'fluid': 'repeat(auto-fit, minmax(20rem, 1fr))',
+      },
       backgroundImage: {
         // "bg-img": "url(../src/assets/bg_img.png)",
         "bg-dot": "url(../src/assets/new design/dotGrid.png)",

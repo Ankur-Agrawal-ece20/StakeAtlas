@@ -44,8 +44,7 @@ const CustomerServiceModal = () => {
               <div className="mt-3">
                 <div
                   className={`cardSelect !bg-[#F8FFF8] border-[#139F00] border-[1px] p-2 flex items-start align-center gap-x-3 cardHover rounded-md relative mb-3`}>
-                  <input checked={true} type="checkbox" name="" id="" className="mt-1 scale-125 accent-[#139F00]" />
-                  <p className="text-[20px] font-medium text-black xl:text-xl">
+                  <p className="text-[20px] ml-2 font-medium text-black xl:text-xl">
                     Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit.
                   </p>

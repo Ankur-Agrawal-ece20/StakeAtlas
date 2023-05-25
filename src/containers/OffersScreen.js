@@ -1,5 +1,5 @@
 import { ExpandMore, ExpandLess, Cancel } from "@mui/icons-material";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import SideMenu from "../components/Buying/SideMenu";
 import ProductCard from "../components/Home/ProductCard";
@@ -13,7 +13,6 @@ const OffersScreen = ({ showModal }) => {
   const [phonesidenav, showphonesidenav] = useState(true);
   const [showsort, setshowsort] = useState(false);
   const [sorttype, setsorttype] = useState(0);
-  const [navexpand, setnavexpand] = useState(true);
   const sortarray = ["New to Old", "Old to New", "Recently Added", "Date All"];
   const [data, setdata] = useState([
     {
@@ -123,35 +122,18 @@ const OffersScreen = ({ showModal }) => {
   ];
 
   const handleScroll = (event) => {
-    console.log(event.currentTarget.scrollTop);
     if (event.currentTarget.scrollTop > 0) {
       setFontSize("text-xl");
     } else {
       setFontSize("text-4xl");
     }
   };
-  const [gridCols,setgridCols] = useState("grid-cols-3")
-  const change_cols = () =>{
-    let e=document.getElementById("card-container");
-    if(!e) return;
-    let width=e.offsetWidth;
-    let boxwidth=e.childNodes[0].offsetWidth;
-    let cols=Math.trunc(width/boxwidth);
-    let grid=`grid-cols-${cols}`
-    setgridCols(grid);
-  }
-  window.addEventListener('resize', change_cols);
-  useEffect(()=>{
-    setInterval(() => {
-      change_cols();
-    }, 100);
-  },[navexpand])
   return (
     <div>
       {/* desktop */}
       <div className="hidden min-[950px]:flex items-start min-h-screen">
         <div className="self-stretch">
-          <SideMenu setnavexpand={setnavexpand} />
+          <SideMenu/>
         </div>
         <div className="flex-1 w-full overflow-hidden bg-[#FCF9F4]">
           <div
@@ -169,8 +151,8 @@ const OffersScreen = ({ showModal }) => {
                     <button
                       onClick={() => setActiveTab(e)}
                       key={i}
-                      className={`text-[18px] mt-2.5 py-2  rounded-md ${activeTab === e
-                        ? "px-5 bg-white border-[1px] border-sa-border-black"
+                      className={`px-5 text-[18px] mt-2.5 py-2  rounded-md ${activeTab === e
+                        ? "bg-white border-[1px] border-sa-border-black"
                         : "bg-[#FCF9F4]  border-[1px] border-[#FCF9F4]"
                         } text-black font-medium flex items-center justify-center`}
                     >
@@ -211,9 +193,7 @@ const OffersScreen = ({ showModal }) => {
           </div>
           <div
             onScroll={handleScroll}
-            id="card-container"
-            style={{ width: navexpand ? "100%" : "calc(100%-65px)" }}
-            className={ `no-scrollbar transition-all duration-600 ease w-[100%] pl-12 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden grid ${gridCols} gap-x-[3%]`}>
+            className="no-scrollbar transition-all duration-600 ease w-[100%] pl-12 pr-8 pt-9 h-[85vh] overflow-y-auto overflow-x-hidden grid grid-cols-fluid">
             {data.map((e, i) => (
               <div className="w-min min-w-[330px] px-[10px]">
                 <ProductCard isBuying key={i} data={e} />
