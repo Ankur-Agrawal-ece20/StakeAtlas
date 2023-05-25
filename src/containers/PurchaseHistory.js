@@ -63,14 +63,14 @@ const PurchaseHistory = ({ showModal }) => {
               className={`${fontSize === "text-4xl" ? "mt-5" : "mt-2"
                 } transition-all duration-300 ease-in-out flex items-center justify-between`}
             >
-              <div className="flex items-center flex-wrap max-w-[700px] grow justify-evenly">
+              <div className="flex items-center flex-wrap max-w-[600px] mr-10 grow justify-between">
                 {purchaseHistoryTabs.map(function (e, i) {
                   return (
                     <button
                       onClick={() => setActiveTab(e)}
                       key={i}
-                      className={`text-[18px] mt-2.5 py-2  rounded-md ${activeTab === e
-                        ? " px-5 bg-white border-[1px] border-sa-border-black"
+                      className={`px-5 text-[18px] mt-2.5 py-2  rounded-md ${activeTab === e
+                        ? "bg-white border-[1px] border-sa-border-black"
                         : "bg-[#FCF9F4]  border-[1px] border-[#FCF9F4]"
                         } text-black font-medium flex items-center justify-center`}
                     >
@@ -89,7 +89,7 @@ const PurchaseHistory = ({ showModal }) => {
                 </button>
                 <div className={`flex-col absolute w-full rounded rounded-t-none border-black bg-[#FCF9F4] overflow-hidden transition-all duration-500 ease-in-out ${showsort ? "max-h-[100vh] border-[1px]" : "max-h-0 border-[0px]"}`}>
                   {sortarray.map((type, i) => (
-                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='mt-2.5 py-2 relative cursor py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
+                    <div key={`cat${i}`} onClick={() => { setsorttype(i); setshowsort(!showsort); }} className='mt-2.5 py-2 px-5 relative cursor py-1.5 font-medium border-b-[1px] last:border-b-[0px] border-black px-3'>
                       <p>{type}</p>
                     </div>
                   ))}

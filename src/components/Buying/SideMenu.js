@@ -9,16 +9,12 @@ import SellingIcon from "../../assets/icons/selling_icon.svg";
 import SummaryIcon from "../../assets/icons/summary_icon.svg";
 import WatchListIcon from "../../assets/icons/watchList_icon.svg";
 
-const SideMenu = (props) => {
+const SideMenu = () => {
   const location = useLocation();
   const [expand, setExpand] = useState(false);
   const [open, setOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeSubItem, setActiveSubItem] = useState(null);
-  useEffect(()=>{
-    // console.log(props.setnavexpand);
-    if(props.setnavexpand) props.setnavexpand(!open);
-  },[open])
 
   const menuItems = [
     {
@@ -64,8 +60,7 @@ const SideMenu = (props) => {
         {open ? (
           <div
             className={`bg-white border-r-2 border-black px-6  py-3 float-left`}
-            onClick={() => setOpen(!open)}
-          >
+            onClick={() => {setOpen(!open);}}>
             <img
               src={require("../../assets/icons/arrow_left_icon.svg").default}
               alt=""
@@ -74,7 +69,7 @@ const SideMenu = (props) => {
         ) : (
           <div
             className={`bg-white  border-r-2 border-black px-5 py-3 float-right`}
-            onClick={() => setOpen(!open)}
+            onClick={() => {setOpen(!open);}}
           >
             <img
               src={require("../../assets/icons/arrow_icon.svg").default}
@@ -141,7 +136,7 @@ const SideMenu = (props) => {
                   <img className="max-w-none" src={e?.icon} alt=" icon" />
                 </div>
 
-                <div className="flex justify-start items-center flex-1">
+                <div className="flex min-w-[210px] justify-start items-center flex-1">
                   <h1
                     className={`text-[17px] font-medium text-white tracking-wide ml-[7%] max-2md:ml-4 pl-[5%] max-2md:pl-3
                   `}
@@ -167,9 +162,9 @@ const SideMenu = (props) => {
                     ))}
                 </div>
               </div>
-
+{/* 
               {open && e.icon === buyingIcon && (
-                <div className={`pl-2 transition-all duration-300 overflow-hidden ease-in-out ${expand ? "max-h-0" : "max-h-50"}`}>
+                <div className={`pl-2 transition-all duration-300 overflow-hidden ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
                   {e.subItems.map((subItem, j) => (
                     <abbr title={subItem.title}>
                       <div
@@ -189,37 +184,9 @@ const SideMenu = (props) => {
                     </abbr>
                   ))}
                 </div>
-              )}
-
-              {/* {e?.icon === buyingIcon && showDropdown && open && (
-                <div
-                  className={`pl-4 z-20 h-[130px] w-[202px] group-hover:block ml-10 absolute top-0 border-[2px] border-black  bg-black`}
-                  onMouseLeave={() => setShowDropdown(false)}
-                >
-                  {e.subItems.map((subItem, j) => (
-                    <div
-                      className="flex items-center  justify-start cursor-pointer p-1"
-                      key={j}
-                    >
-                      <Link
-                        to={subItem.navigation}
-                        className={`text-[16px] font-medium  tracking-wide mt-2 block outline a outline-black outline-[2px] bg-black  text-base
-                       
-                        ${
-                          location.pathname.includes(subItem.navigation)
-                            ? "text-[#FFDC25]"
-                            : "text-white"
-                        }
-                       `}
-                      >
-                        {subItem.title} hover
-                      </Link>
-                    </div>
-                  ))}
-                </div>
               )} */}
 
-              {!open && hasSubItems && (
+              {hasSubItems && (
                 <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
                   {e.subItems.map((subItem, j) => (
                     <div className="grid grid-cols-[10%_90%] items-center cursor-pointer" key={j}>
@@ -234,7 +201,7 @@ const SideMenu = (props) => {
                           }
                        `}
                       >
-                        {subItem.title}
+                        {open?subItem.title.charAt(0):subItem.title}
                       </Link>
                     </div>
                   ))}

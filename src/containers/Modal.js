@@ -110,8 +110,8 @@ const Modal = ({ modal, hideModal }) => {
   }
 
   return (
-    <div className="backdrop fixed h-full top-0 right-0 bottom-0 left-0 z-50 flex bg-gray-800 bg-opacity-50 justify-center items-center">
-      <div className="xl:w-[55%]" ref={ref}>
+    <div className="backdrop fixed h-[100%] py-3 overflow-scroll top-0 right-0 bottom-0 left-0 z-50 flex bg-gray-800 bg-opacity-50 justify-center ">
+      <div className="xl:w-[55%] my-auto" ref={ref}>
         {!modal.noHeader && (
           <div>
             <div className="flex flex-row items-center ">
