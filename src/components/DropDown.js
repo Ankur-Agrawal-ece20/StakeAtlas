@@ -6,6 +6,13 @@ const options = [
   { value: "option2", label: "Option 2" },
   { value: "option3", label: "Option 3" },
 ];
+const style = {
+  control: base => ({
+    ...base,
+    // This line disable the blue border
+    boxShadow: "none"
+  })
+};
 const DropDown = ({ setInfo, info, product }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   useEffect(() => {
@@ -18,7 +25,8 @@ const DropDown = ({ setInfo, info, product }) => {
         options={options}
         value={selectedOption}
         onChange={setSelectedOption}
-        className="w-full"
+        styles = {style}
+        className="w-full focus:outline-none"
       />
     </div>
   );

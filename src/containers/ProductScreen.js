@@ -396,7 +396,7 @@ const ProductScreen = ({ showModal }) => {
                       </button>
                     </div>
                     <div>
-                      <div className="flex items-center gap-3 mt-12 pb-3">
+                      <div className="flex items-center gap-3 mt-12 pb-1">
                         <div className="flex flex-col">
                           <img
                             className="w-[32px]"
@@ -456,18 +456,18 @@ const ProductScreen = ({ showModal }) => {
                             0
                           </h1>
                         </div>
-                        <div className="flex items-center pl-[50px]">
+                        <div className="flex items-center pl-[25px]">
                           <h1
                             className="text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
                           >
                             Reply
                           </h1>
-                          <h1 className="py-1 cursor-pointer">
-                            <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                          <h1 className="flex align-center py-1 cursor-pointer">
+                            <TurnRightRoundedIcon sx={{ color: "#667085" }} fontSize = {"small"}/>
                           </h1>
                         </div>
-                        <div className="flex items-center pl-[50px]">
+                        <div className="flex items-center pl-[25px]">
                           <h1
                             className="py-1.5 text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
@@ -486,7 +486,7 @@ const ProductScreen = ({ showModal }) => {
                         </div>
                       </div>
                       <div>
-                        <div className="flex items-center gap-3 mt-8 pb-3">
+                        <div className="flex items-center gap-3 mt-8 pb-1">
                           <div className="flex flex-col">
                             <img
                               className="w-[32px]"
@@ -510,7 +510,7 @@ const ProductScreen = ({ showModal }) => {
                             </h1>
                           </div>
                         </div>
-                        <div className="flex flex-row ml-[42px] pb-3">
+                        <div className="flex flex-row ml-[42px] pb-1">
                           <h1
                             className="text-base font-normal"
                             style={{ color: "#344054" }}
@@ -537,18 +537,18 @@ const ProductScreen = ({ showModal }) => {
                               4
                             </h1>
                           </div>
-                          <div className="flex items-center pl-[50px]">
+                          <div className="flex items-center pl-[25px]">
                             <h1
                               className="text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
                             >
                               Reply
                             </h1>
-                            <h1 className="py-1 cursor-pointer">
-                              <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                            <h1 className="flex align-center py-1 cursor-pointer">
+                              <TurnRightRoundedIcon sx={{ color: "#667085" }} fontSize = {"small"}/>
                             </h1>
                           </div>
-                          <div className="flex items-center pl-[50px]">
+                          <div className="flex items-center pl-[25px]">
                             <h1
                               className="py-1.5 text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
@@ -567,7 +567,7 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         </div>
                         <div>
-                          <div className="flex items-center gap-3 mt-8 pb-3">
+                          <div className="flex items-center gap-3 mt-8 pb-1">
                             <div className="flex flex-col">
                               <img
                                 className="w-[32px]"
@@ -607,7 +607,7 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         </div>
                         <div>
-                        <div className="flex items-center gap-3 mt-8 pb-3">
+                        <div className="flex items-center gap-3 mt-8 pb-1">
                             <div className="flex flex-col">
                               <img
                                 className="w-[32px]"
@@ -1254,7 +1254,7 @@ const ProductScreen = ({ showModal }) => {
                       </button>
                     </div>
                     <div>
-                      <div className="flex items-center gap-3 mt-12 pb-3">
+                      <div className="flex items-center gap-3 mt-12 pb-1">
                         <div className="flex flex-col">
                           <img
                             className="w-[32px]"
@@ -1289,7 +1289,7 @@ const ProductScreen = ({ showModal }) => {
                           </h1>
                         </div>
                       </div>
-                      <div className="flex flex-row ml-[42px] pb-3">
+                      <div className="flex flex-row ml-[42px] pb-1">
                         <h1
                           className="text-base font-normal"
                           style={{ color: "#344054" }}
@@ -1314,18 +1314,18 @@ const ProductScreen = ({ showModal }) => {
                             0
                           </h1>
                         </div>
-                        <div className="flex items-center pl-[50px]">
+                        <div className="flex items-center pl-[25px]">
                           <h1
                             className="text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
                           >
                             Reply
                           </h1>
-                          <h1 className="py-1 cursor-pointer">
-                            <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                          <h1 className="flex align-center py-1 cursor-pointer">
+                            <TurnRightRoundedIcon sx={{ color: "#667085" }} fontSize = {"small"}/>
                           </h1>
                         </div>
-                        <div className="flex items-center pl-[50px]">
+                        <div className="flex items-center pl-[25px]">
                           <h1
                             className="py-1.5 text-[0.9rem] cursor-pointer"
                             style={{ color: "#667085" }}
@@ -1344,7 +1344,7 @@ const ProductScreen = ({ showModal }) => {
                         </div>
                       </div>
                       <div>
-                        <div className="flex items-center gap-3 mt-8 pb-3">
+                        <div className="flex items-center gap-3 mt-8 pb-1">
                           <div className="flex flex-col">
                             <img
                               className="w-[32px]"
@@ -1368,7 +1368,7 @@ const ProductScreen = ({ showModal }) => {
                             </h1>
                           </div>
                         </div>
-                        <div className="flex flex-row ml-[42px] pb-3">
+                        <div className="flex flex-row ml-[42px] pb-1">
                           <h1
                             className="text-base font-normal"
                             style={{ color: "#344054" }}
@@ -1395,18 +1395,18 @@ const ProductScreen = ({ showModal }) => {
                               4
                             </h1>
                           </div>
-                          <div className="flex items-center pl-[50px]">
+                          <div className="flex items-center pl-[25px]">
                             <h1
                               className="text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
                             >
                               Reply
                             </h1>
-                            <h1 className="py-1 cursor-pointer">
-                              <TurnRightRoundedIcon sx={{ color: "#667085" }} />
+                            <h1 className="flex align-center py-1 cursor-pointer">
+                              <TurnRightRoundedIcon sx={{ color: "#667085" }} fontSize = {"small"}/>
                             </h1>
                           </div>
-                          <div className="flex items-center pl-[50px]">
+                          <div className="flex items-center pl-[25px]">
                             <h1
                               className="py-1.5 text-[0.9rem] cursor-pointer"
                               style={{ color: "#667085" }}
@@ -1425,7 +1425,7 @@ const ProductScreen = ({ showModal }) => {
                           </div>
                         </div>
                         <div>
-                          <div className="flex items-center gap-3 mt-8 pb-3">
+                          <div className="flex items-center gap-3 mt-8 pb-1">
                             <div className="flex flex-col">
                               <img
                                 className="w-[32px]"
