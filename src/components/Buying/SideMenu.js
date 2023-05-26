@@ -189,11 +189,11 @@ const SideMenu = () => {
               {hasSubItems && (
                 <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expand ? "max-h-0" : "max-h-40"}`}>
                   {e.subItems.map((subItem, j) => (
-                    <div className="grid grid-cols-[10%_90%] items-center cursor-pointer" key={j}>
+                    <div className={`grid grid-cols-[${!open?"10%_90%":"0%_100%"}] items-center cursor-pointer`} key={j}>
                       <div></div>
                       <Link
                         to={subItem.navigation}
-                        className={`text-[16px] ml-[9%] max-2md:ml-6 pl-[5%] max-2md:pl-3 font-medium tracking-wide mt-2 block
+                        className={`text-[16px] ${!open?"w-[218px]":""} ml-[9%] max-2md:ml-6 pl-[5%] max-2md:pl-3 font-medium tracking-wide mt-2 block
                        
                         ${location.pathname.includes(subItem.navigation)
                             ? "text-[#FFDC25]"

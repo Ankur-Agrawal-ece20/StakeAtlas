@@ -121,8 +121,20 @@ const CartScreen = ({ showModal }) => {
       deliverydate: "12 Dec 2022"
     },
   ];
-  if(location.state && location.state.data) data=[location.state.data];
-  console.log(data);
+  
+  // Case if direct payment of product without adding in cart
+  let productid=null;
+  let addressid=null;
+  let taxprice=0;
+  let shippingprice=0;
+  if(location.state && location.state.data){
+    data=[location.state.data];
+    // find all variable and replace them in below values.
+    productid="646faadfce5a5500a72a6424";
+    addressid="646fab38ce5a5500a72a6427";
+    taxprice=0;
+    shippingprice=0;
+  }
 
   let arr = [];
   let cdata = data.sort((a, b) => a.seller > b.seller);
@@ -413,7 +425,12 @@ const CartScreen = ({ showModal }) => {
                     modalType: PAYMENT_MODAL,
                     modalTitle: ``,
                     modalSubTitle: "",
-                    modalProps: { "cartItems": cdata }
+                    modalProps: { 
+                      "productid": productid,
+                      "addressid":addressid,
+                      "taxprice":taxprice,
+                      "shippingprice":shippingprice
+                     }
                   });
                   console.log("Pay");
                 }}

@@ -53,12 +53,12 @@ const NavBar = () => {
   return (
     <div>
       <div>
-        <div className="hidden md:flex 2md:w-auto 2md:h-auto flex-1 bg-white border-b-[2px] border-black 2md:border-b-2">
+        <div className="hidden 2md:flex 2md:w-auto 2md:h-auto flex-1 bg-white border-b-[2px] border-black 2md:border-b-2">
           <div
             onClick={() => navigate("/")}
             className="border-r-2 border-black align-center justify-center w-[17vw] min-w-[218px] cursor-pointer flex items-center justify-center"
           >
-            <h1 className="mediumFont text-black text-right 2md:text-4xl line 2md:text-[44px]  42md:text-5xl">
+            <h1 className="mediumFont text-black text-right 2md:text-4xl line ">
               Stake Atlas
             </h1>
           </div>

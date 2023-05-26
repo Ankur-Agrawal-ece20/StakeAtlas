@@ -36,8 +36,17 @@ const SignUpFormScreen = () => {
         e.preventDefault();
         console.log("Clicked");
         if(message.filter(item => item === "").length === 4){
+            let data={
+                first_name:name,
+                last_name:"",
+                email:email,
+                username:username,
+                password:pswrd,
+                phone:"",
+                otp:""
+            }
             // code for form submission
-            navigate("/signup/verify");
+            navigate("/signup/verify",{state:{data:data}});
         }
     }; 
 

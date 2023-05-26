@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import { Link,useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import validator from 'validator';
+import axiosInstance from '../axiosInstance';
 
 const SignInPasswordScreen = () => {
     const navigate = useNavigate()
@@ -67,21 +68,55 @@ const SignInPasswordScreen = () => {
     
     const Submit = (e) => {
         e.preventDefault();
+        sentotp(false);
         const pswrd=document.getElementById("password").value;
         console.log(userid);
         console.log(pswrd);
         switch(id){
             case 0:
-                //verify email password
-                navigate('/signin/success');
+                //verify email password/otp
+                type?
+                axiosInstance.post("/auth/login",{email:userid,password:pswrd})
+                .then(data => {
+                    console.log(data)
+                    localStorage.setItem("accessToken", data.data.token);
+                    navigate("/signin/success")
+                })
+                .catch(err => {
+                    setmessage(err.response.data.error);
+                })
+                :
+                setmessage("Functionality not available")
                 break;
             case 1:
-                //verify phone otp
-                navigate('/signin/success');
+                //verify phone password/otp
+                type?
+                axiosInstance.post("/auth/login",{phone:userid,password:pswrd})
+                .then(data => {
+                    console.log(data)
+                    localStorage.setItem("accessToken", data.data.token);
+                    navigate("/signin/success")
+                })
+                .catch(err => {
+                    setmessage(err.response.data.error);
+                })
+                :
+                setmessage("Functionality not available")
                 break;
             case 2:
-                //verify userid password
-                navigate('/signin/success');
+                //verify userid password/otp
+                type?
+                axiosInstance.post("/auth/login",{username:userid,password:pswrd})
+                .then(data => {
+                    localStorage.setItem("accessToken", data.data.token);
+                    navigate("/signin/success")
+                })
+                .catch(err => {
+                    console.log(err)
+                    setmessage(err.response.data.error);
+                })
+                :
+                setmessage("Functionality not available")
                 break;
             case 3:
                 //verify email otp
