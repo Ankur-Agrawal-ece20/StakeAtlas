@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import TabMenuListing from "../../components/TabMenuListing";
 import { useState } from "react";
 
-const PreviewCard = ({ info }) => {
+const PreviewCard = ({ info }, width) => {
 
   const { product } = useSelector((state) => state);
 
@@ -31,12 +31,16 @@ const PreviewCard = ({ info }) => {
               value: "BMW",
             },
             {
-              title: "Year",
-              value: "2012",
+              title: "Fuel",
+              value: "BMW",
             },
             {
-              title: "Ownership",
-              value: "BMW",
+              title: "Transmission",
+              value: "25,000/-",
+            },
+            {
+              title: "Make Year",
+              value: "Delhi",
             },
           ].map((e) => (
             <div
@@ -47,7 +51,8 @@ const PreviewCard = ({ info }) => {
               <h1
                 className="font-bold text-[6px] 3md:text-[8px] 4md:text-[10px]"
               >
-                {e.value}
+                {/* {console.log(e)} */}
+                {e.title == "Make Year" ? product["MakeYear"] || info["MakeYear"] : product[e.title] || info[e.title]}
               </h1>
             </div>
           ))}
@@ -58,15 +63,19 @@ const PreviewCard = ({ info }) => {
         >
           {[
             {
-              title: "KM Run",
-              value: "25,000/-",
+              title: "Model",
+              value: "2012",
             },
             {
-              title: "Color",
+              title: "Trim",
+              value: "BMW",
+            },
+            {
+              title: "Registration",
               value: "White",
             },
             {
-              title: "Registration State",
+              title: "Registration Year",
               value: "Delhi",
             },
           ].map((e) => (
@@ -79,7 +88,7 @@ const PreviewCard = ({ info }) => {
                 className=" font-bold text-[6px] 3md:text-[8px] 4md:text-[10px] "
                 style={{  }}
               >
-                {e.value}
+                {e.title == "Registration Year" ? product["RegistrationYear"] || info["RegistrationYear"] : product[e.title] || info[e.title]}
               </h1>
             </div>
           ))}
@@ -112,7 +121,7 @@ const PreviewCard = ({ info }) => {
   return (
     <div className=" hidden md:flex md:flex-col flex-1 border-l-[1px] border-black pt-10 2xl:px-8 md:px-4">
       <div className="w-[90%] border-[1px] border-black h-3 mb-8 relative ml-auto mr-auto max-laptop:w-[100%]">
-        <div className="w-40 h-3 bg-[#00BEA7] absolute left-0"></div>
+        <div className="h-3 bg-[#00BEA7] absolute left-0" style = {{width: `${width}`}}></div>
       </div>
       <div className="ml-4 mr-4">
         <div className="border-[1px] border-black">
@@ -177,69 +186,6 @@ const PreviewCard = ({ info }) => {
           </div>
         </div>
         <div className="mt-2.5 flex items-start">
-          {/* Description  */}
-          {/* <div className=" flex-1">
-            <div className="h-fit border-l-[1px] border-r-[1px] border-t-[1px] border-black pt-4.5 pb-2">
-              <div className=" border-b-[1px] border-black px-4 pb-3 overflow-y-auto">
-                <h1 className=" text-sm font-semibold tracking-wide">
-                  Description{" "}
-                </h1>
-                <div className="mt-1">
-                  <p className=" break-all text-[17px]">
-                    {product?.description || info?.description}
-                  </p>
-                </div>
-              </div>
-              <div className=" px-4 pt-5 h-auto">
-                <h1 className="text-sm font-semibold">Item Specifics</h1>
-                <div className=" my-4 flex items-center flex-wrap justify-between">
-                  {[
-                    {
-                      title: "Make",
-                      value: "BMW",
-                    },
-                    {
-                      title: "Year",
-                      value: "2012",
-                    },
-                    {
-                      title: "Ownership",
-                      value: "BMW",
-                    },
-                    {
-                      title: "KM Run",
-                      value: "25,000/-",
-                    },
-                    {
-                      title: "Color",
-                      value: "White",
-                    },
-                    {
-                      title: "Registration State",
-                      value: "Delhi",
-                    },
-                    {
-                      title: "Insurance",
-                      value: "Expired",
-                    },
-                    {
-                      title: "Service Records",
-                      value: "Unavailabe",
-                    },
-                    {
-                      title: "Warranty",
-                      value: "Unavailabe",
-                    },
-                  ].map((e) => (
-                    <div className=" w-[45%] self-stretch py-2 px-1.5 flex items-start justify-between border-black border-[1px] ">
-                      <h1 className=" text-[10px] ">{e.title} : </h1>
-                      <h1 className=" text-[10px] font-semibold">{e.value}</h1>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className = "flex w-2/3 p-2 border-l-[1px] border-r-[1px] border-t-[1px] border-black">
           <TabMenuListing
                   state={menu}
@@ -283,7 +229,6 @@ const PreviewCard = ({ info }) => {
               </button>
             </div>
           </div>
-          
         </div>
       </div>
     </div>

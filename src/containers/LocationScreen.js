@@ -54,8 +54,8 @@ const LocationScreen = () => {
   return (
     <div>
       <div className="px-4.5 mt-7 xl:px-16 xl:mt-10">
-        <div className=" border-[1px] border-black px-3 mb-7 xl:border-[2px] xl:px-0 xl:flex xl:items-start xl:mb-10">
-          <div className=" xl:w-[51%] xl:px-8 ">
+        <div className=" border-[1px] border-black pl-3 max-[768px]:pr-3 mb-7 xl:border-[2px] xl:px-0 md:flex md:items-start md:mb-10">
+          <div className=" md:w-[51%] md:px-[2vw] lg:w-[51%] ">
             <div className=" flex items-start mt-7 gap-x-3 ">
               <div>
                 <img
@@ -68,7 +68,7 @@ const LocationScreen = () => {
                 What are you selling today?
               </h1>
             </div>
-            <div className="xl:h-[55vh] xl:overflow-y-auto xl:pr-7 xl:no-scrollbar xl:no-scrollbar">
+            <div className="4md:h-[40vh] 4md:overflow-y-auto 4md:pr-7 xl:h-[50vh] xl:overflow-y-auto xl:pr-7 md:h-[60vh] md:overflow-y-auto md:pr-7">
               <div className="mt-6 border-b-[1px] border-black pb-2.5">
                 <h1 className=" text-[21px] xl:text-2xl font-semibold text-black">
                   Location & Shipping
@@ -85,7 +85,7 @@ const LocationScreen = () => {
                     ) : (
                       <input
                         type="text"
-                        className="w-full rounded border-[1px] border-black mt-1 xl:mt-1.5 py-1.5"
+                        className="w-full rounded border-[1px] border-black mt-1 xl:mt-1.5 py-1.5 focus:outline-none"
                       />
                     )}
                   </div>
@@ -128,7 +128,7 @@ const LocationScreen = () => {
             </div>
           </div>
 
-          <PreviewCard info={info} />
+          <PreviewCard info={info} width = "75%"/>
         </div>
       </div>
     </div>

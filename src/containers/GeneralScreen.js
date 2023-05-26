@@ -16,11 +16,12 @@ const GeneralScreen = () => {
   const navigate = useNavigate();
   const { product } = useSelector((state) => state);
   const [info, setInfo] = useState({
-    condition: "",
-    title: "",
-    price: "",
-    description: "",
+    // condition: "",
+    // title: "",
+    // price: "",
+    // description: "",
   });
+  console.log(info);
 
   const categories = [
     {
@@ -84,7 +85,7 @@ const GeneralScreen = () => {
   const dispatch = useDispatch();
   const productDetailHandler = () => {
     dispatch(saveProductDetails(info));
-    navigate("/sellnow/listing/details");
+    navigate("/sellnow/listing/media");
   };
 
   const [offerButton, setOfferButton] = useState(false);
@@ -107,7 +108,7 @@ const GeneralScreen = () => {
                 What are you selling today?
               </h1>
             </div>
-            <div className="xl:h-[40vh] xl:overflow-y-auto xl:pr-7 md:h-[60vh] md:overflow-y-auto md:pr-7">
+            <div className="4md:h-[40vh] 4md:overflow-y-auto 4md:pr-7 xl:h-[50vh] xl:overflow-y-auto xl:pr-7 md:h-[60vh] md:overflow-y-auto md:pr-7">
               <div className="mt-6 border-b-[1px] border-black pb-2.5">
                 <h1 className=" text-[21px] xl:text-2xl font-semibold text-black">
                   General Description
@@ -139,7 +140,7 @@ const GeneralScreen = () => {
                 </div>
                 <div className="mt-5">
                   <div className="flex flex-row gap-x-[50px]">
-                    <div className = {priceButton == true ? "w-1/2": "w-full"}>
+                    <div className = {priceButton === true ? "w-1/2": "w-full"}>
                     <h1 className="text-sm xl:text-base font-semibold text-blue-900">
                       Price
                     </h1>
@@ -151,7 +152,7 @@ const GeneralScreen = () => {
                       className={"w-full rounded border-[1px] border-black mt-1 xl:mt-1.5 py-1.5 px-3 focus:outline-none"}
                     />
                     </div>
-                    <div className = {priceButton == true ? "w-1/2": "hidden"}>
+                    <div className = {priceButton === true ? "w-1/2": "hidden"}>
                     <h1 className="text-sm xl:text-base font-semibold text-blue-900">
                       Minimum offer amount
                     </h1>
@@ -238,6 +239,7 @@ const GeneralScreen = () => {
                     type="text"
                     className="w-full h-auto rounded border-[1px] border-black mt-1 py-1.5 px-3 focus:outline-none"
                   />
+                  {console.log(info)}
                 </div>
                 <div className=" flex items-center gap-2 mt-5 mb-7 xl:hidden">
                   <button
@@ -271,7 +273,7 @@ const GeneralScreen = () => {
             </div>
           </div>
 
-          <PreviewCard info={info} />
+          <PreviewCard info={info} pageNo = "0%" />
         </div>
       </div>
     </div>

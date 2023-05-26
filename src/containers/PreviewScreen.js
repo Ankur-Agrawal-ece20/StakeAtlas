@@ -46,7 +46,7 @@ const PreviewScreen = () => {
         </div>
 
         {/* desktop */}
-        <div className="px-14">
+        <div className="px-40">
           <PreviewCardDesktop />
         </div>
       </div>

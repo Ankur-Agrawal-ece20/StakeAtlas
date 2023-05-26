@@ -7,6 +7,7 @@ import ApprovalScreen from "../../containers/ApprovalScreen";
 import CartScreen from "../../containers/CartScreen";
 import CurrentScreen from "../../containers/CurrentScreen";
 import DetailsScreen from "../../containers/DetailsScreen";
+import MediaScreen from "../../containers/MediaScreen";
 import DraftsScreen from "../../containers/DraftsScreen";
 import ExpiredScreen from "../../containers/ExpiredScreen";
 import GeneralScreen from "../../containers/GeneralScreen";
@@ -72,6 +73,7 @@ const DefaultLayout = () => {
             <Route path="listing">
               <Route path="general" element={<GeneralScreen />} />
               <Route path="details" element={<DetailsScreen />} />
+              <Route path="media" element={<MediaScreen />} />
               <Route path="location" element={<LocationScreen />} />
               <Route path="preview" element={<PreviewScreen />} />
             </Route>
